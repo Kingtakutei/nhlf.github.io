@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nia Little Hearts Foundation - Transforming Children's Lives</title>
+  <meta name="description" content="Nia Little Hearts Foundation equips vulnerable children with education, healthcare, and community support. Sponsor a child, donate, or volunteer today." />
+  <meta name="theme-color" content="#a58e6a" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Nia Little Hearts Foundation" />
+  <meta property="og:description" content="Transforming children's lives through love, education, and opportunity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nialittlehearts.example/" />
+  <meta property="og:image" content="images/Ian and kids.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
+
+    :root {
+      --bg: #f9f8f6;       /* page background (light) */
+      --fg: #0e0c08;       /* text on light */
+      --primary: #a58e6a;  /* warm tan */
+      --primary-700: #7f6b4f;
+      --accent: #81b39f;   /* muted green */
+      --muted: #efe7dd;
+      --muted-2: #f6f1ea;
+    }
+
+    [data-theme='dark'] {
+      --bg: #0e0c08;      /* page background (dark) */
+      --fg: #f3efe8;      /* text on dark */
+    }
+
+    body { background-color: var(--bg); color: var(--fg); }
+
+    /* Thematic helpers */
+    .text-gradient {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-gradient {
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(165,142,106,0.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(129,179,159,0.25), transparent 60%),
+        linear-gradient(135deg, #0f0d0a, #1a1610);
+    }
+    .donation-gradient { background: linear-gradient(135deg, #0f0d0a 0%, #1a1610 40%, #221c14 100%); }
+    .hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
+    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease-out, transform .7s ease-out; }
+    .revealed { opacity: 1; transform: translateY(0); }
+
+    /* Hero video */
+    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-video-overlay { position: absolute; inset: 0; background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(165,142,106,0.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(129,179,159,0.25), transparent 60%),
+        linear-gradient(135deg, rgba(15,13,10,.82), rgba(26,22,16,.72)); pointer-events:none; }
+
+    /* Flip cards (Sponsor) */
+    .child-card { perspective: 1200px; }
+    .child-card-inner { transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.65,.2,1); }
+    .child-card:focus-within .child-card-inner, .child-card:hover .child-card-inner { transform: rotateY(180deg); }
+    .child-card-front, .child-card-back { backface-visibility: hidden; }
+    .child-card-back { transform: rotateY(180deg); }
+
+    /* Accessibility helpers */
+    .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { position: fixed; left: 1rem; top: 1rem; width:auto; height:auto; padding:.5rem .75rem; background:#111; color:#fff; z-index:9999; border-radius:.5rem; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation: none !important; transition: none !important; }
+      .hero-video { display: none !important; }
+    }
+  /* Loading overlay */
+    #loading { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity .5s ease-out; }
+    .loading-spinner { width: 56px; height: 56px; border: 4px solid var(--muted); border-top-color: var(--primary); border-radius: 9999px; animation: spin 1s linear infinite; margin-bottom: 12px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-hidden { opacity: 0; pointer-events: none; }
+
+    /* Trust indicators */
+    .trust-indicators { background: linear-gradient(135deg, var(--muted-2), var(--muted)); border-bottom: 1px solid var(--muted); }
+
+    /* Payment method tabs */
+    .payment-tab { padding: 10px 14px; border-radius: 10px; border: 2px solid transparent; cursor: pointer; transition: all .2s ease; background: #f8fafc; display: inline-flex; align-items: center; gap: 8px; }
+    .payment-tab.active { border-color: var(--primary); background: var(--muted-2); }
+    .payment-content { display: none; }
+    .payment-content.active { display: block; }
+
+    /* Error/success states */
+    .error-message { background: #fee2e2; color: #b91c1c; padding: .5rem .75rem; border-radius: .5rem; font-size: .875rem; margin-top: .5rem; }
+    .success-message { background: #dcfce7; color: #065f46; padding: .75rem 1rem; border-radius: .5rem; font-size: .875rem; margin-top: .5rem; }
+
+    /* Stripe Element styling */
+    .StripeElement { box-sizing: border-box; padding: 12px; border: 1px solid #d1d5db; border-radius: .5rem; background: #ffffff; }
+    .StripeElement--focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(165,142,106,.2); }
+    .StripeElement--invalid { border-color: #ef4444; }
+
+    /* Crypto */
+    .crypto-address { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: #f8fafc; padding: 12px; border-radius: 8px; word-break: break-all; }
+    .crypto-qr { max-width: 160px; border-radius: 8px; margin: 8px auto 0; display: block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      #loading { display: none !important; }
+    }
+  /* Advanced UI enhancements */
+    .parallax-shape { position: absolute; border-radius: 9999px; will-change: transform; }
+    .tilt { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
+
+    /* Back to top */
+    #backToTop { z-index: 60; }
+
+    /* Sticky CTA */
+    #sticky-cta { backdrop-filter: saturate(140%) blur(8px); }
+
+    /* Confetti hearts */
+    #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 70; }
+    .heart { position: absolute; width: 12px; height: 12px; transform: rotate(45deg); animation: floatUp 1.2s ease-out forwards; opacity: 0; }
+    .heart, .heart:before, .heart:after { background: #ff5a8a; }
+    .heart:before, .heart:after { content: ''; position: absolute; width: 12px; height: 12px; border-radius: 50%; }
+    .heart:before { top: -6px; left: 0; }
+    .heart:after { left: -6px; top: 0; }
+    @keyframes floatUp { 0% { transform: translate(0,0) rotate(45deg) scale(.6); opacity: 0; } 10% {opacity: .9} 100% { transform: translate(var(--dx), var(--dy)) rotate(45deg) scale(1); opacity: 0; } }
+
+  </style>
+
+  <!-- Set initial theme before paint -->
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('theme');
+        if(!t){ t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e){}
+    })();
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Nia Little Hearts Foundation",
+    "url": "https://nialittlehearts.example/",
+    "logo": "images/NIA FOUNDATION",
+    "sameAs": [
+      "https://facebook.com/nialittlehearts",
+      "https://twitter.com/nialittlehearts",
+      "https://instagram.com/nialittlehearts"
+    ],
+    "slogan": "For children, for hope, for tomorrow",
+    "description": "Transforming children's lives through love, education, and opportunity in partnership with local communities."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <!-- Loading overlay -->
+  <div id="loading" aria-live="polite" aria-busy="true">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <p class="text-gray-600">Loading Nia Little Hearts…</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="bg-white/90 backdrop-blur shadow-lg fixed w-full top-0 z-50 transition-all duration-300" role="navigation" aria-label="Main Navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded">
+            <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-20" />
+          </a>
+        </div>
+        <div class="hidden md:block">
+          <ul class="ml-10 flex items-center gap-2" role="menubar">
+            <li><a href="#home" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+            <li><a href="#about" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a></li>
+            <li><a href="#programs" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Programs</a></li>
+            <li><a href="#impact" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a></li>
+            <li><a href="#stories" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Stories</a></li>
+            <li><a href="#sponsor" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sponsor</a></li>
+            <li><a href="#help" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Involved</a></li>
+            <li><a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a></li>
+            <li>
+              <button type="button" class="theme-toggle text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium" aria-label="Toggle dark mode" aria-pressed="false">
+                <i class="fas fa-moon"></i>
+              </button>
+            </li>
+            <li>
+              <button onclick="openDonationModal()" class="bg-gradient-to-r from-amber-500 to-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-amber-600 hover:to-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">
+                Donate Now
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="md:hidden">
+          <button id="menu-btn" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t" role="menu" aria-label="Mobile Menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#home" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#about" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#programs" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Programs</a>
+        <a href="#impact" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Impact</a>
+        <a href="#stories" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Stories</a>
+        <a href="#sponsor" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Sponsor</a>
+        <a href="#help" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Get Involved</a>
+        <a href="#contact" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <button type="button" class="theme-toggle block w-full text-left text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">
+          <i class="fas fa-moon mr-2"></i>Dark mode
+        </button>
+        <button onclick="openDonationModal()" class="w-full text-left bg-gradient-to-r from-amber-500 to-emerald-500 text-white px-3 py-2 rounded-md text-base font-medium mt-2">
+          Donate Now
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="relative pt-24 overflow-hidden" aria-label="Hero">
+    <video class="hero-video" autoplay muted playsinline loop poster="images/Ian and kids.png">
+      <source src="https://cdn.coverr.co/videos/coverr-happy-school-kids-7682/1080p.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay" aria-hidden="true"></div>
+    <!-- Decorative parallax shapes for depth -->
+    <div aria-hidden="true">
+      <span class="parallax-shape bg-amber-400/30 w-20 h-20 left-6 top-24"></span>
+      <span class="parallax-shape bg-emerald-400/30 w-14 h-14 right-10 top-40"></span>
+      <span class="parallax-shape bg-white/10 w-24 h-24 left-1/2 -translate-x-1/2 top-10"></span>
+    </div>
+    <div class="relative hero-gradient">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-white reveal">
+            <p class="uppercase tracking-[0.2em] text-sm mb-3 text-amber-200">For children, for hope, for tomorrow</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+              Every Child Deserves a <span class="text-yellow-300">Bright Future</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-100/90 max-w-xl">
+              Nia Little Hearts Foundation walks alongside vulnerable children with education, healthcare, and the love of a caring community.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button onclick="openDonationModal()" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-200">
+                <i class="fas fa-heart mr-2" aria-hidden="true"></i>Donate Now
+              </button>
+              <button onclick="scrollToSection('sponsor')" class="border-2 border-white/80 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-amber-800 transition-all focus:outline-none focus:ring-2 focus:ring-amber-200">
+                <i class="fas fa-child mr-2" aria-hidden="true"></i>Sponsor a Child
+              </button>
+            </div>
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-amber-100/90">
+              <div class="flex items-center gap-2"><i class="fas fa-shield-heart text-yellow-300" aria-hidden="true"></i><span>Trusted, registered non-profit</span></div>
+              <div class="flex items-center gap-2"><i class="fas fa-hand-holding-heart text-yellow-300" aria-hidden="true"></i><span>Child-focused, community-based</span></div>
+            </div>
+          </div>
+          <div class="relative reveal">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl tilt">
+              <img src="images/Handsome boy.png" alt="Ian with children from the foundation" class="rounded-xl w-full object-cover max-h-[360px]" loading="lazy" />
+              <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="500">0</div>
+                  <div class="text-xs md:text-sm text-gray-100">Children Reached</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="12">0</div>
+                  <div class="text-xs md:text-sm text-gray-100">Countries Served</div>
+                </div>
+                <div>
+                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="10">0</div>
+                  <div class="text-xs md:text-sm text-gray-100">Years of Impact</div>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between text-xs md:text-sm text-gray-100">
+                <div class="flex items-center gap-2"><i class="fas fa-circle-check text-emerald-300" aria-hidden="true"></i><span>Accountability & transparency</span></div>
+                <span class="hidden sm:inline"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="about" class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From care today to hope tomorrow, every effort pushes for real transformation in a child's world.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-8 rounded-xl bg-amber-50 hover-lift reveal">
+          <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-amber-700 text-2xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Education</h3>
+          <p class="text-gray-600">Scholarships, school supplies, teacher training, and safe learning spaces so children can dream beyond survival.</p>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-emerald-50 hover-lift reveal">
+          <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-emerald-700 text-2xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Healthcare</h3>
+          <p class="text-gray-600">Access to doctors, vaccinations, nutrition programs, and mental health support for vulnerable children.</p>
+        </div>
+        <div class="text-center p-8 rounded-xl bg-sky-50 hover-lift reveal">
+          <div class="bg-sky-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-home text-sky-700 text-2xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Community</h3>
+          <p class="text-gray-600">Partnering with local leaders and caregivers to build safe, nurturing environments where children can thrive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs" class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From daily meals to disaster relief, each program is designed with one goal: lasting, child-centered transformation.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
+          <img src="https://images.unsplash.com/photo-1542319272-42dba4f554be?auto=format&fit=crop&w=900&q=80" alt="Volunteers sharing food and warm clothing" class="w-full h-44 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Little Smiles Outreach</h3>
+            <p class="text-gray-600 mb-4 flex-1">From shared meals to warm clothing, each visit is designed to remind children that they are valued and loved.</p>
+            <button onclick="openSponsorshipModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          </div>
+        </article>
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
+          <img src="https://images.unsplash.com/photo-1565425518476-3229123699c5?auto=format&fit=crop&w=1000&q=80" alt="Holiday gifts and cheerful children" class="w-full h-44 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Holiday Cheer Gift Drive</h3>
+            <p class="text-gray-600 mb-4 flex-1">From festive gifts to fun activities, every celebration brings warmth, laughter, and renewed belief in brighter days.</p>
+            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          </div>
+        </article>
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
+          <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=900&q=80" alt="Health checkup and nutrition" class="w-full h-44 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health & Nutrition</h3>
+            <p class="text-gray-600 mb-4 flex-1">From daily food support to sanitary pads, each step ensures no child is left behind.</p>
+            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          </div>
+        </article>
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
+          <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1000&q=80" alt="Community partners and volunteers" class="w-full h-44 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Community Love Partners</h3>
+            <p class="text-gray-600 mb-4 flex-1">From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support.</p>
+            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact -->
+  <section id="impact" class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Because of partners like you, children are stepping into classrooms, receiving life‑saving care, and discovering their God‑given potential.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <img src="https://images.pexels.com/photos/8042458/pexels-photo-8042458.jpeg?w=800&h=500&fit=crop" alt="Teacher and students celebrating success" class="rounded-xl w-full object-cover shadow-lg" loading="lazy" />
+        </div>
+        <div class="reveal">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Stories of Hope</h3>
+          <div class="space-y-6">
+            <div class="p-4 rounded-lg bg-amber-50 border border-amber-100">
+              <p class="text-gray-700 text-sm">"With school meals and books, my daughter finally smiles on Mondays again." – A mother in Kenya</p>
+            </div>
+            <div class="p-4 rounded-lg bg-amber-50 border border-amber-100">
+              <p class="text-gray-700 text-sm">"Our village well means girls spend time in class, not in line for water." – Community leader, India</p>
+            </div>
+          </div>
+          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-amber-800 font-semibold hover:underline">Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stories / Testimonials -->
+  <section id="stories" class="py-16 md:py-20 donation-gradient">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="text-center mb-10 md:mb-14 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Voices from the Field</h2>
+        <p class="text-lg md:text-xl text-emerald-100/90 max-w-2xl mx-auto">Children, caregivers, and sponsors share how Nia Little Hearts has changed their stories.</p>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop" alt="Grace, a mother of two from Uganda" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Grace, mother of two</h3>
+              <p class="text-sm text-emerald-100/90">Uganda</p>
+            </div>
+          </div>
+          <p class="text-sm md:text-base text-emerald-50 flex-1">"My children used to miss school because of sickness and hunger. Now they receive meals, uniforms, and medicine. Our whole community has hope."</p>
+        </article>
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=200&h=200&fit=crop" alt="Daniel, a sponsor from the United States" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Daniel, sponsor</h3>
+              <p class="text-sm text-emerald-100/90">United States</p>
+            </div>
+          </div>
+          <p class="text-sm md:text-base text-emerald-50 flex-1">"Sponsoring a child through Nia Little Hearts is the most meaningful investment I make each month. I see the impact in every letter and photo I receive."</p>
+        </article>
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200&h=200&fit=crop" alt="Pastor Elena, local partner in Brazil" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Pastor Elena</h3>
+              <p class="text-sm text-emerald-100/90">Local partner, Brazil</p>
+            </div>
+          </div>
+          <p class="text-sm md:text-base text-emerald-50 flex-1">"We know each child by name. Together with Nia Little Hearts, we make sure they are safe, in school, and surrounded by love."</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsor a Child -->
+  <section id="sponsor" class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sponsor a Child Today</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">For just <span class="font-semibold text-amber-700">$40 a month</span>, you can walk alongside a child in need. Your support meets practical needs and speaks a powerful message: "You matter."</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="child-card reveal">
+          <div class="child-card-inner relative">
+            <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop" alt="Amina, age 7 from Tanzania" class="w-full h-64 object-cover" loading="lazy" />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900">Meet Amina</h3>
+                <p class="text-gray-600 mt-1">Age 7 • Tanzania</p>
+                <p class="text-sm text-gray-500 mt-2">Loves reading and wants to be a teacher.</p>
+              </div>
+            </div>
+            <div class="child-card-back absolute inset-0 bg-amber-600 text-white rounded-xl p-6 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold mb-3">Sponsor Amina</h3>
+              <p class="text-sm mb-4">Your monthly support provides:</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>School supplies & uniforms</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Nutritious meals every school day</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Regular medical check‑ups</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Letters and photo updates</li>
+              </ul>
+              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-amber-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Amina – $40/mo</button>
+            </div>
+          </div>
+        </div>
+        <div class="child-card reveal">
+          <div class="child-card-inner relative">
+            <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=400&fit=crop" alt="Raj, age 9 from India" class="w-full h-64 object-cover" loading="lazy" />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900">Meet Raj</h3>
+                <p class="text-gray-600 mt-1">Age 9 • India</p>
+                <p class="text-sm text-gray-500 mt-2">Enjoys science and dreams of being an engineer.</p>
+              </div>
+            </div>
+            <div class="child-card-back absolute inset-0 bg-emerald-600 text-white rounded-xl p-6 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold mb-3">Sponsor Raj</h3>
+              <p class="text-sm mb-4">Your monthly support provides:</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Quality education and tutoring</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Healthcare & medicine</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Clean water access</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Personal mentorship</li>
+              </ul>
+              <button onclick="openSponsorshipModal('Raj')" class="mt-6 bg-white text-emerald-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Raj – $40/mo</button>
+            </div>
+          </div>
+        </div>
+        <div class="child-card reveal">
+          <div class="child-card-inner relative">
+            <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=400&fit=crop" alt="Camila, age 6 from Brazil" class="w-full h-64 object-cover" loading="lazy" />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-900">Meet Camila</h3>
+                <p class="text-gray-600 mt-1">Age 6 • Brazil</p>
+                <p class="text-sm text-gray-500 mt-2">Loves art and wants to be a designer.</p>
+              </div>
+            </div>
+            <div class="child-card-back absolute inset-0 bg-sky-600 text-white rounded-xl p-6 flex flex-col justify-center">
+              <h3 class="text-2xl font-bold mb-3">Sponsor Camila</h3>
+              <p class="text-sm mb-4">Your monthly support provides:</p>
+              <ul class="space-y-2 text-sm">
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Art & creativity programs</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Dental & vision care</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Family counseling & support</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Progress reports twice a year</li>
+              </ul>
+              <button onclick="openSponsorshipModal('Camila')" class="mt-6 bg-white text-sky-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Camila – $40/mo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10 reveal">
+        <button onclick="openSponsorshipModal()" class="bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400">View More Children Waiting</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to help -->
+  <section id="help" class="py-16 md:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ways to Help</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Whether you give once, give monthly, or give your time, you are part of a global community rewriting children's stories.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
+          <div class="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-dollar-sign text-amber-700 text-3xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">One‑Time Gift</h3>
+          <p class="text-gray-600 mb-6">Meet urgent needs like food, medicine, and crisis response.</p>
+          <button onclick="openDonationModal()" class="w-full bg-amber-700 text-white py-3 rounded-lg font-semibold hover:bg-amber-800 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Donate Now</button>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
+          <div class="bg-emerald-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-heart text-emerald-700 text-3xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Monthly Partner</h3>
+          <p class="text-gray-600 mb-6">Provide steady support where it is needed most each month.</p>
+          <button onclick="openMonthlyModal()" class="w-full bg-emerald-700 text-white py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400">Join the Hope Circle</button>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
+          <div class="bg-sky-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-hands-helping text-sky-700 text-3xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Volunteer</h3>
+          <p class="text-gray-600 mb-6">Use your gifts—locally or online—to advocate for children.</p>
+          <button onclick="openVolunteerModal()" class="w-full bg-sky-700 text-white py-3 rounded-lg font-semibold hover:bg-sky-800 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400">Get Involved</button>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
+          <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-share text-rose-700 text-3xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Share the Story</h3>
+          <p class="text-gray-600 mb-6">Invite friends and family to stand for children with you.</p>
+          <div class="flex justify-center space-x-3">
+            <button onclick="shareOnSocial('facebook')" class="bg-blue-600 text-white w-10 h-10 rounded-full hover:bg-blue-700 transition-all flex items-center justify-center" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></button>
+            <button onclick="shareOnSocial('twitter')" class="bg-sky-500 text-white w-10 h-10 rounded-full hover:bg-sky-600 transition-all flex items-center justify-center" aria-label="Share on X"><i class="fab fa-x-twitter"></i></button>
+            <button onclick="shareOnSocial('copy')" class="bg-neutral-700 text-white w-10 h-10 rounded-full hover:bg-neutral-800 transition-all flex items-center justify-center" aria-label="Copy link"><i class="fas fa-link"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Have questions about sponsorship, partnerships, or giving? Our team would love to connect with you.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="reveal">
+          <form onsubmit="handleContactForm(event)" class="space-y-6 bg-white rounded-xl shadow-md p-6 md:p-8" aria-label="Contact form">
+            <div>
+              <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+              <input id="name" type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="Your full name" />
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+              <input id="email" type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+              <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+                <option>General Inquiry</option>
+                <option>Child Sponsorship</option>
+                <option>Donation Question</option>
+                <option>Volunteer Opportunity</option>
+                <option>Partnership</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+              <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="How can we serve you?"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-4 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">
+              Send Message
+            </button>
+          </form>
+        </div>
+        <div class="space-y-8 reveal">
+          <div class="flex items-start space-x-4">
+            <div class="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-amber-700"></i></div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Global Headquarters</h3>
+              <p class="text-gray-600">123 Hope Street<br />Compassion City, CC 12345<br />United States</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-emerald-700"></i></div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Call Us</h3>
+              <p class="text-gray-600">1‑800‑LITTLE‑HEARTS<br />1‑800‑548‑8534</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="bg-sky-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-sky-700"></i></div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Email</h3>
+              <p class="text-gray-600">info@nialittlehearts.org<br />support@nialittlehearts.org</p>
+            </div>
+          </div>
+          <div class="bg-gray-100 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Office Hours</h3>
+            <p class="text-gray-600 text-sm">Monday – Friday: 8:00 AM – 6:00 PM EST<br />Saturday: 9:00 AM – 2:00 PM EST<br />Sunday: Closed</p>
+          </div>
+          <div class="bg-gray-100 rounded-xl p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Mailing & Donations</h3>
+            <p class="text-gray-600 text-sm">Nia Little Hearts Foundation is a registered 501(c)(3) nonprofit organization. All gifts are tax‑deductible as allowed by law.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <img src="images/NIA FOUNDATION" alt="Nia Little Hearts Foundation" class="h-10 mb-4" />
+          <p class="text-gray-400 text-sm">Transforming children's lives through love, education, and opportunity in partnership with local communities.</p>
+          <div class="flex space-x-4 mt-6" aria-label="Social links">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#programs" class="hover:text-white transition-colors">Our Programs</a></li>
+            <li><a href="#sponsor" class="hover:text-white transition-colors">Sponsor a Child</a></li>
+            <li><a href="#impact" class="hover:text-white transition-colors">Impact Stories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Get Involved</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" onclick="openDonationModal()" class="hover:text-white transition-colors">Donate</a></li>
+            <li><a href="#" onclick="openVolunteerModal()" class="hover:text-white transition-colors">Volunteer</a></li>
+            <li><a href="#" onclick="openSponsorshipModal()" class="hover:text-white transition-colors">Sponsor a Child</a></li>
+            <li><a href="#help" class="hover:text-white transition-colors">Advocate & Fundraise</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Accountability</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Financial Reports</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between text-gray-500 text-xs md:text-sm gap-3">
+        <p>&copy; <span id="year"></span> Nia Little Hearts Foundation. All rights reserved. | EIN: 12‑3456789</p>
+        <p>Made possible by generous sponsors and partners worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA bar -->
+  <div id="sticky-cta" class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/80 shadow-lg rounded-full px-4 py-2 flex items-center gap-3 border border-amber-100 hidden md:flex">
+    <span class="text-sm text-gray-700">Double your impact this month</span>
+    <button onclick="openDonationModal(); sprinkleHearts(event)" class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-amber-700">Give Now</button>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="fixed bottom-5 right-5 p-3 rounded-full bg-amber-600 text-white shadow-lg hover:bg-amber-700 hidden" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Confetti Container -->
+  <div id="confetti"></div>
+
+  <!-- Donation Modal -->
+  <div id="donation-modal" class="fixed inset-0 bg-black/50 hidden z-[60] items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="donation-title">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 md:p-8 shadow-xl" role="document">
+      <div class="flex justify-between items-center mb-6">
+        <h3 id="donation-title" class="text-2xl font-bold text-gray-900">Make a Donation</h3>
+        <button onclick="closeDonationModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-300 rounded" aria-label="Close donation modal"><i class="fas fa-times text-xl"></i></button>
+      </div>
+      
+      <!-- Payment Method Tabs -->
+      <div class="mb-6">
+        <p class="text-sm text-gray-600 mb-3">Choose payment method</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <button type="button" class="payment-tab active" data-tab="card">
+            <i class="fas fa-credit-card"></i> Card
+          </button>
+          <button type="button" class="payment-tab" data-tab="mpesa">
+            <i class="fas fa-mobile-alt"></i> M-Pesa
+          </button>
+          <button type="button" class="payment-tab" data-tab="paypal">
+            <i class="fab fa-paypal"></i> PayPal
+          </button>
+        </div>
+      </div>
+      
+      <form onsubmit="handleDonation(event)">
+        <!-- Card Payment -->
+        <div class="payment-content active" id="card-payment">
+          <div class="mb-5">
+            <p class="text-sm text-gray-600 mb-2">Choose an amount</p>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="setDonationAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+              <button type="button" onclick="setDonationAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+              <button type="button" onclick="setDonationAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+              <button type="button" onclick="setDonationAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="custom-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+            <input type="number" id="custom-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
+          </div>
+          <div class="mb-5">
+            <label for="donation-type" class="block text-gray-700 font-medium mb-2">Designation</label>
+            <select id="donation-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+              <option value="Most Needed">Where Most Needed</option>
+              <option value="Education">Education</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Emergency Relief">Emergency Relief</option>
+              <option value="Child Sponsorship">Child Sponsorship</option>
+            </select>
+          </div>
+          <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-3.5 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Continue to Secure Payment</button>
+        </div>
+        
+        <!-- M-Pesa Payment -->
+        <div class="payment-content" id="mpesa-payment">
+          <div class="mb-5">
+            <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="setMpesaAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+              <button type="button" onclick="setMpesaAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+              <button type="button" onclick="setMpesaAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+              <button type="button" onclick="setMpesaAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="mpesa-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+            <input type="number" id="mpesa-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
+          </div>
+          <div class="mb-5">
+            <label for="mpesa-phone" class="block text-gray-700 font-medium mb-2">M-Pesa Phone Number</label>
+            <input type="tel" id="mpesa-phone" placeholder="e.g., 254712345678" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" required />
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-5">
+            <h4 class="font-semibold text-amber-800 mb-2">M-Pesa Till Number</h4>
+            <p class="text-amber-700 font-bold text-xl text-center mb-2">123456</p>
+            <p class="text-sm text-amber-600 text-center">Use this till number for direct M-Pesa payments</p>
+          </div>
+          <button type="button" onclick="processMpesaPayment()" class="w-full bg-green-600 text-white py-3.5 rounded-lg font-semibold hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-green-400">Pay with M-Pesa</button>
+        </div>
+        
+        <!-- PayPal Payment -->
+        <div class="payment-content" id="paypal-payment">
+          <div class="mb-5">
+            <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" onclick="setPaypalAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+              <button type="button" onclick="setPaypalAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+              <button type="button" onclick="setPaypalAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+              <button type="button" onclick="setPaypalAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="paypal-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+            <input type="number" id="paypal-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
+          </div>
+          <div class="mb-5">
+            <label for="paypal-type" class="block text-gray-700 font-medium mb-2">Designation</label>
+            <select id="paypal-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+              <option value="Most Needed">Where Most Needed</option>
+              <option value="Education">Education</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Emergency Relief">Emergency Relief</option>
+              <option value="Child Sponsorship">Child Sponsorship</option>
+            </select>
+          </div>
+          <button type="button" onclick="processPaypalPayment()" class="w-full bg-blue-600 text-white py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center justify-center gap-2">
+            <i class="fab fa-paypal"></i> Pay with PayPal
+          </button>
+        </div>
+        
+        <p class="mt-3 text-xs text-gray-500 text-center">Your payment will be processed securely. Nia Little Hearts Foundation is a 501(c)(3) organization and your gift is tax‑deductible as allowed by law.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sponsorship Modal -->
+  <div id="sponsorship-modal" class="fixed inset-0 bg-black/50 hidden z-[60] items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="sponsorship-title">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 md:p-8 shadow-xl" role="document">
+      <div class="flex justify-between items-center mb-6">
+        <h3 id="sponsorship-title" class="text-2xl font-bold text-gray-900">Child Sponsorship</h3>
+        <button onclick="closeSponsorshipModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-300 rounded" aria-label="Close sponsorship modal"><i class="fas fa-times text-xl"></i></button>
+      </div>
+      <div id="sponsorship-content">
+        <p class="text-gray-600 mb-5">With a monthly gift of <span class="font-semibold text-amber-700">$40</span>, you will help provide your sponsored child with education, healthcare, spiritual and emotional support through a local community of care.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-sm">
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Personal letters and photos</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>School fees & supplies</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Healthy meals & clean water</span></div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Medical check‑ups</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Safe, nurturing community</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Tax‑deductible giving</span></div>
+          </div>
+        </div>
+        <button onclick="startSponsorship()" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-3.5 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Start Sponsorship – $40/month</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Loading overlay hide on load
+    window.addEventListener('load', () => {
+      const loading = document.getElementById('loading');
+      if(!loading) return;
+      setTimeout(() => {
+        loading.classList.add('loading-hidden');
+        setTimeout(() => { loading.style.display = 'none'; }, 500);
+      }, 400);
+    });
+
+    // Theme handling
+    function applyTheme(theme){
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('theme', theme); } catch(e){}
+      // Update icons/labels
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        const dark = theme === 'dark';
+        btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        btn.setAttribute('aria-pressed', String(dark));
+        if(btn.classList.contains('block')){
+          btn.innerHTML = dark ? '<i class="fas fa-sun mr-2"></i>Light mode' : '<i class="fas fa-moon mr-2"></i>Dark mode';
+        }
+      });
+    }
+    function toggleTheme(){
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    document.querySelectorAll('.theme-toggle').forEach(btn => btn.addEventListener('click', toggleTheme));
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('menu-btn');
+      const isHidden = menu.classList.toggle('hidden');
+      const expanded = !isHidden;
+      btn.setAttribute('aria-expanded', String(expanded));
+      btn.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu');
+    }
+
+    // Smooth scroll with offset
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+      const offset = 70; // fixed navbar height
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      const menu = document.getElementById('mobile-menu');
+      if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
+      const btn = document.getElementById('menu-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Attach smooth scroll to nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').substring(1);
+        if (targetId) {
+          e.preventDefault();
+          scrollToSection(targetId);
+        }
+      });
+    });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revObs.observe(el));
+
+    // Counter animation (fires when hero content visible)
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-counter');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target')) || 0;
+        const duration = 1200; // ms
+        const start = performance.now();
+        function update(now){
+          const p = Math.min(1, (now - start) / duration);
+          const val = Math.floor(target * p);
+          counter.textContent = val.toLocaleString();
+          if (p < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      });
+    }
+    const heroSection = document.querySelector('#home .hero-gradient');
+    if (heroSection) {
+      const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            counterObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      counterObs.observe(heroSection);
+    }
+
+    // Payment method tabs
+    document.querySelectorAll('.payment-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // Hide all payment content
+        document.querySelectorAll('.payment-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Show corresponding payment content
+        const tabId = this.getAttribute('data-tab');
+        document.getElementById(`${tabId}-payment`).classList.add('active');
+      });
+    });
+
+    // Donation modal
+    const donationModal = document.getElementById('donation-modal');
+    let lastFocus = null;
+    function openDonationModal() {
+      lastFocus = document.activeElement;
+      donationModal.classList.remove('hidden');
+      donationModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      trapFocus(donationModal);
+      const first = donationModal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if(first) first.focus();
+    }
+    function closeDonationModal() {
+      donationModal.classList.add('hidden');
+      donationModal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+      // Reset all amount inputs
+      document.querySelectorAll('input[type="number"]').forEach(input => input.value = '');
+      document.querySelectorAll('.donation-amount').forEach(btn => {
+        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.add('bg-gray-100','text-gray-700');
+      });
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+    donationModal.addEventListener('click', function(e){ if (e.target === this) closeDonationModal(); });
+
+    function setDonationAmount(amount, event) {
+      document.querySelectorAll('.donation-amount').forEach(btn => {
+        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.add('bg-gray-100','text-gray-700');
+      });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
+        event.currentTarget.classList.add('bg-amber-700','text-white');
+      }
+      const input = document.getElementById('custom-amount');
+      if (input) input.value = amount;
+    }
+    
+    function setMpesaAmount(amount, event) {
+      document.querySelectorAll('.donation-amount').forEach(btn => {
+        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.add('bg-gray-100','text-gray-700');
+      });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
+        event.currentTarget.classList.add('bg-amber-700','text-white');
+      }
+      const input = document.getElementById('mpesa-amount');
+      if (input) input.value = amount;
+    }
+    
+    function setPaypalAmount(amount, event) {
+      document.querySelectorAll('.donation-amount').forEach(btn => {
+        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.add('bg-gray-100','text-gray-700');
+      });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
+        event.currentTarget.classList.add('bg-amber-700','text-white');
+      }
+      const input = document.getElementById('paypal-amount');
+      if (input) input.value = amount;
+    }
+
+    function handleDonation(event) {
+      event.preventDefault();
+      const amount = parseFloat(document.getElementById('custom-amount').value || '0');
+      const designation = document.getElementById('donation-type').value;
+      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
+      alert(`Thank you for your generous gift of $${amount.toFixed(2)} to "${designation}". You will be redirected to our secure payment processor in a real implementation.`);
+      closeDonationModal();
+    }
+    
+    function processMpesaPayment() {
+      const amount = parseFloat(document.getElementById('mpesa-amount').value || '0');
+      const phone = document.getElementById('mpesa-phone').value.trim();
+      
+      if (!amount || amount < 5) { 
+        alert('Please enter a donation of at least $5.'); 
+        return; 
+      }
+      
+      if (!phone) {
+        alert('Please enter your M-Pesa phone number.');
+        return;
+      }
+      
+      alert(`Thank you! We've sent an M-Pesa prompt to ${phone} for $${amount.toFixed(2)}. Please complete the payment on your phone.`);
+      closeDonationModal();
+    }
+    
+    function processPaypalPayment() {
+      const amount = parseFloat(document.getElementById('paypal-amount').value || '0');
+      const designation = document.getElementById('paypal-type').value;
+      
+      if (!amount || amount < 5) { 
+        alert('Please enter a donation of at least $5.'); 
+        return; 
+      }
+      
+      alert(`Thank you for your $${amount.toFixed(2)} donation to "${designation}". You will be redirected to PayPal to complete your payment.`);
+      closeDonationModal();
+    }
+
+    // Sponsorship modal
+    const sponsorshipModal = document.getElementById('sponsorship-modal');
+    function openSponsorshipModal(childName = null) {
+      lastFocus = document.activeElement;
+      const titleEl = document.getElementById('sponsorship-title');
+      titleEl.textContent = childName ? `Sponsor ${childName}` : 'Child Sponsorship';
+      sponsorshipModal.classList.remove('hidden');
+      sponsorshipModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+      trapFocus(sponsorshipModal);
+      const first = sponsorshipModal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if(first) first.focus();
+    }
+    function closeSponsorshipModal() {
+      sponsorshipModal.classList.add('hidden');
+      sponsorshipModal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+    sponsorshipModal.addEventListener('click', function(e){ if (e.target === this) closeSponsorshipModal(); });
+
+    function startSponsorship() {
+      alert('Thank you for choosing to sponsor a child! In a full site, you would now be guided through selecting a child and setting up your monthly gift.');
+      closeSponsorshipModal();
+    }
+
+    // Other engagement actions
+    function openMonthlyModal() { alert('Monthly giving: In a full implementation, this would open a secure form to set up your recurring donation.'); }
+    function openVolunteerModal() { alert('Volunteer with Nia Little Hearts: In a full implementation, this would open a volunteer interest form.'); }
+
+    // Share
+    async function shareOnSocial(platform){
+      const url = window.location.href;
+      const text = "Join me in supporting Nia Little Hearts Foundation – transforming children's lives around the world!";
+      if (platform === 'copy') {
+        try { await navigator.clipboard.writeText(url); alert('Link copied to clipboard!'); } catch(e){ alert('Copy this link: ' + url); }
+        return;
+      }
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Nia Little Hearts', text, url }); } catch(e){}
+        return;
+      }
+      if(platform==='facebook') window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,'_blank');
+      if(platform==='twitter') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,'_blank');
+    }
+
+    // Contact form
+    function handleContactForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){ alert('Please fill in all required fields.'); return; }
+      alert('Thank you for reaching out to Nia Little Hearts! Our team will respond within 1–2 business days.');
+      event.target.reset();
+    }
+
+    // Focus trap for modals
+    function trapFocus(container){
+      const focusable = () => Array.from(container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute('disabled'));
+      function keyHandler(e){
+        if(e.key === 'Escape'){
+          if(container === donationModal) closeDonationModal();
+          if(container === sponsorshipModal) closeSponsorshipModal();
+        }
+        if(e.key !== 'Tab') return;
+        const items = focusable();
+        if(!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+      container.addEventListener('keydown', keyHandler);
+    }
+
+    // Navbar scroll shadow enhancer
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 10) nav.classList.add('shadow-xl','bg-white/95');
+      else nav.classList.remove('shadow-xl');
+
+      // Sticky CTA visibility
+      const cta = document.getElementById('sticky-cta');
+      if (cta) {
+        if (window.scrollY > 600) cta.classList.remove('hidden'); else cta.classList.add('hidden');
+      }
+
+      // Back-to-top visibility
+      const btt = document.getElementById('backToTop');
+      if (btt) {
+        if (window.scrollY > 500) btt.classList.remove('hidden'); else btt.classList.add('hidden');
+      }
+    });
+
+    // Back to top click
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Parallax shapes motion
+    const shapes = document.querySelectorAll('.parallax-shape');
+    window.addEventListener('mousemove', (e) => {
+      const { innerWidth:w, innerHeight:h } = window;
+      const x = (e.clientX / w - 0.5);
+      const y = (e.clientY / h - 0.5);
+      shapes.forEach((s, i) => {
+        const intensity = (i+1) * 6;
+        s.style.transform = `translate(${x*intensity}px, ${y*intensity}px)`;
+      });
+    }, { passive: true });
+
+    // Tilt effect for cards/images
+    function addTilt(el){
+      let rect; let rx=0, ry=0;
+      function update(e){
+        rect = rect || el.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        rx = py * -6; ry = px * 6;
+        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+        el.style.boxShadow = `${-ry*2}px ${rx*2}px 24px rgba(0,0,0,.18)`;
+      }
+      function reset(){ el.style.transform = ''; el.style.boxShadow=''; rect = null; }
+      el.addEventListener('mousemove', update);
+      el.addEventListener('mouseleave', reset);
+    }
+    document.querySelectorAll('.tilt').forEach(addTilt);
+
+    // Heart confetti
+    function sprinkleHearts(ev){
+      const container = document.getElementById('confetti');
+      if(!container) return;
+      const count = 14;
+      const btnRect = ev && ev.currentTarget ? ev.currentTarget.getBoundingClientRect() : {left: window.innerWidth/2, top: window.innerHeight};
+      for(let i=0;i<count;i++){
+        const h = document.createElement('span');
+        h.className = 'heart';
+        h.style.left = (btnRect.left + btnRect.width/2) + 'px';
+        h.style.top = (btnRect.top) + 'px';
+        const dx = (Math.random()*160 - 80) + 'px';
+        const dy = (-Math.random()*220 - 80) + 'px';
+        h.style.setProperty('--dx', dx);
+        h.style.setProperty('--dy', dy);
+        h.style.opacity = 1;
+        h.style.filter = `hue-rotate(${Math.floor(Math.random()*60)-30}deg)`;
+        container.appendChild(h);
+        setTimeout(()=> h.remove(), 1300);
+      }
+    }
+
+    // Also sprinkle on main Donate button
+    document.querySelectorAll('button').forEach(btn => {
+      if(btn.textContent && btn.textContent.toLowerCase().includes('donate')){
+        btn.addEventListener('click', sprinkleHearts, { passive: true });
+      }
+    });
+  </script>
+</body>
+</html>
