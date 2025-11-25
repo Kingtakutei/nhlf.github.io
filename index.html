@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -5,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nia Little Hearts Foundation - Transforming Children's Lives</title>
   <meta name="description" content="Nia Little Hearts Foundation equips vulnerable children with education, healthcare, and community support. Sponsor a child, donate, or volunteer today." />
-  <meta name="theme-color" content="#a58e6a" />
+  <meta name="theme-color" content="#8c8be6" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Nia Little Hearts Foundation" />
@@ -26,34 +27,62 @@
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
 
     :root {
-      --bg: #f9f8f6;       /* page background (light) */
-      --fg: #0e0c08;       /* text on light */
-      --primary: #a58e6a;  /* warm tan */
-      --primary-700: #7f6b4f;
-      --accent: #81b39f;   /* muted green */
-      --muted: #efe7dd;
-      --muted-2: #f6f1ea;
+      /* RealtimeColors theme: https://www.realtimecolors.com/?colors=d8d9f7-03030f-8c8be6-82211c-d4a833 */
+      --bg: #d8d9f7;       /* page background (light) */
+      --fg: #03030f;       /* text on light */
+      --primary: #8c8be6;  /* lavender */
+      --primary-700: #6f6ed0; /* darker lavender for hover */
+      --accent: #82211c;   /* deep brick red */
+      --accent-2: #d4a833; /* warm gold */
+      --muted: #e6e7fb;    /* soft periwinkle tint */
+      --muted-2: #eef0ff;  /* lighter periwinkle tint */
     }
 
     [data-theme='dark'] {
-      --bg: #0e0c08;      /* page background (dark) */
-      --fg: #f3efe8;      /* text on dark */
+      --bg: #03030f;      /* dark background */
+      --fg: #d8d9f7;      /* light foreground */
     }
+
+    [data-theme='dark'] body { background-color: var(--bg); color: var(--fg); }
+    [data-theme='dark'] #navbar { background-color: rgba(3,3,15,.85) !important; color: var(--fg); }
+    [data-theme='dark'] .nav-link { color: #d8d9f7 !important; }
+    [data-theme='dark'] .nav-link:hover { color: var(--primary) !important; }
+    [data-theme='dark'] .bg-white { background-color: #0b0b1d !important; }
+    [data-theme='dark'] .bg-white\/90 { background-color: rgba(11,11,29,.90) !important; }
+    [data-theme='dark'] .bg-white\/95 { background-color: rgba(11,11,29,.95) !important; }
+    [data-theme='dark'] .bg-gray-50 { background-color: #09091a !important; }
+    [data-theme='dark'] .bg-gray-100 { background-color: #0f0f24 !important; }
+    [data-theme='dark'] .text-gray-900 { color: var(--fg) !important; }
+    [data-theme='dark'] .text-gray-800 { color: #e7e8ff !important; }
+    [data-theme='dark'] .text-gray-700 { color: #d8d9f7 !important; }
+    [data-theme='dark'] .text-gray-600 { color: #c8c9f1 !important; }
+    [data-theme='dark'] .border-gray-300 { border-color: #27294f !important; }
+    [data-theme='dark'] .border-gray-100 { border-color: #191a34 !important; }
+    [data-theme='dark'] input, [data-theme='dark'] select, [data-theme='dark'] textarea { background-color: #0b0b1d; color: var(--fg); border-color: #27294f; }
+    [data-theme='dark'] input::placeholder, [data-theme='dark'] textarea::placeholder { color: #a5a7d8; }
 
     body { background-color: var(--bg); color: var(--fg); }
 
     /* Thematic helpers */
     .text-gradient {
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      background: linear-gradient(90deg, var(--primary), var(--accent-2));
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
     .hero-gradient {
       background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(165,142,106,0.25), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(129,179,159,0.25), transparent 60%),
-        linear-gradient(135deg, #0f0d0a, #1a1610);
+        radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.18), transparent 60%),
+        linear-gradient(135deg, #03030f, #0c0c22);
     }
-    .donation-gradient { background: linear-gradient(135deg, #0f0d0a 0%, #1a1610 40%, #221c14 100%); }
+    .hero-video-overlay { position: absolute; inset: 0; background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.25), transparent 60%),
+        linear-gradient(135deg, rgba(3,3,15,.82), rgba(12,12,34,.72)); pointer-events:none; }
+
+    .donation-gradient {
+      background: linear-gradient(135deg, #03030f 0%, #101034 40%, #1a1742 100%);
+    }
+
     .hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
     .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
 
@@ -63,10 +92,6 @@
 
     /* Hero video */
     .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .hero-video-overlay { position: absolute; inset: 0; background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(165,142,106,0.25), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(129,179,159,0.25), transparent 60%),
-        linear-gradient(135deg, rgba(15,13,10,.82), rgba(26,22,16,.72)); pointer-events:none; }
 
     /* Flip cards (Sponsor) */
     .child-card { perspective: 1200px; }
@@ -85,7 +110,8 @@
       * { animation: none !important; transition: none !important; }
       .hero-video { display: none !important; }
     }
-  /* Loading overlay */
+
+    /* Loading overlay */
     #loading { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity .5s ease-out; }
     .loading-spinner { width: 56px; height: 56px; border: 4px solid var(--muted); border-top-color: var(--primary); border-radius: 9999px; animation: spin 1s linear infinite; margin-bottom: 12px; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -99,6 +125,8 @@
     .payment-tab.active { border-color: var(--primary); background: var(--muted-2); }
     .payment-content { display: none; }
     .payment-content.active { display: block; }
+    /* Modal panel sizing */
+    .modal-panel { max-height: 90vh; overflow-y: auto; }
 
     /* Error/success states */
     .error-message { background: #fee2e2; color: #b91c1c; padding: .5rem .75rem; border-radius: .5rem; font-size: .875rem; margin-top: .5rem; }
@@ -106,17 +134,18 @@
 
     /* Stripe Element styling */
     .StripeElement { box-sizing: border-box; padding: 12px; border: 1px solid #d1d5db; border-radius: .5rem; background: #ffffff; }
-    .StripeElement--focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(165,142,106,.2); }
+    .StripeElement--focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(140,139,230,.2); }
     .StripeElement--invalid { border-color: #ef4444; }
 
     /* Crypto */
     .crypto-address { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: #f8fafc; padding: 12px; border-radius: 8px; word-break: break-all; }
-    .crypto-qr { max-width: 160px; border-radius: 8px; margin: 8px auto 0; display: block; }
+    .crypto-qr { width: 100%; height: auto; max-width: 220px; border-radius: 8px; margin: 8px auto 0; display: block; object-fit: contain; }
 
     @media (prefers-reduced-motion: reduce) {
       #loading { display: none !important; }
     }
-  /* Advanced UI enhancements */
+
+    /* Advanced UI enhancements */
     .parallax-shape { position: absolute; border-radius: 9999px; will-change: transform; }
     .tilt { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
 
@@ -134,6 +163,21 @@
     .heart:before { top: -6px; left: 0; }
     .heart:after { left: -6px; top: 0; }
     @keyframes floatUp { 0% { transform: translate(0,0) rotate(45deg) scale(.6); opacity: 0; } 10% {opacity: .9} 100% { transform: translate(var(--dx), var(--dy)) rotate(45deg) scale(1); opacity: 0; } }
+
+    /* Morphing blob image + shine */
+    .blob-img { clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 75%, 60% 100%, 30% 90%, 0% 60%, 10% 20%); box-shadow: 0 14px 36px rgba(0,0,0,.22); will-change: transform, clip-path; animation: blobMorph 12s ease-in-out infinite alternate, floatSoft 7s ease-in-out infinite; }
+    @keyframes blobMorph {
+      0% { clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 75%, 60% 100%, 30% 90%, 0% 60%, 10% 20%); }
+      100% { clip-path: polygon(50% 5%, 75% 0%, 100% 30%, 95% 70%, 70% 100%, 35% 100%, 0% 70%, 0% 35%); }
+    }
+    @keyframes floatSoft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .blob-shine { position: absolute; top: 0; left: -30%; width: 30%; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0)); transform: skewX(-12deg); filter: blur(2px); pointer-events: none; animation: shineSlide 5s linear infinite; }
+    @keyframes shineSlide { 0% { left: -30%; } 100% { left: 130%; } }
+
+    /* Decorative shape variants tuned to theme */
+    .shape-diamond { border-radius: 0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%), linear-gradient(135deg, rgba(140,139,230,.35), rgba(212,168,51,.18)); box-shadow: 0 10px 24px rgba(0,0,0,.12); transform: rotate(45deg); }
+    .shape-pill { border-radius: 9999px; background: linear-gradient(90deg, rgba(140,139,230,.28), rgba(140,139,230,.14)); box-shadow: 0 8px 18px rgba(0,0,0,.10); }
+    .shape-blob { border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%), linear-gradient(135deg, rgba(130,33,28,.35), rgba(140,139,230,.25)); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
 
   </style>
 
@@ -155,7 +199,7 @@
     "@type": "NGO",
     "name": "Nia Little Hearts Foundation",
     "url": "https://nialittlehearts.example/",
-    "logo": "images/NIA FOUNDATION",
+    "logo": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=60",
     "sameAs": [
       "https://facebook.com/nialittlehearts",
       "https://twitter.com/nialittlehearts",
@@ -181,33 +225,34 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded">
-            <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-20" />
+            <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-20 w-auto" />
+            <span class="sr-only">Nia Little Hearts</span>
           </a>
         </div>
         <div class="hidden md:block">
           <ul class="ml-10 flex items-center gap-2" role="menubar">
-            <li><a href="#home" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
-            <li><a href="#about" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a></li>
-            <li><a href="#programs" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Programs</a></li>
-            <li><a href="#impact" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a></li>
-            <li><a href="#stories" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Stories</a></li>
-            <li><a href="#sponsor" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sponsor</a></li>
-            <li><a href="#help" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Involved</a></li>
-            <li><a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a></li>
+            <li><a href="#home" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+            <li><a href="#about" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a></li>
+            <li><a href="#programs" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Programs</a></li>
+            <li><a href="#impact" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a></li>
+            <li><a href="#stories" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Stories</a></li>
+            <li><a href="#sponsor" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sponsor</a></li>
+            <li><a href="#help" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Involved</a></li>
+            <li><a href="#contact" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a></li>
             <li>
-              <button type="button" class="theme-toggle text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-sm font-medium" aria-label="Toggle dark mode" aria-pressed="false">
+              <button type="button" class="theme-toggle text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium" aria-label="Toggle dark mode" aria-pressed="false">
                 <i class="fas fa-moon"></i>
               </button>
             </li>
             <li>
-              <button onclick="openDonationModal()" class="bg-gradient-to-r from-amber-500 to-emerald-500 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-amber-600 hover:to-emerald-600 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">
+              <button onclick="openDonationModal()" class="bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-indigo-600 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">
                 Donate Now
               </button>
             </li>
           </ul>
         </div>
         <div class="md:hidden">
-          <button id="menu-btn" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <button id="menu-btn" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
@@ -216,18 +261,18 @@
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t" role="menu" aria-label="Mobile Menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#home" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#about" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">About</a>
-        <a href="#programs" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Programs</a>
-        <a href="#impact" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Impact</a>
-        <a href="#stories" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Stories</a>
-        <a href="#sponsor" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Sponsor</a>
-        <a href="#help" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Get Involved</a>
-        <a href="#contact" class="block text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
-        <button type="button" class="theme-toggle block w-full text-left text-gray-700 hover:text-amber-700 px-3 py-2 rounded-md text-base font-medium">
+        <a href="#home" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#about" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#programs" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Programs</a>
+        <a href="#impact" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Impact</a>
+        <a href="#stories" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Stories</a>
+        <a href="#sponsor" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Sponsor</a>
+        <a href="#help" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Get Involved</a>
+        <a href="#contact" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <button type="button" class="theme-toggle block w-full text-left text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">
           <i class="fas fa-moon mr-2"></i>Dark mode
         </button>
-        <button onclick="openDonationModal()" class="w-full text-left bg-gradient-to-r from-amber-500 to-emerald-500 text-white px-3 py-2 rounded-md text-base font-medium mt-2">
+        <button onclick="openDonationModal()" class="w-full text-left bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white px-3 py-2 rounded-md text-base font-medium mt-2">
           Donate Now
         </button>
       </div>
@@ -236,21 +281,21 @@
 
   <!-- Hero -->
   <section id="home" class="relative pt-24 overflow-hidden" aria-label="Hero">
-    <video class="hero-video" autoplay muted playsinline loop poster="images/Ian and kids.png">
+    <video class="hero-video" autoplay muted playsinline loop poster="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1200&q=60">
       <source src="https://cdn.coverr.co/videos/coverr-happy-school-kids-7682/1080p.mp4" type="video/mp4" />
     </video>
     <div class="hero-video-overlay" aria-hidden="true"></div>
     <!-- Decorative parallax shapes for depth -->
     <div aria-hidden="true">
-      <span class="parallax-shape bg-amber-400/30 w-20 h-20 left-6 top-24"></span>
-      <span class="parallax-shape bg-emerald-400/30 w-14 h-14 right-10 top-40"></span>
-      <span class="parallax-shape bg-white/10 w-24 h-24 left-1/2 -translate-x-1/2 top-10"></span>
+      <span class="parallax-shape shape-diamond w-16 h-16 left-6 top-24"></span>
+      <span class="parallax-shape shape-pill w-32 h-10 right-10 top-40"></span>
+      <span class="parallax-shape shape-blob w-24 h-24 left-1/2 -translate-x-1/2 top-10"></span>
     </div>
     <div class="relative hero-gradient">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="text-white reveal">
-            <p class="uppercase tracking-[0.2em] text-sm mb-3 text-amber-200">For children, for hope, for tomorrow</p>
+            <p class="uppercase tracking-[0.2em] text-sm mb-3" style="color: rgba(212,168,51,.9)">For children, for hope, for tomorrow</p>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
               Every Child Deserves a <span class="text-yellow-300">Bright Future</span>
             </h1>
@@ -261,34 +306,37 @@
               <button onclick="openDonationModal()" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-200">
                 <i class="fas fa-heart mr-2" aria-hidden="true"></i>Donate Now
               </button>
-              <button onclick="scrollToSection('sponsor')" class="border-2 border-white/80 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-amber-800 transition-all focus:outline-none focus:ring-2 focus:ring-amber-200">
+              <button onclick="scrollToSection('sponsor')" class="border-2 border-white/80 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-800 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-200">
                 <i class="fas fa-child mr-2" aria-hidden="true"></i>Sponsor a Child
               </button>
             </div>
-            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-amber-100/90">
-              <div class="flex items-center gap-2"><i class="fas fa-shield-heart text-yellow-300" aria-hidden="true"></i><span>Trusted, registered non-profit</span></div>
-              <div class="flex items-center gap-2"><i class="fas fa-hand-holding-heart text-yellow-300" aria-hidden="true"></i><span>Child-focused, community-based</span></div>
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-indigo-100/90">
+              <div class="flex items-center gap-2"><i class="fas fa-shield-heart" style="color:#d4a833" aria-hidden="true"></i><span>Trusted, registered non-profit</span></div>
+              <div class="flex items-center gap-2"><i class="fas fa-hand-holding-heart" style="color:#d4a833" aria-hidden="true"></i><span>Child-focused, community-based</span></div>
             </div>
           </div>
           <div class="relative reveal">
             <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl tilt">
-              <img src="images/Handsome boy.png" alt="Ian with children from the foundation" class="rounded-xl w-full object-cover max-h-[360px]" loading="lazy" />
+              <div class="relative">
+                <img src="images/Handsome boy.png" alt="Smiling child enjoying school" class="blob-img w-full h-[320px] md:h-[420px] object-cover object-top" style="object-position: 50% 18%;" loading="lazy" />
+                <span class="blob-shine" aria-hidden="true"></span>
+              </div>
               <div class="mt-6 grid grid-cols-3 gap-4 text-center">
                 <div>
                   <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="500">0</div>
                   <div class="text-xs md:text-sm text-gray-100">Children Reached</div>
                 </div>
                 <div>
-                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="12">0</div>
-                  <div class="text-xs md:text-sm text-gray-100">Countries Served</div>
+                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="1">0</div>
+                  <div class="text-xs md:text-sm text-gray-100">Counties Served</div>
                 </div>
                 <div>
-                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="10">0</div>
+                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="1">0</div>
                   <div class="text-xs md:text-sm text-gray-100">Years of Impact</div>
                 </div>
               </div>
               <div class="mt-4 flex items-center justify-between text-xs md:text-sm text-gray-100">
-                <div class="flex items-center gap-2"><i class="fas fa-circle-check text-emerald-300" aria-hidden="true"></i><span>Accountability & transparency</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-circle-check" style="color:#8c8be6" aria-hidden="true"></i><span>Accountability & transparency</span></div>
                 <span class="hidden sm:inline"></span>
               </div>
             </div>
@@ -303,23 +351,23 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From care today to hope tomorrow, every effort pushes for real transformation in a child's world.</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From care today to hope tomorrow, every effort pushes for real transformation in a child’s world.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-8 rounded-xl bg-amber-50 hover-lift reveal">
-          <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-amber-700 text-2xl" aria-hidden="true"></i></div>
+        <div class="text-center p-8 rounded-xl bg-indigo-50 hover-lift reveal">
+          <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-indigo-700 text-2xl" aria-hidden="true"></i></div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Education</h3>
-          <p class="text-gray-600">Scholarships, school supplies, teacher training, and safe learning spaces so children can dream beyond survival.</p>
+          <p class="text-gray-600">o empower children through education by providing the tools they need to learn and succeed.</p>
         </div>
-        <div class="text-center p-8 rounded-xl bg-emerald-50 hover-lift reveal">
-          <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-emerald-700 text-2xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Healthcare</h3>
-          <p class="text-gray-600">Access to doctors, vaccinations, nutrition programs, and mental health support for vulnerable children.</p>
+        <div class="text-center p-8 rounded-xl bg-rose-50 hover-lift reveal">
+          <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-rose-700 text-2xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Health & Nutrition</h3>
+          <p class="text-gray-600">To support children with nutritious food, clean water, and essential hygiene items for healthy growth.</p>
         </div>
-        <div class="text-center p-8 rounded-xl bg-sky-50 hover-lift reveal">
-          <div class="bg-sky-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-home text-sky-700 text-2xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Community</h3>
-          <p class="text-gray-600">Partnering with local leaders and caregivers to build safe, nurturing environments where children can thrive.</p>
+        <div class="text-center p-8 rounded-xl bg-yellow-50 hover-lift reveal">
+          <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-home text-yellow-700 text-2xl" aria-hidden="true"></i></div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Love & Community</h3>
+          <p class="text-gray-600">To foster a community of kindness that lifts children emotionally, socially, and spiritually.</p>
         </div>
       </div>
     </div>
@@ -338,7 +386,7 @@
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Little Smiles Outreach</h3>
             <p class="text-gray-600 mb-4 flex-1">From shared meals to warm clothing, each visit is designed to remind children that they are valued and loved.</p>
-            <button onclick="openSponsorshipModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <button onclick="openSponsorshipModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
           </div>
         </article>
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
@@ -346,23 +394,23 @@
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Holiday Cheer Gift Drive</h3>
             <p class="text-gray-600 mb-4 flex-1">From festive gifts to fun activities, every celebration brings warmth, laughter, and renewed belief in brighter days.</p>
-            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
           </div>
         </article>
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
-          <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=900&q=80" alt="Health checkup and nutrition" class="w-full h-44 object-cover" loading="lazy" />
-          <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health & Nutrition</h3>
-            <p class="text-gray-600 mb-4 flex-1">From daily food support to sanitary pads, each step ensures no child is left behind.</p>
-            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
-          </div>
-        </article>
-        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
-          <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1000&q=80" alt="Community partners and volunteers" class="w-full h-44 object-cover" loading="lazy" />
+          <img src="images/Ian and kids.png" alt="IIan and kids" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Community Love Partners</h3>
-            <p class="text-gray-600 mb-4 flex-1">From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support.</p>
-            <button onclick="openDonationModal()" class="text-amber-700 font-semibold hover:underline mt-auto">Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <p class="text-gray-600 mb-4 flex-1">From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support</p>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          </div>
+        </article>
+        <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
+          <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=1000&q=80" alt="Community partners and volunteers" class="w-full h-44 object-cover" loading="lazy" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health checkup and nutrition</h3>
+            <p class="text-gray-600 mb-4 flex-1">From daily food support to sanitary pads, each step ensures no child is left behind.</p>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
           </div>
         </article>
       </div>
@@ -383,14 +431,14 @@
         <div class="reveal">
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Stories of Hope</h3>
           <div class="space-y-6">
-            <div class="p-4 rounded-lg bg-amber-50 border border-amber-100">
-              <p class="text-gray-700 text-sm">"With school meals and books, my daughter finally smiles on Mondays again." – A mother in Kenya</p>
+            <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
+              <p class="text-gray-700 text-sm">“With school meals and books, my daughter finally smiles on Mondays again.” – A mother in Kenya</p>
             </div>
-            <div class="p-4 rounded-lg bg-amber-50 border border-amber-100">
-              <p class="text-gray-700 text-sm">"Our village well means girls spend time in class, not in line for water." – Community leader, India</p>
+            <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
+              <p class="text-gray-700 text-sm">“Our village well means girls spend time in class, not in line for water.” – Community leader, India</p>
             </div>
           </div>
-          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-amber-800 font-semibold hover:underline">Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-indigo-800 font-semibold hover:underline">Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -401,38 +449,37 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
       <div class="text-center mb-10 md:mb-14 reveal">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Voices from the Field</h2>
-        <p class="text-lg md:text-xl text-emerald-100/90 max-w-2xl mx-auto">Children, caregivers, and sponsors share how Nia Little Hearts has changed their stories.</p>
+        <p class="text-lg md:text-xl text-indigo-100/90 max-w-2xl mx-auto">Children, caregivers, and sponsors share how Nia Little Hearts has changed their stories.</p>
       </div>
       <div class="grid gap-8 md:grid-cols-3">
         <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop" alt="Grace, a mother of two from Uganda" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
-              <h3 class="font-semibold">Grace, mother of two</h3>
-              <p class="text-sm text-emerald-100/90">Uganda</p>
+              <h3 class="font-semibold">Mother Mombasa</h3>
+              <p class="text-sm text-indigo-100/90">Kenya</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-emerald-50 flex-1">"My children used to miss school because of sickness and hunger. Now they receive meals, uniforms, and medicine. Our whole community has hope."</p>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">"Your visits remind the children that they are not forgotten. My younger sister talks about the games and the prayers you shared every evening"</p>
         </article>
         <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=200&h=200&fit=crop" alt="Daniel, a sponsor from the United States" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
-              <h3 class="font-semibold">Daniel, sponsor</h3>
-              <p class="text-sm text-emerald-100/90">United States</p>
+              <h3 class="font-semibold">Utange Childrens Centre</h3>
+              <p class="text-sm text-indigo-100/90">Mombasa</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-emerald-50 flex-1">"Sponsoring a child through Nia Little Hearts is the most meaningful investment I make each month. I see the impact in every letter and photo I receive."</p>
-        </article>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">"Thank you for treating our children with kindness. The small things you bring food, clothes, time make a big difference in their hearts"</p>
         <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=200&h=200&fit=crop" alt="Pastor Elena, local partner in Brazil" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
               <h3 class="font-semibold">Pastor Elena</h3>
-              <p class="text-sm text-emerald-100/90">Local partner, Brazil</p>
+              <p class="text-sm text-indigo-100/90">Local partner, Brazil</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-emerald-50 flex-1">"We know each child by name. Together with Nia Little Hearts, we make sure they are safe, in school, and surrounded by love."</p>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">"We know each child by name. Together with Nia Little Hearts, we make sure they are safe, in school, and surrounded by love."</p>
         </article>
       </div>
     </div>
@@ -443,7 +490,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sponsor a Child Today</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">For just <span class="font-semibold text-amber-700">$40 a month</span>, you can walk alongside a child in need. Your support meets practical needs and speaks a powerful message: "You matter."</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">For just <span class="font-semibold text-indigo-700">$40 a month</span>, you can walk alongside a child in need. Your support meets practical needs and speaks a powerful message: "You matter."</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="child-card reveal">
@@ -456,7 +503,7 @@
                 <p class="text-sm text-gray-500 mt-2">Loves reading and wants to be a teacher.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-amber-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-indigo-600 text-white rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Amina</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -465,7 +512,7 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Regular medical check‑ups</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Letters and photo updates</li>
               </ul>
-              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-amber-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Amina – $40/mo</button>
+              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-indigo-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Amina – $40/mo</button>
             </div>
           </div>
         </div>
@@ -479,7 +526,7 @@
                 <p class="text-sm text-gray-500 mt-2">Enjoys science and dreams of being an engineer.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-emerald-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-rose-600 text-white rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Raj</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -488,7 +535,7 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Clean water access</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Personal mentorship</li>
               </ul>
-              <button onclick="openSponsorshipModal('Raj')" class="mt-6 bg-white text-emerald-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Raj – $40/mo</button>
+              <button onclick="openSponsorshipModal('Raj')" class="mt-6 bg-white text-rose-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Raj – $40/mo</button>
             </div>
           </div>
         </div>
@@ -502,7 +549,7 @@
                 <p class="text-sm text-gray-500 mt-2">Loves art and wants to be a designer.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-sky-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-yellow-600 text-white rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Camila</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -511,13 +558,13 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Family counseling & support</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Progress reports twice a year</li>
               </ul>
-              <button onclick="openSponsorshipModal('Camila')" class="mt-6 bg-white text-sky-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Camila – $40/mo</button>
+              <button onclick="openSponsorshipModal('Camila')" class="mt-6 bg-white text-yellow-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Camila – $40/mo</button>
             </div>
           </div>
         </div>
       </div>
       <div class="text-center mt-10 reveal">
-        <button onclick="openSponsorshipModal()" class="bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-amber-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400">View More Children Waiting</button>
+        <button onclick="openSponsorshipModal()" class="bg-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400">View More Children Waiting</button>
       </div>
     </div>
   </section>
@@ -527,29 +574,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ways to Help</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Whether you give once, give monthly, or give your time, you are part of a global community rewriting children's stories.</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Whether you give once, give monthly, or give your time, you are part of a global community rewriting children’s stories.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-dollar-sign text-amber-700 text-3xl" aria-hidden="true"></i></div>
+          <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-dollar-sign text-indigo-700 text-3xl" aria-hidden="true"></i></div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">One‑Time Gift</h3>
           <p class="text-gray-600 mb-6">Meet urgent needs like food, medicine, and crisis response.</p>
-          <button onclick="openDonationModal()" class="w-full bg-amber-700 text-white py-3 rounded-lg font-semibold hover:bg-amber-800 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Donate Now</button>
+          <button onclick="openDonationModal()" class="w-full bg-indigo-700 text-white py-3 rounded-lg font-semibold hover:bg-indigo-800 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400">Donate Now</button>
         </div>
         <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-emerald-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-heart text-emerald-700 text-3xl" aria-hidden="true"></i></div>
+          <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-heart text-rose-700 text-3xl" aria-hidden="true"></i></div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Monthly Partner</h3>
           <p class="text-gray-600 mb-6">Provide steady support where it is needed most each month.</p>
-          <button onclick="openMonthlyModal()" class="w-full bg-emerald-700 text-white py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-400">Join the Hope Circle</button>
+          <button onclick="openMonthlyModal()" class="w-full bg-rose-700 text-white py-3 rounded-lg font-semibold hover:bg-rose-800 transition-all focus:outline-none focus:ring-2 focus:ring-rose-400">Join the Hope Circle</button>
         </div>
         <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-sky-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-hands-helping text-sky-700 text-3xl" aria-hidden="true"></i></div>
+          <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-hands-helping text-yellow-700 text-3xl" aria-hidden="true"></i></div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Volunteer</h3>
           <p class="text-gray-600 mb-6">Use your gifts—locally or online—to advocate for children.</p>
-          <button onclick="openVolunteerModal()" class="w-full bg-sky-700 text-white py-3 rounded-lg font-semibold hover:bg-sky-800 transition-all focus:outline-none focus:ring-2 focus:ring-sky-400">Get Involved</button>
+          <button onclick="openVolunteerModal()" class="w-full bg-yellow-600 text-white py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400">Get Involved</button>
         </div>
         <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-share text-rose-700 text-3xl" aria-hidden="true"></i></div>
+          <div class="bg-neutral-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-share text-neutral-700 text-3xl" aria-hidden="true"></i></div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Share the Story</h3>
           <p class="text-gray-600 mb-6">Invite friends and family to stand for children with you.</p>
           <div class="flex justify-center space-x-3">
@@ -574,15 +621,15 @@
           <form onsubmit="handleContactForm(event)" class="space-y-6 bg-white rounded-xl shadow-md p-6 md:p-8" aria-label="Contact form">
             <div>
               <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-              <input id="name" type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="Your full name" />
+              <input id="name" type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="Your full name" />
             </div>
             <div>
               <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-              <input id="email" type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="you@example.com" />
+              <input id="email" type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="you@example.com" />
             </div>
             <div>
               <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-              <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+              <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent">
                 <option>General Inquiry</option>
                 <option>Child Sponsorship</option>
                 <option>Donation Question</option>
@@ -592,30 +639,30 @@
             </div>
             <div>
               <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-              <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" placeholder="How can we serve you?"></textarea>
+              <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="How can we serve you?"></textarea>
             </div>
-            <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-4 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">
+            <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white py-4 rounded-lg font-semibold hover:from-indigo-700 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">
               Send Message
             </button>
           </form>
         </div>
         <div class="space-y-8 reveal">
           <div class="flex items-start space-x-4">
-            <div class="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-amber-700"></i></div>
+            <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-indigo-700"></i></div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-1">Global Headquarters</h3>
               <p class="text-gray-600">123 Hope Street<br />Compassion City, CC 12345<br />United States</p>
             </div>
           </div>
           <div class="flex items-start space-x-4">
-            <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-emerald-700"></i></div>
+            <div class="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-rose-700"></i></div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-1">Call Us</h3>
               <p class="text-gray-600">1‑800‑LITTLE‑HEARTS<br />1‑800‑548‑8534</p>
             </div>
           </div>
           <div class="flex items-start space-x-4">
-            <div class="bg-sky-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-sky-700"></i></div>
+            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-yellow-700"></i></div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-1">Email</h3>
               <p class="text-gray-600">info@nialittlehearts.org<br />support@nialittlehearts.org</p>
@@ -639,7 +686,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
-          <img src="images/NIA FOUNDATION" alt="Nia Little Hearts Foundation" class="h-10 mb-4" />
+          <h3 class="text-2xl font-bold text-gradient mb-4">Nia Little Hearts</h3>
           <p class="text-gray-400 text-sm">Transforming children's lives through love, education, and opportunity in partnership with local communities.</p>
           <div class="flex space-x-4 mt-6" aria-label="Social links">
             <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -684,13 +731,13 @@
   </footer>
 
   <!-- Sticky CTA bar -->
-  <div id="sticky-cta" class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/80 shadow-lg rounded-full px-4 py-2 flex items-center gap-3 border border-amber-100 hidden md:flex">
+  <div id="sticky-cta" class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/80 shadow-lg rounded-full px-4 py-2 flex items-center gap-3 border border-indigo-100 hidden md:flex">
     <span class="text-sm text-gray-700">Double your impact this month</span>
-    <button onclick="openDonationModal(); sprinkleHearts(event)" class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-amber-700">Give Now</button>
+    <button onclick="openDonationModal(); sprinkleHearts(event)" class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700">Give Now</button>
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-5 right-5 p-3 rounded-full bg-amber-600 text-white shadow-lg hover:bg-amber-700 hidden" aria-label="Back to top">
+  <button id="backToTop" class="fixed bottom-5 right-5 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 hidden" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
@@ -699,47 +746,54 @@
 
   <!-- Donation Modal -->
   <div id="donation-modal" class="fixed inset-0 bg-black/50 hidden z-[60] items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="donation-title">
-    <div class="bg-white rounded-xl max-w-md w-full p-6 md:p-8 shadow-xl" role="document">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 md:p-8 shadow-xl modal-panel" role="document">
       <div class="flex justify-between items-center mb-6">
         <h3 id="donation-title" class="text-2xl font-bold text-gray-900">Make a Donation</h3>
-        <button onclick="closeDonationModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-300 rounded" aria-label="Close donation modal"><i class="fas fa-times text-xl"></i></button>
+        <button onclick="closeDonationModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded" aria-label="Close donation modal"><i class="fas fa-times text-xl"></i></button>
       </div>
-      
+
       <!-- Payment Method Tabs -->
       <div class="mb-6">
-        <p class="text-sm text-gray-600 mb-3">Choose payment method</p>
+        <p class="text-sm text-gray-600 mb-3">Choose a payment method</p>
         <div class="flex flex-wrap gap-2 mb-4">
           <button type="button" class="payment-tab active" data-tab="card">
-            <i class="fas fa-credit-card"></i> Card
+            <i class="fas fa-credit-card"></i>
+            <span>Card</span>
           </button>
           <button type="button" class="payment-tab" data-tab="mpesa">
-            <i class="fas fa-mobile-alt"></i> M-Pesa
+            <i class="fas fa-mobile-alt"></i>
+            <span>M-Pesa</span>
           </button>
           <button type="button" class="payment-tab" data-tab="paypal">
-            <i class="fab fa-paypal"></i> PayPal
+            <i class="fab fa-paypal"></i>
+            <span>PayPal</span>
+          </button>
+          <button type="button" class="payment-tab" data-tab="bitcoin">
+            <i class="fab fa-bitcoin"></i>
+            <span>Bitcoin</span>
           </button>
         </div>
       </div>
-      
-      <form onsubmit="handleDonation(event)">
-        <!-- Card Payment -->
-        <div class="payment-content active" id="card-payment">
+
+      <!-- Card Payment -->
+      <div id="card-payment" class="payment-content active">
+        <form onsubmit="handleDonation(event)">
           <div class="mb-5">
             <p class="text-sm text-gray-600 mb-2">Choose an amount</p>
             <div class="grid grid-cols-2 gap-3">
-              <button type="button" onclick="setDonationAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
-              <button type="button" onclick="setDonationAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
-              <button type="button" onclick="setDonationAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
-              <button type="button" onclick="setDonationAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+              <button type="button" onclick="setDonationAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+              <button type="button" onclick="setDonationAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+              <button type="button" onclick="setDonationAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+              <button type="button" onclick="setDonationAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
             </div>
           </div>
           <div class="mb-5">
             <label for="custom-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
-            <input type="number" id="custom-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
+            <input type="number" id="custom-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
           </div>
           <div class="mb-5">
             <label for="donation-type" class="block text-gray-700 font-medium mb-2">Designation</label>
-            <select id="donation-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
+            <select id="donation-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent">
               <option value="Most Needed">Where Most Needed</option>
               <option value="Education">Education</option>
               <option value="Healthcare">Healthcare</option>
@@ -747,68 +801,92 @@
               <option value="Child Sponsorship">Child Sponsorship</option>
             </select>
           </div>
-          <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-3.5 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Continue to Secure Payment</button>
+          <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white py-3.5 rounded-lg font-semibold hover:from-indigo-700 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">Continue to Secure Payment</button>
+          <p class="mt-3 text-xs text-gray-500 text-center">Your payment will be processed securely. Nia Little Hearts Foundation is a 501(c)(3) organization and your gift is tax‑deductible as allowed by law.</p>
+        </form>
+      </div>
+
+      <!-- M-Pesa Payment -->
+      <div id="mpesa-payment" class="payment-content">
+        <div class="mb-5">
+          <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="setMpesaAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+            <button type="button" onclick="setMpesaAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+            <button type="button" onclick="setMpesaAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+            <button type="button" onclick="setMpesaAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+          </div>
         </div>
-        
-        <!-- M-Pesa Payment -->
-        <div class="payment-content" id="mpesa-payment">
-          <div class="mb-5">
-            <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button" onclick="setMpesaAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
-              <button type="button" onclick="setMpesaAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
-              <button type="button" onclick="setMpesaAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
-              <button type="button" onclick="setMpesaAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
-            </div>
-          </div>
-          <div class="mb-5">
-            <label for="mpesa-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
-            <input type="number" id="mpesa-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
-          </div>
-          <div class="mb-5">
-            <label for="mpesa-phone" class="block text-gray-700 font-medium mb-2">M-Pesa Phone Number</label>
-            <input type="tel" id="mpesa-phone" placeholder="e.g., 254712345678" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" required />
-          </div>
-          <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-5">
-            <h4 class="font-semibold text-amber-800 mb-2">M-Pesa Till Number</h4>
-            <p class="text-amber-700 font-bold text-xl text-center mb-2">123456</p>
-            <p class="text-sm text-amber-600 text-center">Use this till number for direct M-Pesa payments</p>
-          </div>
-          <button type="button" onclick="processMpesaPayment()" class="w-full bg-green-600 text-white py-3.5 rounded-lg font-semibold hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-green-400">Pay with M-Pesa</button>
+        <div class="mb-5">
+          <label for="mpesa-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+          <input type="number" id="mpesa-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
         </div>
-        
-        <!-- PayPal Payment -->
-        <div class="payment-content" id="paypal-payment">
-          <div class="mb-5">
-            <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
-            <div class="grid grid-cols-2 gap-3">
-              <button type="button" onclick="setPaypalAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
-              <button type="button" onclick="setPaypalAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
-              <button type="button" onclick="setPaypalAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
-              <button type="button" onclick="setPaypalAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-amber-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
-            </div>
-          </div>
-          <div class="mb-5">
-            <label for="paypal-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
-            <input type="number" id="paypal-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent" />
-          </div>
-          <div class="mb-5">
-            <label for="paypal-type" class="block text-gray-700 font-medium mb-2">Designation</label>
-            <select id="paypal-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent">
-              <option value="Most Needed">Where Most Needed</option>
-              <option value="Education">Education</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Emergency Relief">Emergency Relief</option>
-              <option value="Child Sponsorship">Child Sponsorship</option>
-            </select>
-          </div>
-          <button type="button" onclick="processPaypalPayment()" class="w-full bg-blue-600 text-white py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 flex items-center justify-center gap-2">
-            <i class="fab fa-paypal"></i> Pay with PayPal
-          </button>
+        <div class="mb-5">
+          <label for="mpesa-phone" class="block text-gray-700 font-medium mb-2">M-Pesa Phone Number</label>
+          <input type="tel" id="mpesa-phone" placeholder="e.g., 254712345678" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
         </div>
-        
-        <p class="mt-3 text-xs text-gray-500 text-center">Your payment will be processed securely. Nia Little Hearts Foundation is a 501(c)(3) organization and your gift is tax‑deductible as allowed by law.</p>
-      </form>
+        <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-4 mb-5">
+          <h4 class="font-semibold text-gray-900 mb-2">M-Pesa Till Number</h4>
+          <p class="text-gray-800 font-bold text-xl text-center mb-2">123456</p>
+          <p class="text-xs text-gray-600 text-center">Use this till number for direct M-Pesa payments</p>
+        </div>
+        <button type="button" onclick="processMpesaPayment()" class="w-full bg-green-600 text-white py-3.5 rounded-lg font-semibold hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-green-300">Pay with M-Pesa</button>
+      </div>
+
+      <!-- PayPal Payment -->
+      <div id="paypal-payment" class="payment-content">
+        <div class="mb-5">
+          <p class="text-sm text-gray-600 mb-2">Choose an amount (USD)</p>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="setPaypalAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+            <button type="button" onclick="setPaypalAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+            <button type="button" onclick="setPaypalAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+            <button type="button" onclick="setPaypalAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label for="paypal-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+          <input type="number" id="paypal-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+        </div>
+        <div class="mb-5">
+          <label for="paypal-type" class="block text-gray-700 font-medium mb-2">Designation</label>
+          <select id="paypal-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent">
+            <option value="Most Needed">Where Most Needed</option>
+            <option value="Education">Education</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Emergency Relief">Emergency Relief</option>
+            <option value="Child Sponsorship">Child Sponsorship</option>
+          </select>
+        </div>
+        <button type="button" onclick="processPaypalPayment()" class="w-full bg-blue-600 text-white py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-300 flex items-center justify-center gap-2">
+          <i class="fab fa-paypal"></i> Pay with PayPal
+        </button>
+      </div>
+
+      <!-- Bitcoin Payment -->
+      <div id="bitcoin-payment" class="payment-content">
+        <div class="mb-5">
+          <p class="text-sm text-gray-600 mb-2">Choose an amount</p>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="setBtcAmount(25, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$25</button>
+            <button type="button" onclick="setBtcAmount(50, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$50</button>
+            <button type="button" onclick="setBtcAmount(100, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$100</button>
+            <button type="button" onclick="setBtcAmount(250, event)" class="donation-amount bg-gray-100 hover:bg-indigo-100 text-gray-700 py-3 rounded-lg font-semibold transition-all">$250</button>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label for="btc-amount" class="block text-gray-700 font-medium mb-2">Custom Amount (USD)</label>
+          <input type="number" id="btc-amount" min="5" step="1" placeholder="Enter amount" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" />
+        </div>
+        <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+          <h4 class="font-semibold mb-3">Send Bitcoin (BTC)</h4>
+          <p class="text-sm text-gray-600 mb-3">Send your donation to our secure BTC wallet address:</p>
+          <div class="crypto-address" id="btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=bitcoin:bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" alt="Bitcoin QR Code" class="crypto-qr mt-3" />
+          <p class="text-xs text-gray-500 mt-3">After sending, email <strong>crypto@nialittlehearts.org</strong> with your transaction ID for a tax receipt.</p>
+        </div>
+        <button type="button" onclick="copyBitcoinAddress()" class="w-full bg-neutral-700 text-white py-3 rounded-lg font-semibold hover:bg-neutral-800 transition-all">Copy BTC Address</button>
+      </div>
     </div>
   </div>
 
@@ -817,23 +895,23 @@
     <div class="bg-white rounded-xl max-w-lg w-full p-6 md:p-8 shadow-xl" role="document">
       <div class="flex justify-between items-center mb-6">
         <h3 id="sponsorship-title" class="text-2xl font-bold text-gray-900">Child Sponsorship</h3>
-        <button onclick="closeSponsorshipModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-amber-300 rounded" aria-label="Close sponsorship modal"><i class="fas fa-times text-xl"></i></button>
+        <button onclick="closeSponsorshipModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded" aria-label="Close sponsorship modal"><i class="fas fa-times text-xl"></i></button>
       </div>
       <div id="sponsorship-content">
-        <p class="text-gray-600 mb-5">With a monthly gift of <span class="font-semibold text-amber-700">$40</span>, you will help provide your sponsored child with education, healthcare, spiritual and emotional support through a local community of care.</p>
+        <p class="text-gray-600 mb-5">With a monthly gift of <span class="font-semibold text-indigo-700">$40</span>, you will help provide your sponsored child with education, healthcare, spiritual and emotional support through a local community of care.</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 text-sm">
           <div class="space-y-2">
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Personal letters and photos</span></div>
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>School fees & supplies</span></div>
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Healthy meals & clean water</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>Personal letters and photos</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>School fees & supplies</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>Healthy meals & clean water</span></div>
           </div>
           <div class="space-y-2">
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Medical check‑ups</span></div>
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Safe, nurturing community</span></div>
-            <div class="flex items-center space-x-2"><i class="fas fa-check text-emerald-600"></i><span>Tax‑deductible giving</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>Medical check‑ups</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>Safe, nurturing community</span></div>
+            <div class="flex items-center space-x-2"><i class="fas fa-check text-indigo-600"></i><span>Tax‑deductible giving</span></div>
           </div>
         </div>
-        <button onclick="startSponsorship()" class="w-full bg-gradient-to-r from-amber-600 to-emerald-600 text-white py-3.5 rounded-lg font-semibold hover:from-amber-700 hover:to-emerald-700 transition-all focus:outline-none focus:ring-2 focus:ring-amber-400">Start Sponsorship – $40/month</button>
+        <button onclick="startSponsorship()" class="w-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white py-3.5 rounded-lg font-semibold hover:from-indigo-700 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">Start Sponsorship – $40/month</button>
       </div>
     </div>
   </div>
@@ -856,7 +934,9 @@
     function applyTheme(theme){
       document.documentElement.setAttribute('data-theme', theme);
       try { localStorage.setItem('theme', theme); } catch(e){}
-      // Update icons/labels
+      // Update icons/labels and adjust meta theme-color
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#03030f' : '#8c8be6');
       document.querySelectorAll('.theme-toggle').forEach(btn => {
         const dark = theme === 'dark';
         btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
@@ -957,15 +1037,12 @@
         document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
         // Add active class to clicked tab
         this.classList.add('active');
-        
         // Hide all payment content
-        document.querySelectorAll('.payment-content').forEach(content => {
-          content.classList.remove('active');
-        });
-        
+        document.querySelectorAll('.payment-content').forEach(content => content.classList.remove('active'));
         // Show corresponding payment content
         const tabId = this.getAttribute('data-tab');
-        document.getElementById(`${tabId}-payment`).classList.add('active');
+        const panel = document.getElementById(`${tabId}-payment`);
+        if (panel) panel.classList.add('active');
       });
     });
 
@@ -985,10 +1062,10 @@
       donationModal.classList.add('hidden');
       donationModal.classList.remove('flex');
       document.body.style.overflow = 'auto';
-      // Reset all amount inputs
-      document.querySelectorAll('input[type="number"]').forEach(input => input.value = '');
+      const inputIds = ['custom-amount','btc-amount'];
+      inputIds.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
       document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.remove('bg-indigo-700','text-white');
         btn.classList.add('bg-gray-100','text-gray-700');
       });
       if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
@@ -997,41 +1074,76 @@
 
     function setDonationAmount(amount, event) {
       document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-amber-700','text-white');
+        btn.classList.remove('bg-indigo-700','text-white');
         btn.classList.add('bg-gray-100','text-gray-700');
       });
       if (event && event.currentTarget) {
         event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-amber-700','text-white');
+        event.currentTarget.classList.add('bg-indigo-700','text-white');
       }
       const input = document.getElementById('custom-amount');
       if (input) input.value = amount;
     }
-    
-    function setMpesaAmount(amount, event) {
-      document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-amber-700','text-white');
+
+    // Bitcoin helpers
+    function setBtcAmount(amount, event){
+      document.querySelectorAll('#bitcoin-payment .donation-amount').forEach(btn => {
+        btn.classList.remove('bg-indigo-700','text-white');
         btn.classList.add('bg-gray-100','text-gray-700');
       });
       if (event && event.currentTarget) {
         event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-amber-700','text-white');
+        event.currentTarget.classList.add('bg-indigo-700','text-white');
+      }
+      const input = document.getElementById('btc-amount');
+      if (input) input.value = amount;
+    }
+    function setMpesaAmount(amount, event){
+      document.querySelectorAll('#mpesa-payment .donation-amount').forEach(btn => {
+        btn.classList.remove('bg-indigo-700','text-white');
+        btn.classList.add('bg-gray-100','text-gray-700');
+      });
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
+        event.currentTarget.classList.add('bg-indigo-700','text-white');
       }
       const input = document.getElementById('mpesa-amount');
       if (input) input.value = amount;
     }
-    
-    function setPaypalAmount(amount, event) {
-      document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-amber-700','text-white');
+    function setPaypalAmount(amount, event){
+      document.querySelectorAll('#paypal-payment .donation-amount').forEach(btn => {
+        btn.classList.remove('bg-indigo-700','text-white');
         btn.classList.add('bg-gray-100','text-gray-700');
       });
       if (event && event.currentTarget) {
         event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-amber-700','text-white');
+        event.currentTarget.classList.add('bg-indigo-700','text-white');
       }
       const input = document.getElementById('paypal-amount');
       if (input) input.value = amount;
+    }
+    function processMpesaPayment(){
+      const amount = parseFloat(document.getElementById('mpesa-amount').value || '0');
+      const phone = (document.getElementById('mpesa-phone').value || '').trim();
+      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
+      if (!phone) { alert('Please enter your M-Pesa phone number.'); return; }
+      alert(`Thank you! We've sent an M-Pesa prompt to ${phone} for ${amount.toFixed(2)}. Please complete the payment on your phone.`);
+      closeDonationModal();
+    }
+    function processPaypalPayment(){
+      const amount = parseFloat(document.getElementById('paypal-amount').value || '0');
+      const designation = document.getElementById('paypal-type').value;
+      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
+      alert(`You will be redirected to PayPal to give ${amount.toFixed(2)} to "${designation}".`);
+      closeDonationModal();
+    }
+    function copyBitcoinAddress(){
+      const addr = document.getElementById('btc-address');
+      if (!addr) return;
+      const text = addr.textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(()=> alert('Bitcoin address copied to clipboard!')).catch(()=> alert(text));
+      } else { alert(text); }
     }
 
     function handleDonation(event) {
@@ -1040,37 +1152,6 @@
       const designation = document.getElementById('donation-type').value;
       if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
       alert(`Thank you for your generous gift of $${amount.toFixed(2)} to "${designation}". You will be redirected to our secure payment processor in a real implementation.`);
-      closeDonationModal();
-    }
-    
-    function processMpesaPayment() {
-      const amount = parseFloat(document.getElementById('mpesa-amount').value || '0');
-      const phone = document.getElementById('mpesa-phone').value.trim();
-      
-      if (!amount || amount < 5) { 
-        alert('Please enter a donation of at least $5.'); 
-        return; 
-      }
-      
-      if (!phone) {
-        alert('Please enter your M-Pesa phone number.');
-        return;
-      }
-      
-      alert(`Thank you! We've sent an M-Pesa prompt to ${phone} for $${amount.toFixed(2)}. Please complete the payment on your phone.`);
-      closeDonationModal();
-    }
-    
-    function processPaypalPayment() {
-      const amount = parseFloat(document.getElementById('paypal-amount').value || '0');
-      const designation = document.getElementById('paypal-type').value;
-      
-      if (!amount || amount < 5) { 
-        alert('Please enter a donation of at least $5.'); 
-        return; 
-      }
-      
-      alert(`Thank you for your $${amount.toFixed(2)} donation to "${designation}". You will be redirected to PayPal to complete your payment.`);
       closeDonationModal();
     }
 
@@ -1107,7 +1188,7 @@
     // Share
     async function shareOnSocial(platform){
       const url = window.location.href;
-      const text = "Join me in supporting Nia Little Hearts Foundation – transforming children's lives around the world!";
+      const text = "Join me in supporting Nia Little Hearts Foundation – transforming children’s lives around the world!";
       if (platform === 'copy') {
         try { await navigator.clipboard.writeText(url); alert('Link copied to clipboard!'); } catch(e){ alert('Copy this link: ' + url); }
         return;
@@ -1231,5 +1312,43 @@
       }
     });
   </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
 </body>
 </html>
