@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nia Little Hearts Foundation - Transforming Children's Lives</title>
   <meta name="description" content="Nia Little Hearts Foundation equips vulnerable children with education, healthcare, and community support. Sponsor a child, donate, or volunteer today." />
-  <meta name="theme-color" content="#8c8be6" />
+  <meta name="theme-color" content="#FF6D1F" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Nia Little Hearts Foundation" />
@@ -33,45 +33,45 @@
     }
 
     :root {
-      --bg: #d8d9f7;
-      --fg: #03030f;
-      --primary: #8c8be6;
-      --primary-700: #6f6ed0;
-      --accent: #82211c;
-      --accent-2: #d4a833;
-      --muted: #e6e7fb;
-      --muted-2: #eef0ff;
+      --bg: #FAF3E1;        /* main page background */
+      --fg: #222222;        /* primary text color */
+      --primary: #FF6D1F;   /* accent / CTA buttons */
+      --primary-700: #E35F12; /* darker hover */
+      --accent: #F5E7C6;    /* soft card backgrounds */
+      --accent-2: #FF6D1F;  /* secondary accent */
+      --muted: #F5E7C6;     /* light sections */
+      --muted-2: #FFF6DD;   /* lighter tint */
     }
 
     [data-theme='dark'] {
-      --bg: #03030f;
-      --fg: #d8d9f7;
+      --bg: #222222;
+      --fg: #FAF3E1;
     }
 
     [data-theme='dark'] body { background-color: var(--bg); color: var(--fg); }
-    [data-theme='dark'] #navbar { background-color: rgba(3,3,15,.85) !important; color: var(--fg); }
-    [data-theme='dark'] .nav-link { color: #d8d9f7 !important; }
+    [data-theme='dark'] #navbar { background-color: rgba(34,34,34,.92) !important; color: var(--fg); }
+    [data-theme='dark'] .nav-link { color: #FAF3E1 !important; }
     [data-theme='dark'] .nav-link:hover { color: var(--primary) !important; }
-    [data-theme='dark'] .bg-white { background-color: #0b0b1d !important; }
-    [data-theme='dark'] .bg-white\/90 { background-color: rgba(11,11,29,.90) !important; }
-    [data-theme='dark'] .bg-white\/95 { background-color: rgba(11,11,29,.95) !important; }
-    [data-theme='dark'] .bg-gray-50 { background-color: #09091a !important; }
-    [data-theme='dark'] .bg-gray-100 { background-color: #0f0f24 !important; }
+    [data-theme='dark'] .bg-white { background-color: #2A2A2A !important; }
+    [data-theme='dark'] .bg-white\/90 { background-color: rgba(42,42,42,.90) !important; }
+    [data-theme='dark'] .bg-white\/95 { background-color: rgba(42,42,42,.95) !important; }
+    [data-theme='dark'] .bg-gray-50 { background-color: #1F1F1F !important; }
+    [data-theme='dark'] .bg-gray-100 { background-color: #242424 !important; }
     [data-theme='dark'] .text-gray-900 { color: var(--fg) !important; }
-    [data-theme='dark'] .text-gray-800 { color: #e7e8ff !important; }
-    [data-theme='dark'] .text-gray-700 { color: #d8d9f7 !important; }
-    [data-theme='dark'] .text-gray-600 { color: #c8c9f1 !important; }
-    [data-theme='dark'] .border-gray-300 { border-color: #27294f !important; }
-    [data-theme='dark'] .border-gray-100 { border-color: #191a34 !important; }
+    [data-theme='dark'] .text-gray-800 { color: #F5E7C6 !important; }
+    [data-theme='dark'] .text-gray-700 { color: #FAF3E1 !important; }
+    [data-theme='dark'] .text-gray-600 { color: #E4D8B8 !important; }
+    [data-theme='dark'] .border-gray-300 { border-color: #3A3A3A !important; }
+    [data-theme='dark'] .border-gray-100 { border-color: #333333 !important; }
     [data-theme='dark'] input,
     [data-theme='dark'] select,
     [data-theme='dark'] textarea {
-      background-color: #0b0b1d;
+      background-color: #2A2A2A;
       color: var(--fg);
-      border-color: #27294f;
+      border-color: #3A3A3A;
     }
     [data-theme='dark'] input::placeholder,
-    [data-theme='dark'] textarea::placeholder { color: #a5a7d8; }
+    [data-theme='dark'] textarea::placeholder { color: #C9C0A6; }
 
     .text-gradient {
       background: linear-gradient(90deg, var(--primary), var(--accent-2));
@@ -82,23 +82,23 @@
 
     .hero-gradient {
       background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.22), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.18), transparent 60%),
-        linear-gradient(135deg, #03030f, #0c0c22);
+        radial-gradient(1200px 600px at 10% 10%, rgba(255,109,31,0.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(245,231,198,0.32), transparent 60%),
+        linear-gradient(135deg, #222222, #1A1A1A);
     }
 
     .hero-video-overlay {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.25), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.25), transparent 60%),
-        linear-gradient(135deg, rgba(3,3,15,.82), rgba(12,12,34,.72));
+        radial-gradient(1200px 600px at 10% 10%, rgba(255,109,31,0.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(245,231,198,0.28), transparent 60%),
+        linear-gradient(135deg, rgba(34,34,34,.88), rgba(20,20,20,.78));
       pointer-events:none;
     }
 
     .donation-gradient {
-      background: linear-gradient(135deg, #03030f 0%, #101034 40%, #1a1742 100%);
+      background: linear-gradient(135deg, #222222 0%, #1A1A1A 40%, #111111 100%);
     }
 
     .hover-lift {
@@ -173,7 +173,7 @@
     #loading {
       position: fixed;
       inset: 0;
-      background: #ffffff;
+      background: #FAF3E1;
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -208,7 +208,7 @@
       animation: floatUp 1.2s ease-out forwards;
       opacity: 0;
     }
-    .heart, .heart:before, .heart:after { background: #ff5a8a; }
+    .heart, .heart:before, .heart:after { background: #FF6D1F; }
     .heart:before, .heart:after {
       content: '';
       position: absolute;
@@ -259,20 +259,20 @@
       border-radius: 0;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%),
-        linear-gradient(135deg, rgba(140,139,230,.35), rgba(212,168,51,.18));
+        linear-gradient(135deg, rgba(255,109,31,.22), rgba(245,231,198,.22));
       box-shadow: 0 10px 24px rgba(0,0,0,.12);
       transform: rotate(45deg);
     }
     .shape-pill {
       border-radius: 9999px;
-      background: linear-gradient(90deg, rgba(140,139,230,.28), rgba(140,139,230,.14));
+      background: linear-gradient(90deg, rgba(255,109,31,.20), rgba(245,231,198,.20));
       box-shadow: 0 8px 18px rgba(0,0,0,.10);
     }
     .shape-blob {
       border-radius: 50%;
       background:
         radial-gradient(circle at 40% 40%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%),
-        linear-gradient(135deg, rgba(130,33,28,.35), rgba(140,139,230,.25));
+        linear-gradient(135deg, rgba(255,109,31,.22), rgba(245,231,198,.28));
       box-shadow: 0 10px 24px rgba(0,0,0,.12);
     }
 
@@ -283,13 +283,15 @@
       border: 2px solid transparent;
       cursor: pointer;
       transition: all .2s ease;
-      background: #f8fafc;
+      background: #F5E7C6;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 0.875rem;
       font-weight: 500;
+      color: #222222;
     }
+    .payment-tab i { display: inline-block; }
     .payment-tab.active {
       border-color: var(--primary);
       background: var(--muted-2);
@@ -299,10 +301,11 @@
 
     .crypto-address {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      background: #f8fafc;
+      background: #F5E7C6;
       padding: 12px;
       border-radius: 8px;
       word-break: break-all;
+      color: #222222;
     }
     .crypto-qr {
       width: 100%;
@@ -355,19 +358,19 @@
   </div>
 
   <!-- Back to top -->
-  <button id="backToTop" class="hidden fixed bottom-6 right-6 bg-indigo-600 text-white rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" aria-label="Back to top">
+  <button id="backToTop" class="hidden fixed bottom-6 right-6 bg-[#222222] text-white rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
   </button>
 
   <!-- Sticky CTA -->
-  <div id="sticky-cta" class="fixed bottom-0 inset-x-0 bg-white/80 border-t border-gray-200 shadow-sm py-3 px-4 flex items-center justify-between md:hidden z-40">
+  <div id="sticky-cta" class="fixed bottom-0 inset-x-0 bg-[#FAF3E1]/95 border-t border-[#F5E7C6] shadow-sm py-3 px-4 flex items-center justify-between md:hidden z-40">
     <div class="text-sm">
-      <p class="font-semibold text-gray-900">Every gift changes a story</p>
-      <p class="text-gray-600 text-xs">Donate now or sponsor a child.</p>
+      <p class="font-semibold text-[#222222]">Every gift changes a story</p>
+      <p class="text-gray-700 text-xs">Donate now or sponsor a child.</p>
     </div>
     <div class="flex gap-2">
-      <button onclick="openDonationModal()" class="bg-indigo-600 text-white text-xs px-3 py-2 rounded-lg font-semibold">Donate</button>
-      <button onclick="scrollToSection('sponsor')" class="border border-indigo-600 text-indigo-600 text-xs px-3 py-2 rounded-lg font-semibold">Sponsor</button>
+      <button onclick="openDonationModal()" class="bg-[#FF6D1F] text-white text-xs px-3 py-2 rounded-lg font-semibold">Donate</button>
+      <button onclick="scrollToSection('sponsor')" class="border border-[#FF6D1F] text-[#FF6D1F] text-xs px-3 py-2 rounded-lg font-semibold">Sponsor</button>
     </div>
   </div>
 
@@ -375,58 +378,58 @@
   <div id="confetti"></div>
 
   <!-- Navigation -->
-  <nav id="navbar" class="bg-white/90 backdrop-blur shadow-lg fixed w-full top-0 z-50 transition-all duration-300" role="navigation" aria-label="Main Navigation">
+  <nav id="navbar" class="bg-[#FAF3E1]/95 backdrop-blur shadow-lg fixed w-full top-0 z-50 transition-all duration-300" role="navigation" aria-label="Main Navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded">
+          <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#FF6D1F] rounded">
             <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-12 w-auto" />
             <span class="sr-only">Nia Little Hearts</span>
           </a>
         </div>
         <div class="hidden md:block">
           <ul class="ml-10 flex items-center gap-2" role="menubar">
-            <li><a href="#home" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
-            <li><a href="#about" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a></li>
-            <li><a href="#programs" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Programs</a></li>
-            <li><a href="#impact" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a></li>
-            <li><a href="#stories" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Stories</a></li>
-            <li><a href="#sponsor" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sponsor</a></li>
-            <li><a href="#help" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Involved</a></li>
-            <li><a href="#contact" class="nav-link text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a></li>
+            <li><a href="#home" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a></li>
+            <li><a href="#about" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a></li>
+            <li><a href="#programs" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Programs</a></li>
+            <li><a href="#impact" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Impact</a></li>
+            <li><a href="#stories" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Stories</a></li>
+            <li><a href="#sponsor" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Sponsor</a></li>
+            <li><a href="#help" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Get Involved</a></li>
+            <li><a href="#contact" class="nav-link text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a></li>
             <li>
-              <button type="button" class="theme-toggle text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-sm font-medium" aria-label="Toggle dark mode" aria-pressed="false">
+              <button type="button" class="theme-toggle text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-sm font-medium" aria-label="Toggle dark mode" aria-pressed="false">
                 <i class="fas fa-moon"></i>
               </button>
             </li>
             <li>
-              <button onclick="openDonationModal()" class="bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:from-indigo-600 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">
+              <button onclick="openDonationModal()" class="bg-[#FF6D1F] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#E35F12] transition-all focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
                 Donate Now
               </button>
             </li>
           </ul>
         </div>
         <div class="md:hidden">
-          <button id="menu-btn" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <button id="menu-btn" onclick="toggleMobileMenu()" class="text-gray-800 hover:text-[#FF6D1F] focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60 rounded" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
       </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t" role="menu" aria-label="Mobile Menu">
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FAF3E1] border-t border-[#F5E7C6]" role="menu" aria-label="Mobile Menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <a href="#home" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
-        <a href="#about" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">About</a>
-        <a href="#programs" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Programs</a>
-        <a href="#impact" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Impact</a>
-        <a href="#stories" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Stories</a>
-        <a href="#sponsor" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Sponsor</a>
-        <a href="#help" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Get Involved</a>
-        <a href="#contact" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Contact</a>
-        <button type="button" class="theme-toggle block w-full text-left text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">
+        <a href="#home" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="#about" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="#programs" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Programs</a>
+        <a href="#impact" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Impact</a>
+        <a href="#stories" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Stories</a>
+        <a href="#sponsor" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Sponsor</a>
+        <a href="#help" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Get Involved</a>
+        <a href="#contact" class="block text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">Contact</a>
+        <button type="button" class="theme-toggle block w-full text-left text-gray-800 hover:text-[#FF6D1F] px-3 py-2 rounded-md text-base font-medium">
           <i class="fas fa-moon mr-2"></i>Dark mode
         </button>
-        <button onclick="openDonationModal()" class="w-full text-left bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white px-3 py-2 rounded-md text-base font-medium mt-2">
+        <button onclick="openDonationModal()" class="w-full text-left bg-[#FF6D1F] text-white px-3 py-2 rounded-md text-base font-medium mt-2">
           Donate Now
         </button>
       </div>
@@ -444,32 +447,32 @@
       <span class="parallax-shape shape-pill w-32 h-10 right-10 top-40"></span>
       <span class="parallax-shape shape-blob w-24 h-24 left-1/2 -translate-x-1/2 top-10"></span>
     </div>
-    <div class="relative hero-gradient">
+    <div class="relative hero-gradient text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="text-white reveal">
-            <p class="uppercase tracking-[0.2em] text-sm mb-3" style="color: rgba(212,168,51,.9)">For children, for hope, for tomorrow</p>
+          <div class="reveal">
+            <p class="uppercase tracking-[0.2em] text-sm mb-3 text-[#F5E7C6]">For children, for hope, for tomorrow</p>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              Every Child Deserves a <span class="text-yellow-300">Bright Future</span>
+              Every Child Deserves a <span class="text-[#FF6D1F]">Bright Future</span>
             </h1>
-            <p class="text-lg md:text-xl mb-8 text-gray-100/90 max-w-xl">
+            <p class="text-lg md:text-xl mb-8 text-[#FAF3E1] max-w-xl">
               Nia Little Hearts Foundation walks alongside vulnerable children with education, healthcare, and the love of a caring community.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
-              <button onclick="openDonationModal()" class="bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-200">
+              <button onclick="openDonationModal()" class="bg-[#FF6D1F] text-[#222222] px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#E35F12] transition-all transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
                 <i class="fas fa-heart mr-2" aria-hidden="true"></i>Donate Now
               </button>
-              <button onclick="scrollToSection('sponsor')" class="border-2 border-white/80 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-800 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-200">
+              <button onclick="scrollToSection('sponsor')" class="border-2 border-white/80 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-[#222222] transition-all focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
                 <i class="fas fa-child mr-2" aria-hidden="true"></i>Sponsor a Child
               </button>
             </div>
-            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-indigo-100/90">
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-[#F5E7C6]">
               <div class="flex items-center gap-2">
-                <i class="fas fa-shield-heart" style="color:#d4a833" aria-hidden="true"></i>
+                <i class="fas fa-shield-heart text-[#FF6D1F]" aria-hidden="true"></i>
                 <span>Trusted, registered non-profit</span>
               </div>
               <div class="flex items-center gap-2">
-                <i class="fas fa-hand-holding-heart" style="color:#d4a833" aria-hidden="true"></i>
+                <i class="fas fa-hand-holding-heart text-[#FF6D1F]" aria-hidden="true"></i>
                 <span>Child-focused, community-based</span>
               </div>
             </div>
@@ -483,21 +486,21 @@
               </div>
               <div class="mt-6 grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="500">0</div>
-                  <div class="text-xs md:text-sm text-gray-100">Children Reached</div>
+                  <div class="text-3xl font-bold text-[#FF6D1F] stat-counter" data-target="500">0</div>
+                  <div class="text-xs md:text-sm text-[#FAF3E1]">Children Reached</div>
                 </div>
                 <div>
-                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="1">0</div>
-                  <div class="text-xs md:text-sm text-gray-100">Counties Served</div>
+                  <div class="text-3xl font-bold text-[#FF6D1F] stat-counter" data-target="1">0</div>
+                  <div class="text-xs md:text-sm text-[#FAF3E1]">Counties Served</div>
                 </div>
                 <div>
-                  <div class="text-3xl font-bold text-yellow-300 stat-counter" data-target="1">0</div>
-                  <div class="text-xs md:text-sm text-gray-100">Years of Impact</div>
+                  <div class="text-3xl font-bold text-[#FF6D1F] stat-counter" data-target="1">0</div>
+                  <div class="text-xs md:text-sm text-[#FAF3E1]">Years of Impact</div>
                 </div>
               </div>
-              <div class="mt-4 flex items-center justify-between text-xs md:text-sm text-gray-100">
+              <div class="mt-4 flex items-center justify-between text-xs md:text-sm text-[#FAF3E1]">
                 <div class="flex items-center gap-2">
-                  <i class="fas fa-circle-check" style="color:#8c8be6" aria-hidden="true"></i>
+                  <i class="fas fa-circle-check text-[#F5E7C6]" aria-hidden="true"></i>
                   <span>Accountability & transparency</span>
                 </div>
                 <span class="hidden sm:inline"></span>
@@ -510,39 +513,39 @@
   </section>
 
   <!-- Mission -->
-  <section id="about" class="py-16 md:py-20 bg-white">
+  <section id="about" class="py-16 md:py-20 bg-[#FAF3E1]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#222222] mb-4">Our Mission</h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
           From care today to hope tomorrow, every effort pushes for real transformation in a child’s world.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-8 rounded-xl bg-indigo-50 hover-lift reveal">
-          <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-graduation-cap text-indigo-700 text-2xl" aria-hidden="true"></i>
+        <div class="text-center p-8 rounded-xl" style="background-color:#F5E7C6;">
+          <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-graduation-cap text-[#FF6D1F] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Education</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Education</h3>
+          <p class="text-gray-700">
             To empower children through education by providing the tools they need to learn and succeed.
           </p>
         </div>
-        <div class="text-center p-8 rounded-xl bg-rose-50 hover-lift reveal">
-          <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-heartbeat text-rose-700 text-2xl" aria-hidden="true"></i>
+        <div class="text-center p-8 rounded-xl" style="background-color:#F5E7C6;">
+          <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-heartbeat text-[#FF6D1F] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Health & Nutrition</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Health & Nutrition</h3>
+          <p class="text-gray-700">
             To support children with nutritious food, clean water, and essential hygiene items for healthy growth.
           </p>
         </div>
-        <div class="text-center p-8 rounded-xl bg-yellow-50 hover-lift reveal">
-          <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i class="fas fa-home text-yellow-700 text-2xl" aria-hidden="true"></i>
+        <div class="text-center p-8 rounded-xl" style="background-color:#F5E7C6%;">
+          <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-home text-[#FF6D1F] text-2xl" aria-hidden="true"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Love & Community</h3>
-          <p class="text-gray-600">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Love & Community</h3>
+          <p class="text-gray-700">
             To foster a community of kindness that lifts children emotionally, socially, and spiritually.
           </p>
         </div>
@@ -551,11 +554,11 @@
   </section>
 
   <!-- Programs -->
-  <section id="programs" class="py-16 md:py-20 bg-gray-50">
+  <section id="programs" class="py-16 md:py-20" style="background-color:#F5E7C6;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#222222] mb-4">Our Programs</h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
           From daily meals to disaster relief, each program is designed with one goal: lasting, child-centered transformation.
         </p>
       </div>
@@ -563,11 +566,11 @@
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="https://images.unsplash.com/photo-1542319272-42dba4f554be?auto=format&fit=crop&w=900&q=80" alt="Volunteers sharing food and warm clothing" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Little Smiles Outreach</h3>
-            <p class="text-gray-600 mb-4 flex-1">
+            <h3 class="text-xl font-semibold text-[#222222] mb-3">Little Smiles Outreach</h3>
+            <p class="text-gray-700 mb-4 flex-1">
               From shared meals to warm clothing, each visit is designed to remind children that they are valued and loved.
             </p>
-            <button onclick="openSponsorshipModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+            <button onclick="openSponsorshipModal()" class="text-[#FF6D1F] font-semibold hover:underline mt-auto">
               Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </button>
           </div>
@@ -576,11 +579,11 @@
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="https://images.unsplash.com/photo-1565425518476-3229123699c5?auto=format&fit=crop&w=1000&q=80" alt="Holiday gifts and cheerful children" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Holiday Cheer Gift Drive</h3>
-            <p class="text-gray-600 mb-4 flex-1">
+            <h3 class="text-xl font-semibold text-[#222222] mb-3">Holiday Cheer Gift Drive</h3>
+            <p class="text-gray-700 mb-4 flex-1">
               From festive gifts to fun activities, every celebration brings warmth, laughter, and renewed belief in brighter days.
             </p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+            <button onclick="openDonationModal()" class="text-[#FF6D1F] font-semibold hover:underline mt-auto">
               Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </button>
           </div>
@@ -589,11 +592,11 @@
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="images/Ian and kids.png" alt="Ian with children" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Community Love Partners</h3>
-            <p class="text-gray-600 mb-4 flex-1">
+            <h3 class="text-xl font-semibold text-[#222222] mb-3">Community Love Partners</h3>
+            <p class="text-gray-700 mb-4 flex-1">
               From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support.
             </p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+            <button onclick="openDonationModal()" class="text-[#FF6D1F] font-semibold hover:underline mt-auto">
               Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </button>
           </div>
@@ -602,11 +605,11 @@
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=1000&q=80" alt="Health and nutrition support" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health Checkups & Nutrition</h3>
-            <p class="text-gray-600 mb-4 flex-1">
+            <h3 class="text-xl font-semibold text-[#222222] mb-3">Health Checkups & Nutrition</h3>
+            <p class="text-gray-700 mb-4 flex-1">
               From daily food support to sanitary pads, each step ensures no child is left behind.
             </p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+            <button onclick="openDonationModal()" class="text-[#FF6D1F] font-semibold hover:underline mt-auto">
               Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </button>
           </div>
@@ -616,11 +619,11 @@
   </section>
 
   <!-- Impact -->
-  <section id="impact" class="py-16 md:py-20 bg-white">
+  <section id="impact" class="py-16 md:py-20 bg-[#FAF3E1]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#222222] mb-4">Our Impact</h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
           Because of partners like you, children are stepping into classrooms, receiving life-saving care, and discovering their God-given potential.
         </p>
       </div>
@@ -629,20 +632,20 @@
           <img src="https://images.pexels.com/photos/8042458/pexels-photo-8042458.jpeg?w=800&h=500&fit=crop" alt="Teacher and students celebrating success" class="rounded-xl w-full object-cover shadow-lg" loading="lazy" />
         </div>
         <div class="reveal">
-          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Stories of Hope</h3>
+          <h3 class="text-2xl md:text-3xl font-bold text-[#222222] mb-6">Stories of Hope</h3>
           <div class="space-y-6">
-            <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
-              <p class="text-gray-700 text-sm">
+            <div class="p-4 rounded-lg" style="background-color:#F5E7C6;border:1px solid #E4D8B8;">
+              <p class="text-gray-800 text-sm">
                 “With school meals and books, my daughter finally smiles on Mondays again.” – A mother in Kenya
               </p>
             </div>
-            <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
-              <p class="text-gray-700 text-sm">
+            <div class="p-4 rounded-lg" style="background-color:#F5E7C6;border:1px solid #E4D8B8;">
+              <p class="text-gray-800 text-sm">
                 “Our village well means girls spend time in class, not in line for water.” – Community leader, India
               </p>
             </div>
           </div>
-          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-indigo-800 font-semibold hover:underline">
+          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-[#FF6D1F] font-semibold hover:underline">
             Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
           </button>
         </div>
@@ -651,63 +654,60 @@
   </section>
 
   <!-- Stories / Testimonials -->
-  <section id="stories" class="py-16 md:py-20 bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-900 text-white">
+  <section id="stories" class="py-16 md:py-20" style="background-color:#222222;color:#FAF3E1;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Voices from the Community</h2>
-        <p class="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto">
+        <p class="text-lg md:text-xl text-[#F5E7C6] max-w-3xl mx-auto">
           Caregivers, children, and local leaders share how Nia Little Hearts is making a difference.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+        <article class="bg-white/5 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop" alt="Mama Amina, caregiver" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
-              <h3 class="font-semibold">Mama Amina</h3>
-              <p class="text-sm text-indigo-100/90">Caregiver, Mombasa</p>
+              <h3 class="font-semibold text-white">Mama Amina</h3>
+              <p class="text-sm text-[#F5E7C6]/90">Caregiver, Mombasa</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-indigo-50 flex-1">
+          <p class="text-sm md:text-base text-[#FAF3E1] flex-1">
             "When Nia Little Hearts first came to our centre, I saw hope return to the children's eyes. They brought more than food and clothes — they brought love."
           </p>
-          <div class="mt-4 flex text-yellow-300 text-sm">
+          <div class="mt-4 flex text-[#FF6D1F] text-sm">
             ★★★★★
           </div>
         </article>
 
-        <!-- Testimonial 2 -->
-        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+        <article class="bg-white/5 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1617895153857-82fe79adfcd4?w=200&h=200&fit=crop" alt="Brian, 12 years old from Kilifi" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
-              <h3 class="font-semibold">Brian, Age 12</h3>
-              <p class="text-sm text-indigo-100/90">Kilifi County</p>
+              <h3 class="font-semibold text-white">Brian, Age 12</h3>
+              <p class="text-sm text-[#F5E7C6]/90">Kilifi County</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-indigo-50 flex-1">
+          <p class="text-sm md:text-base text-[#FAF3E1] flex-1">
             "I used to think nobody cared about children like me. But Nia Little Hearts showed me I am special. Now I want to study hard and become a doctor."
           </p>
-          <div class="mt-4 flex text-yellow-300 text-sm">
+          <div class="mt-4 flex text-[#FF6D1F] text-sm">
             ★★★★★
           </div>
         </article>
 
-        <!-- Testimonial 3 -->
-        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+        <article class="bg-white/5 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
           <div class="flex items-center gap-4 mb-4">
             <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=200&h=200&fit=crop" alt="Pastor Joseph, Centre Director" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
             <div>
-              <h3 class="font-semibold">Pastor Joseph</h3>
-              <p class="text-sm text-indigo-100/90">Centre Director, Utange</p>
+              <h3 class="font-semibold text-white">Pastor Joseph</h3>
+              <p class="text-sm text-[#F5E7C6]/90">Centre Director, Utange</p>
             </div>
           </div>
-          <p class="text-sm md:text-base text-indigo-50 flex-1">
+          <p class="text-sm md:text-base text-[#FAF3E1] flex-1">
             "In my many years running this centre, I have never seen volunteers with such genuine hearts. Nia Little Hearts becomes family."
           </p>
-          <div class="mt-4 flex text-yellow-300 text-sm">
+          <div class="mt-4 flex text-[#FF6D1F] text-sm">
             ★★★★★
           </div>
         </article>
@@ -716,27 +716,26 @@
   </section>
 
   <!-- Sponsor a Child -->
-  <section id="sponsor" class="py-16 md:py-20 bg-gray-50">
+  <section id="sponsor" class="py-16 md:py-20" style="background-color:#F5E7C6;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sponsor a Child's Needs Today</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          For just <span class="font-semibold text-indigo-700">$40 a month</span>, you can walk alongside a child in need and say, "You matter."
+        <h2 class="text-3xl md:text-4xl font-bold text-[#222222] mb-4">Sponsor a Child's Needs Today</h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+          For just <span class="font-semibold text-[#FF6D1F]">$40 a month</span>, you can walk alongside a child in need and say, "You matter."
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Amina -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
               <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop" alt="Amina, age 17 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-gray-900">Meet Amina</h3>
-                <p class="text-gray-600 mt-1">Age 17 • Kenya</p>
+                <h3 class="text-xl font-semibold text-[#222222]">Meet Amina</h3>
+                <p class="text-gray-700 mt-1">Age 17 • Kenya</p>
                 <p class="text-sm text-gray-500 mt-2">Loves reading and wants to be a teacher.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-indigo-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-[#FF6D1F] text-[#222222] rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Amina</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -745,25 +744,24 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Regular medical check-ups</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Letters and photo updates</li>
               </ul>
-              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-indigo-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-[#FF6D1F] px-6 py-3 rounded-lg font-semibold hover:bg-[#F5E7C6] transition-all">
                 Sponsor Amina – $40/mo
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Liam -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
               <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=400&fit=crop" alt="Liam, age 3 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-gray-900">Meet Liam</h3>
-                <p class="text-gray-600 mt-1">Age 3 • Kenya</p>
+                <h3 class="text-xl font-semibold text-[#222222]">Meet Liam</h3>
+                <p class="text-gray-700 mt-1">Age 3 • Kenya</p>
                 <p class="text-sm text-gray-500 mt-2">Enjoys playful learning and dreams of a bright future.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-rose-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-[#FF6D1F] text-[#222222] rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Liam</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -772,25 +770,24 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Clean water access</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Personal mentorship</li>
               </ul>
-              <button onclick="openSponsorshipModal('Liam')" class="mt-6 bg-white text-rose-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+              <button onclick="openSponsorshipModal('Liam')" class="mt-6 bg-white text-[#FF6D1F] px-6 py-3 rounded-lg font-semibold hover:bg-[#F5E7C6] transition-all">
                 Sponsor Liam – $40/mo
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Jane -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
               <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=400&fit=crop" alt="Jane, age 9 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-gray-900">Meet Jane</h3>
-                <p class="text-gray-600 mt-1">Age 9 • Kenya</p>
+                <h3 class="text-xl font-semibold text-[#222222]">Meet Jane</h3>
+                <p class="text-gray-700 mt-1">Age 9 • Kenya</p>
                 <p class="text-sm text-gray-500 mt-2">Loves art and wants to be a designer.</p>
               </div>
             </div>
-            <div class="child-card-back absolute inset-0 bg-yellow-600 text-white rounded-xl p-6 flex flex-col justify-center">
+            <div class="child-card-back absolute inset-0 bg-[#FF6D1F] text-[#222222] rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Jane</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
@@ -799,7 +796,7 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Family counseling & support</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Progress reports twice a year</li>
               </ul>
-              <button onclick="openSponsorshipModal('Jane')" class="mt-6 bg-white text-yellow-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+              <button onclick="openSponsorshipModal('Jane')" class="mt-6 bg-white text-[#FF6D1F] px-6 py-3 rounded-lg font-semibold hover:bg-[#F5E7C6] transition-all">
                 Sponsor Jane – $40/mo
               </button>
             </div>
@@ -808,7 +805,7 @@
       </div>
 
       <div class="text-center mt-10 reveal">
-        <button onclick="openSponsorshipModal()" class="bg-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        <button onclick="openSponsorshipModal()" class="bg-[#FF6D1F] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#E35F12] transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
           View More Children Waiting
         </button>
       </div>
@@ -816,51 +813,51 @@
   </section>
 
   <!-- Ways to Help -->
-  <section id="help" class="py-16 md:py-20 bg-white">
+  <section id="help" class="py-16 md:py-20 bg-[#FAF3E1]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">More Ways to Help</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#222222] mb-4">More Ways to Help</h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
           Whether you give, volunteer, or share, every act of kindness counts.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <article class="p-8 rounded-xl bg-indigo-50 hover-lift reveal">
-          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
-            <i class="fas fa-hand-holding-heart text-indigo-700"></i>
+        <article class="p-8 rounded-xl" style="background-color:#F5E7C6;">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4">
+            <i class="fas fa-hand-holding-heart text-[#FF6D1F]"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Give Monthly</h3>
-          <p class="text-gray-600 mb-4">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Give Monthly</h3>
+          <p class="text-gray-700 mb-4">
             Become a Heart Partner and provide consistent support for children all year long.
           </p>
-          <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline">
+          <button onclick="openDonationModal()" class="text-[#FF6D1F] font-semibold hover:underline">
             Start Monthly Giving
           </button>
         </article>
-        <article class="p-8 rounded-xl bg-rose-50 hover-lift reveal">
-          <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center mb-4">
-            <i class="fas fa-people-group text-rose-700"></i>
+        <article class="p-8 rounded-xl" style="background-color:#F5E7C6;">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4">
+            <i class="fas fa-people-group text-[#FF6D1F]"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Volunteer</h3>
-          <p class="text-gray-600 mb-4">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Volunteer</h3>
+          <p class="text-gray-700 mb-4">
             Join local outreaches, pack gifts, or use your skills to support our mission.
           </p>
-          <button onclick="openVolunteerModal()" class="text-rose-700 font-semibold hover:underline">
+          <button onclick="openVolunteerModal()" class="text-[#FF6D1F] font-semibold hover:underline">
             Sign Up to Serve
           </button>
         </article>
-        <article class="p-8 rounded-xl bg-yellow-50 hover-lift reveal">
-          <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
-            <i class="fas fa-bullhorn text-yellow-700"></i>
+        <article class="p-8 rounded-xl" style="background-color:#F5E7C6;">
+          <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-4">
+            <i class="fas fa-bullhorn text-[#FF6D1F]"></i>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Share the Story</h3>
-          <p class="text-gray-600 mb-4">
+          <h3 class="text-xl font-semibold text-[#222222] mb-3">Share the Story</h3>
+          <p class="text-gray-700 mb-4">
             Use your voice online or in your community to help more children be seen and supported.
           </p>
           <div class="flex gap-3 text-gray-700">
-            <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook text-xl hover:text-indigo-700"></i></a>
-            <a href="#" aria-label="Share on Instagram"><i class="fab fa-instagram text-xl hover:text-rose-600"></i></a>
-            <a href="#" aria-label="Share on X"><i class="fab fa-x-twitter text-xl hover:text-gray-900"></i></a>
+            <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook text-xl hover:text-[#FF6D1F]"></i></a>
+            <a href="#" aria-label="Share on Instagram"><i class="fab fa-instagram text-xl hover:text-[#FF6D1F]"></i></a>
+            <a href="#" aria-label="Share on X"><i class="fab fa-x-twitter text-xl hover:text-[#FF6D1F]"></i></a>
           </div>
         </article>
       </div>
@@ -872,7 +869,7 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 reveal">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Make a Donation</h2>
-        <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto">
+        <p class="text-lg md:text-xl text-[#F5E7C6] max-w-2xl mx-auto">
           Choose an amount and your preferred way to give. Every gift, big or small, helps rewrite a child's story.
         </p>
       </div>
@@ -880,7 +877,7 @@
       <div class="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 shadow-xl reveal">
         <!-- Amount selection -->
         <div class="mb-6">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200 mb-3">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-[#F5E7C6] mb-3">
             Step 1 · Choose Amount
           </h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
@@ -893,12 +890,12 @@
             <label class="flex-1">
               <span class="sr-only">Custom amount</span>
               <div class="relative">
-                <span class="absolute inset-y-0 left-3 flex items-center text-gray-500 text-sm">$</span>
-                <input type="number" id="donationAmountInput" min="1" step="1" class="w-full pl-7 pr-3 py-2.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-indigo-200/70 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" placeholder="Custom amount" />
+                <span class="absolute inset-y-0 left-3 flex items-center text-gray-400 text-sm">$</span>
+                <input type="number" id="donationAmountInput" min="1" step="1" class="w-full pl-7 pr-3 py-2.5 rounded-lg border border-white/30 bg-white/5 text-white placeholder:text-[#F5E7C6]/70 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="Custom amount" />
               </div>
             </label>
-            <label class="flex items-center gap-2 text-xs md:text-sm text-indigo-100">
-              <input type="checkbox" id="monthlyToggle" class="rounded border-white/30 bg-transparent text-amber-300 focus:ring-amber-300">
+            <label class="flex items-center gap-2 text-xs md:text-sm text-[#F5E7C6]">
+              <input type="checkbox" id="monthlyToggle" class="rounded border-white/40 bg-transparent text-[#FF6D1F] focus:ring-[#FF6D1F]">
               Make this a monthly gift
             </label>
           </div>
@@ -908,31 +905,31 @@
 
         <!-- Payment methods -->
         <div class="mb-4">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200 mb-3">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-[#F5E7C6] mb-3">
             Step 2 · Choose Payment Method
           </h3>
           <div class="flex flex-wrap gap-2 mb-4">
             <button type="button" class="payment-tab active" data-target="mpesa">
-              <i class="fas fa-mobile-screen-button text-green-500"></i>
-              M-Pesa (Kenya)
+              <i class="fas fa-mobile-screen-button text-green-500 text-lg" aria-hidden="true"></i>
+              <span>M-Pesa (Kenya)</span>
             </button>
             <button type="button" class="payment-tab" data-target="card">
-              <i class="fas fa-credit-card text-amber-300"></i>
-              Card / Bank
+              <i class="fas fa-credit-card text-[#FF6D1F] text-lg" aria-hidden="true"></i>
+              <span>Card / Bank</span>
             </button>
             <button type="button" class="payment-tab" data-target="crypto">
-              <i class="fab fa-bitcoin text-orange-400"></i>
-              Crypto
+              <i class="fa-brands fa-bitcoin text-orange-400 text-lg" aria-hidden="true"></i>
+              <span>Bitcoin</span>
             </button>
             <button type="button" class="payment-tab" data-target="paypal">
-              <i class="fab fa-paypal text-sky-300"></i>
-              PayPal
+              <i class="fa-brands fa-cc-paypal text-sky-500 text-lg" aria-hidden="true"></i>
+              <span>PayPal</span>
             </button>
           </div>
 
           <!-- M‑Pesa -->
           <div id="payment-mpesa" class="payment-content active space-y-3 text-sm">
-            <p class="text-indigo-100">
+            <p class="text-[#F5E7C6]">
               Use Lipa na M‑Pesa to send your gift directly in Kenya shillings.
             </p>
             <div class="bg-black/20 border border-white/10 rounded-xl p-4">
@@ -943,7 +940,7 @@
                   Copy
                 </button>
               </div>
-              <ol class="list-decimal list-inside text-xs text-indigo-100/80 space-y-1">
+              <ol class="list-decimal list-inside text-xs text-[#F5E7C6]/90 space-y-1">
                 <li>Go to M‑Pesa &gt; Lipa na M‑Pesa &gt; Buy Goods and Services.</li>
                 <li>Enter Till Number <strong>6920028</strong> and the amount you wish to give.</li>
                 <li>Use your name as the reference.</li>
@@ -953,43 +950,45 @@
 
           <!-- Card / Bank -->
           <div id="payment-card" class="payment-content space-y-3 text-sm">
-            <p class="text-indigo-100">
+            <p class="text-[#F5E7C6]">
               Use your card or bank account to give securely via our trusted partners.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <a href="https://wise.com" target="_blank" rel="noopener" class="bg-black/20 border border-white/10 rounded-xl p-4 hover:bg-black/30 transition">
-                <div class="flex items-center gap-2 mb-2">
-                  <i class="fas fa-globe text-amber-300"></i>
+              <a href="https://wise.com" target="_blank" rel="noopener"
+                 class="bg-black/15 border border-white/15 rounded-xl p-4 hover:bg-black/25 transition flex items-start gap-3">
+                <i class="fas fa-globe text-[#FF6D1F] text-xl mt-1" aria-hidden="true"></i>
+                <div>
                   <p class="font-semibold">Wise (International)</p>
+                  <p class="text-xs text-[#F5E7C6]/90">
+                    Give in your local currency from many countries with low fees.
+                  </p>
                 </div>
-                <p class="text-xs text-indigo-100/80">
-                  Give in your local currency from over 50 countries with low fees.
-                </p>
               </a>
-              <a href="https://mchanga.africa" target="_blank" rel="noopener" class="bg-black/20 border border-white/10 rounded-xl p-4 hover:bg-black/30 transition">
-                <div class="flex items-center gap-2 mb-2">
-                  <i class="fas fa-hand-holding-dollar text-green-300"></i>
+              <a href="https://mchanga.africa" target="_blank" rel="noopener"
+                 class="bg-black/15 border border-white/15 rounded-xl p-4 hover:bg-black/25 transition flex items-start gap-3">
+                <i class="fas fa-hand-holding-dollar text-green-400 text-xl mt-1" aria-hidden="true"></i>
+                <div>
                   <p class="font-semibold">M‑Changa (Kenya)</p>
+                  <p class="text-xs text-[#F5E7C6]/90">
+                    Support our Kenyan campaigns with mobile money, card, or bank pay.
+                  </p>
                 </div>
-                <p class="text-xs text-indigo-100/80">
-                  Support our Kenyan campaigns with mobile money, card, or bank pay.
-                </p>
               </a>
             </div>
           </div>
 
           <!-- Crypto -->
           <div id="payment-crypto" class="payment-content space-y-3 text-sm">
-            <p class="text-indigo-100">
+            <p class="text-[#F5E7C6]">
               Donate Bitcoin to support children from anywhere in the world.
             </p>
             <div class="bg-black/20 border border-white/10 rounded-xl p-4">
               <p class="font-semibold mb-1">Bitcoin (BTC) Address:</p>
-              <div class="flex items-center justify-between gap-2 mb-2">
+              <div class="flex items-center gap-2 mb-2">
                 <span id="btcAddress" class="crypto-address flex-1">
-                  bc1qexampleexampleexampleexampleexample
+                  bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq
                 </span>
-                <button type="button" class="text-xs px-2 py-1 bg-white/10 rounded-md hover:bg-white/20" onclick="copyElementText('btcAddress')">
+                <button type="button" class="text-xs px-2 py-1 bg-black/20 text-white rounded-md hover:bg-black/30" onclick="copyElementText('btcAddress')">
                   Copy
                 </button>
               </div>
@@ -999,15 +998,16 @@
 
           <!-- PayPal -->
           <div id="payment-paypal" class="payment-content space-y-3 text-sm">
-            <p class="text-indigo-100">
+            <p class="text-[#F5E7C6]">
               Use PayPal to give securely in just a few clicks.
             </p>
             <div class="bg-black/20 border border-white/10 rounded-xl p-4 space-y-3">
-              <a href="https://paypal.me/nialittlehearts" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg text-sm font-semibold hover:bg-sky-600">
-                <i class="fab fa-paypal"></i>
-                Donate via PayPal.me
+              <a href="https://paypal.me/nialittlehearts" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2 px-4 py-2 bg-[#003087] text-white rounded-lg text-sm font-semibold hover:bg-[#001f5c]">
+                <i class="fa-brands fa-paypal text-lg" aria-hidden="true"></i>
+                <span>Donate with PayPal</span>
               </a>
-              <p class="text-xs text-indigo-100/80">
+              <p class="text-xs text-[#F5E7C6]/90">
                 Or send directly to: <span class="font-mono">donate@nialittlehearts.org</span>
               </p>
             </div>
@@ -1018,15 +1018,15 @@
 
         <!-- Confirm -->
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div class="text-sm text-indigo-100 space-y-1">
+          <div class="text-sm text-[#F5E7C6] space-y-1">
             <p id="donationSummary">
               You are giving a one-time gift. Select an amount to see details.
             </p>
-            <p class="text-xs text-indigo-200">
+            <p class="text-xs text-[#F5E7C6]/80">
               Nia Little Hearts Foundation is a registered non-profit. Gifts may be tax-deductible where allowed by law.
             </p>
           </div>
-          <button type="button" onclick="handleDonateAction()" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-400 text-gray-900 text-sm font-semibold hover:bg-amber-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-200">
+          <button type="button" onclick="handleDonateAction()" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#FF6D1F] text-[#222222] text-sm font-semibold hover:bg-[#E35F12] shadow-md focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
             Complete Donation
           </button>
         </div>
@@ -1035,69 +1035,69 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-16 md:py-20 bg-gray-50">
+  <section id="contact" class="py-16 md:py-20" style="background-color:#FAF3E1;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div class="space-y-6 reveal">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get in Touch</h2>
-          <p class="text-gray-600">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#222222]">Get in Touch</h2>
+          <p class="text-gray-700">
             Have questions, want to partner, or need more information? The Nia Little Hearts team would love to hear from you.
           </p>
-          <div class="space-y-3 text-sm text-gray-700">
+          <div class="space-y-3 text-sm text-gray-800">
             <div class="flex items-start gap-3">
-              <i class="fas fa-location-dot mt-1 text-indigo-600"></i>
+              <i class="fas fa-location-dot mt-1 text-[#FF6D1F]"></i>
               <p>
                 Nia Little Hearts Foundation<br />
                 Mombasa, Kenya
               </p>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fas fa-phone mt-1 text-indigo-600"></i>
+              <i class="fas fa-phone mt-1 text-[#FF6D1F]"></i>
               <p>
                 +254 700 000 000<br />
                 +254 720 000 000
               </p>
             </div>
             <div class="flex items-start gap-3">
-              <i class="fas fa-envelope mt-1 text-indigo-600"></i>
+              <i class="fas fa-envelope mt-1 text-[#FF6D1F]"></i>
               <p>
-                General: <a href="mailto:info@nialittlehearts.org" class="text-indigo-700 hover:underline">info@nialittlehearts.org</a><br />
-                Donations: <a href="mailto:donate@nialittlehearts.org" class="text-indigo-700 hover:underline">donate@nialittlehearts.org</a>
+                General: <a href="mailto:info@nialittlehearts.org" class="text-[#FF6D1F] hover:underline">info@nialittlehearts.org</a><br />
+                Donations: <a href="mailto:donate@nialittlehearts.org" class="text-[#FF6D1F] hover:underline">donate@nialittlehearts.org</a>
               </p>
             </div>
           </div>
-          <div class="flex gap-4 text-gray-500 pt-2">
-            <a href="#" aria-label="Facebook" class="hover:text-indigo-700"><i class="fab fa-facebook text-2xl"></i></a>
-            <a href="#" aria-label="Instagram" class="hover:text-rose-600"><i class="fab fa-instagram text-2xl"></i></a>
-            <a href="#" aria-label="X" class="hover:text-gray-900"><i class="fab fa-x-twitter text-2xl"></i></a>
+          <div class="flex gap-4 text-gray-600 pt-2">
+            <a href="#" aria-label="Facebook" class="hover:text-[#FF6D1F]"><i class="fab fa-facebook text-2xl"></i></a>
+            <a href="#" aria-label="Instagram" class="hover:text-[#FF6D1F]"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" aria-label="X" class="hover:text-[#FF6D1F]"><i class="fab fa-x-twitter text-2xl"></i></a>
           </div>
-          <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-lg text-xs text-gray-600">
+          <div class="p-4 rounded-lg text-xs text-gray-700" style="background-color:#F5E7C6;border:1px solid #E4D8B8;">
             Nia Little Hearts Foundation is a registered non-profit organization. Please consult your local tax advisor to confirm deductibility in your country.
           </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 reveal">
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">Send Us a Message</h3>
+          <h3 class="text-xl font-semibold text-[#222222] mb-4">Send Us a Message</h3>
           <form id="contactForm" class="space-y-4" onsubmit="handleContactSubmit(event)">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="contactName">Full Name</label>
-                <input id="contactName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Jane Doe" />
+                <label class="block text-sm font-medium text-gray-800 mb-1" for="contactName">Full Name</label>
+                <input id="contactName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="Jane Doe" />
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1" for="contactEmail">Email</label>
-                <input id="contactEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="you@example.com" />
+                <label class="block text-sm font-medium text-gray-800 mb-1" for="contactEmail">Email</label>
+                <input id="contactEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="you@example.com" />
               </div>
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="contactSubject">Subject</label>
-              <input id="contactSubject" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="How can we help?" />
+              <label class="block text-sm font-medium text-gray-800 mb-1" for="contactSubject">Subject</label>
+              <input id="contactSubject" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="How can we help?" />
             </div>
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1" for="contactMessage">Message</label>
-              <textarea id="contactMessage" rows="4" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Write your message here..."></textarea>
+              <label class="block text-sm font-medium text-gray-800 mb-1" for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="4" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="Write your message here..."></textarea>
             </div>
-            <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FF6D1F] text-white text-sm font-semibold hover:bg-[#E35F12] focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
               <i class="fas fa-paper-plane text-xs"></i>
               Send Message
             </button>
@@ -1111,29 +1111,29 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-indigo-950 text-indigo-100 py-8 border-t border-indigo-900">
+  <footer class="py-8 border-t" style="background-color:#222222;border-color:#1A1A1A;color:#FAF3E1;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm">
       <p>&copy; <span id="year"></span> Nia Little Hearts Foundation. All rights reserved.</p>
       <div class="flex flex-wrap gap-4">
-        <a href="#home" class="hover:text-white">Home</a>
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#donate" class="hover:text-white">Donate</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="#home" class="hover:text-[#FF6D1F]">Home</a>
+        <a href="#about" class="hover:text-[#FF6D1F]">About</a>
+        <a href="#donate" class="hover:text-[#FF6D1F]">Donate</a>
+        <a href="#contact" class="hover:text-[#FF6D1F]">Contact</a>
       </div>
     </div>
   </footer>
 
   <!-- Donation Modal -->
   <div id="donationModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60">
-    <div class="modal-panel bg-indigo-950 text-white rounded-2xl shadow-2xl max-w-xl w-full mx-4 p-6 md:p-8 relative">
-      <button class="absolute top-4 right-4 text-indigo-200 hover:text-white" onclick="closeDonationModal()" aria-label="Close">
+    <div class="modal-panel bg-[#222222] text-white rounded-2xl shadow-2xl max-w-xl w-full mx-4 p-6 md:p-8 relative">
+      <button class="absolute top-4 right-4 text-[#F5E7C6] hover:text-white" onclick="closeDonationModal()" aria-label="Close">
         <i class="fas fa-times"></i>
       </button>
       <h2 class="text-2xl font-bold mb-2">Support Nia Little Hearts</h2>
-      <p class="text-sm text-indigo-100 mb-4">
+      <p class="text-sm text-[#F5E7C6] mb-4">
         Select your amount and preferred payment method. You’ll complete your gift using the simple instructions below.
       </p>
-      <button onclick="scrollToSection('donate'); closeDonationModal();" class="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-amber-400 text-gray-900 text-sm font-semibold hover:bg-amber-300">
+      <button onclick="scrollToSection('donate'); closeDonationModal();" class="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#FF6D1F] text-[#222222] text-sm font-semibold hover:bg-[#E35F12]">
         Go to Donation Section
       </button>
     </div>
@@ -1145,30 +1145,30 @@
       <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closeSponsorshipModal()" aria-label="Close">
         <i class="fas fa-times"></i>
       </button>
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Sponsor a Child</h2>
-      <p id="sponsorshipChildLabel" class="text-sm text-gray-600 mb-4">
+      <h2 class="text-2xl font-bold text-[#222222] mb-2">Sponsor a Child</h2>
+      <p id="sponsorshipChildLabel" class="text-sm text-gray-700 mb-4">
         Share a few details and our team will match you with a child in need.
       </p>
       <form id="sponsorshipForm" class="space-y-4" onsubmit="handleSponsorshipSubmit(event)">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorName">Full Name</label>
-          <input id="sponsorName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="sponsorName">Full Name</label>
+          <input id="sponsorName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorEmail">Email</label>
-          <input id="sponsorEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="sponsorEmail">Email</label>
+          <input id="sponsorEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorPreference">Child preference (optional)</label>
-          <input id="sponsorPreference" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="E.g., Amina, age range, boy/girl" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="sponsorPreference">Child preference (optional)</label>
+          <input id="sponsorPreference" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="E.g., Amina, age range, boy/girl" />
         </div>
         <div>
-          <label class="flex items-center gap-2 text-xs md:text-sm text-gray-700">
-            <input type="checkbox" id="sponsorMonthly" checked class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+          <label class="flex items-center gap-2 text-xs md:text-sm text-gray-800">
+            <input type="checkbox" id="sponsorMonthly" checked class="rounded border-gray-300 text-[#FF6D1F] focus:ring-[#FF6D1F]">
             I’d like to give monthly (recommended $40/month).
           </label>
         </div>
-        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FF6D1F] text-white text-sm font-semibold hover:bg-[#E35F12] focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
           Submit Sponsorship Interest
         </button>
         <p id="sponsorshipFeedback" class="text-xs text-green-700 hidden mt-2">
@@ -1184,28 +1184,28 @@
       <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closeVolunteerModal()" aria-label="Close">
         <i class="fas fa-times"></i>
       </button>
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Volunteer with Nia</h2>
-      <p class="text-sm text-gray-600 mb-4">
+      <h2 class="text-2xl font-bold text-[#222222] mb-2">Volunteer with Nia</h2>
+      <p class="text-sm text-gray-700 mb-4">
         Tell us how you’d like to serve and we’ll connect you with upcoming opportunities.
       </p>
       <form id="volunteerForm" class="space-y-4" onsubmit="handleVolunteerSubmit(event)">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerName">Full Name</label>
-          <input id="volunteerName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="volunteerName">Full Name</label>
+          <input id="volunteerName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerEmail">Email</label>
-          <input id="volunteerEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="volunteerEmail">Email</label>
+          <input id="volunteerEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerCity">City / Country</label>
-          <input id="volunteerCity" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="volunteerCity">City / Country</label>
+          <input id="volunteerCity" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerMessage">How would you like to help?</label>
-          <textarea id="volunteerMessage" rows="3" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="E.g., local outreach, administration, social media, fundraising..."></textarea>
+          <label class="block text-sm font-medium text-gray-800 mb-1" for="volunteerMessage">How would you like to help?</label>
+          <textarea id="volunteerMessage" rows="3" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]" placeholder="E.g., local outreach, administration, social media, fundraising..."></textarea>
         </div>
-        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-[#FF6D1F] text-white text-sm font-semibold hover:bg-[#E35F12] focus:outline-none focus:ring-2 focus:ring-[#FF6D1F]/60">
           Submit Volunteer Form
         </button>
         <p id="volunteerFeedback" class="text-xs text-green-700 hidden mt-2">
@@ -1399,14 +1399,14 @@
       btn.addEventListener('click', () => {
         const val = btn.getAttribute('data-amount');
         amountInput.value = val;
-        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-amber-300', 'bg-white/20'));
-        btn.classList.add('ring-2', 'ring-amber-300', 'bg-white/20');
+        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-[#FF6D1F]', 'bg-white/20'));
+        btn.classList.add('ring-2', 'ring-[#FF6D1F]', 'bg-white/20');
         updateDonationSummary();
       });
     });
     if (amountInput) {
       amountInput.addEventListener('input', () => {
-        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-amber-300', 'bg-white/20'));
+        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-[#FF6D1F]', 'bg-white/20'));
         updateDonationSummary();
       });
     }
@@ -1445,14 +1445,13 @@
         return;
       }
       const method = getActivePaymentMethod();
-      // This is intentionally simple: just provide guidance and rely on visible instructions/links.
       launchHearts();
       if (method === 'mpesa') {
         alert('Thank you for your heart to give.\n\nTo complete your M‑Pesa donation, please use Till Number 6920028 in your M‑Pesa app.');
       } else if (method === 'card') {
         alert('Thank you for your gift.\n\nPlease click the Wise or M‑Changa buttons in the Card/Bank section to complete your card or bank payment.');
       } else if (method === 'crypto') {
-        alert('Thank you for your generosity.\n\nPlease send your BTC to the address shown in the Crypto section.');
+        alert('Thank you for your generosity.\n\nPlease send your BTC to the address shown in the Bitcoin section.');
       } else if (method === 'paypal') {
         window.open('https://paypal.me/nialittlehearts', '_blank');
       }
