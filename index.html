@@ -15,7 +15,10 @@
   <meta property="og:image" content="images/Ian and kids.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- Tailwind CDN -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
@@ -23,23 +26,26 @@
 
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+    }
 
     :root {
-      /* RealtimeColors theme: https://www.realtimecolors.com/?colors=d8d9f7-03030f-8c8be6-82211c-d4a833 */
-      --bg: #d8d9f7;       /* page background (light) */
-      --fg: #03030f;       /* text on light */
-      --primary: #8c8be6;  /* lavender */
-      --primary-700: #6f6ed0; /* darker lavender for hover */
-      --accent: #82211c;   /* deep brick red */
-      --accent-2: #d4a833; /* warm gold */
-      --muted: #e6e7fb;    /* soft periwinkle tint */
-      --muted-2: #eef0ff;  /* lighter periwinkle tint */
+      --bg: #d8d9f7;
+      --fg: #03030f;
+      --primary: #8c8be6;
+      --primary-700: #6f6ed0;
+      --accent: #82211c;
+      --accent-2: #d4a833;
+      --muted: #e6e7fb;
+      --muted-2: #eef0ff;
     }
 
     [data-theme='dark'] {
-      --bg: #03030f;      /* dark background */
-      --fg: #d8d9f7;      /* light foreground */
+      --bg: #03030f;
+      --fg: #d8d9f7;
     }
 
     [data-theme='dark'] body { background-color: var(--bg); color: var(--fg); }
@@ -57,135 +63,265 @@
     [data-theme='dark'] .text-gray-600 { color: #c8c9f1 !important; }
     [data-theme='dark'] .border-gray-300 { border-color: #27294f !important; }
     [data-theme='dark'] .border-gray-100 { border-color: #191a34 !important; }
-    [data-theme='dark'] input, [data-theme='dark'] select, [data-theme='dark'] textarea { background-color: #0b0b1d; color: var(--fg); border-color: #27294f; }
-    [data-theme='dark'] input::placeholder, [data-theme='dark'] textarea::placeholder { color: #a5a7d8; }
+    [data-theme='dark'] input,
+    [data-theme='dark'] select,
+    [data-theme='dark'] textarea {
+      background-color: #0b0b1d;
+      color: var(--fg);
+      border-color: #27294f;
+    }
+    [data-theme='dark'] input::placeholder,
+    [data-theme='dark'] textarea::placeholder { color: #a5a7d8; }
 
-    body { background-color: var(--bg); color: var(--fg); }
-
-    /* Thematic helpers */
     .text-gradient {
       background: linear-gradient(90deg, var(--primary), var(--accent-2));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
+
     .hero-gradient {
       background:
         radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.22), transparent 60%),
         radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.18), transparent 60%),
         linear-gradient(135deg, #03030f, #0c0c22);
     }
-    .hero-video-overlay { position: absolute; inset: 0; background:
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background:
         radial-gradient(1200px 600px at 10% 10%, rgba(140,139,230,0.25), transparent 60%),
         radial-gradient(900px 500px at 90% 20%, rgba(212,168,51,0.25), transparent 60%),
-        linear-gradient(135deg, rgba(3,3,15,.82), rgba(12,12,34,.72)); pointer-events:none; }
+        linear-gradient(135deg, rgba(3,3,15,.82), rgba(12,12,34,.72));
+      pointer-events:none;
+    }
 
     .donation-gradient {
       background: linear-gradient(135deg, #03030f 0%, #101034 40%, #1a1742 100%);
     }
 
-    .hover-lift { transition: transform .25s ease, box-shadow .25s ease; }
-    .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+    .hover-lift {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.12);
+    }
 
-    /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease-out, transform .7s ease-out; }
-    .revealed { opacity: 1; transform: translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease-out, transform .7s ease-out;
+    }
+    .revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    /* Hero video */
-    .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-    /* Flip cards (Sponsor) */
     .child-card { perspective: 1200px; }
-    .child-card-inner { transform-style: preserve-3d; transition: transform .7s cubic-bezier(.2,.65,.2,1); }
-    .child-card:focus-within .child-card-inner, .child-card:hover .child-card-inner { transform: rotateY(180deg); }
-    .child-card-front, .child-card-back { backface-visibility: hidden; }
+    .child-card-inner {
+      transform-style: preserve-3d;
+      transition: transform .7s cubic-bezier(.2,.65,.2,1);
+    }
+    .child-card:hover .child-card-inner,
+    .child-card:focus-within .child-card-inner {
+      transform: rotateY(180deg);
+    }
+    .child-card-front,
+    .child-card-back {
+      backface-visibility: hidden;
+    }
     .child-card-back { transform: rotateY(180deg); }
 
-    /* Accessibility helpers */
-    .skip-link { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus { position: fixed; left: 1rem; top: 1rem; width:auto; height:auto; padding:.5rem .75rem; background:#111; color:#fff; z-index:9999; border-radius:.5rem; }
+    .skip-link {
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      width:auto;
+      height:auto;
+      padding:.5rem .75rem;
+      background:#111;
+      color:#fff;
+      z-index:9999;
+      border-radius:.5rem;
+    }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { animation: none !important; transition: none !important; }
       .hero-video { display: none !important; }
-    }
-
-    /* Loading overlay */
-    #loading { position: fixed; inset: 0; background: #ffffff; z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity .5s ease-out; }
-    .loading-spinner { width: 56px; height: 56px; border: 4px solid var(--muted); border-top-color: var(--primary); border-radius: 9999px; animation: spin 1s linear infinite; margin-bottom: 12px; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .loading-hidden { opacity: 0; pointer-events: none; }
-
-    /* Trust indicators */
-    .trust-indicators { background: linear-gradient(135deg, var(--muted-2), var(--muted)); border-bottom: 1px solid var(--muted); }
-
-    /* Payment method tabs */
-    .payment-tab { padding: 10px 14px; border-radius: 10px; border: 2px solid transparent; cursor: pointer; transition: all .2s ease; background: #f8fafc; display: inline-flex; align-items: center; gap: 8px; }
-    .payment-tab.active { border-color: var(--primary); background: var(--muted-2); }
-    .payment-content { display: none; }
-    .payment-content.active { display: block; }
-    /* Modal panel sizing */
-    .modal-panel { max-height: 90vh; overflow-y: auto; }
-
-    /* Error/success states */
-    .error-message { background: #fee2e2; color: #b91c1c; padding: .5rem .75rem; border-radius: .5rem; font-size: .875rem; margin-top: .5rem; }
-    .success-message { background: #dcfce7; color: #065f46; padding: .75rem 1rem; border-radius: .5rem; font-size: .875rem; margin-top: .5rem; }
-
-    /* Stripe Element styling */
-    .StripeElement { box-sizing: border-box; padding: 12px; border: 1px solid #d1d5db; border-radius: .5rem; background: #ffffff; }
-    .StripeElement--focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(140,139,230,.2); }
-    .StripeElement--invalid { border-color: #ef4444; }
-
-    /* Crypto */
-    .crypto-address { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background: #f8fafc; padding: 12px; border-radius: 8px; word-break: break-all; }
-    .crypto-qr { width: 100%; height: auto; max-width: 220px; border-radius: 8px; margin: 8px auto 0; display: block; object-fit: contain; }
-
-    @media (prefers-reduced-motion: reduce) {
       #loading { display: none !important; }
     }
 
-    /* Advanced UI enhancements */
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: opacity .5s ease-out;
+    }
+    .loading-spinner {
+      width: 56px;
+      height: 56px;
+      border: 4px solid var(--muted);
+      border-top-color: var(--primary);
+      border-radius: 9999px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-hidden { opacity: 0; pointer-events: none; }
+
     .parallax-shape { position: absolute; border-radius: 9999px; will-change: transform; }
     .tilt { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
 
-    /* Back to top */
     #backToTop { z-index: 60; }
-
-    /* Sticky CTA */
     #sticky-cta { backdrop-filter: saturate(140%) blur(8px); }
 
-    /* Confetti hearts */
     #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 70; }
-    .heart { position: absolute; width: 12px; height: 12px; transform: rotate(45deg); animation: floatUp 1.2s ease-out forwards; opacity: 0; }
+    .heart {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      animation: floatUp 1.2s ease-out forwards;
+      opacity: 0;
+    }
     .heart, .heart:before, .heart:after { background: #ff5a8a; }
-    .heart:before, .heart:after { content: ''; position: absolute; width: 12px; height: 12px; border-radius: 50%; }
+    .heart:before, .heart:after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
     .heart:before { top: -6px; left: 0; }
     .heart:after { left: -6px; top: 0; }
-    @keyframes floatUp { 0% { transform: translate(0,0) rotate(45deg) scale(.6); opacity: 0; } 10% {opacity: .9} 100% { transform: translate(var(--dx), var(--dy)) rotate(45deg) scale(1); opacity: 0; } }
+    @keyframes floatUp {
+      0% { transform: translate(0,0) rotate(45deg) scale(.6); opacity: 0; }
+      10% {opacity: .9}
+      100% { transform: translate(var(--dx), var(--dy)) rotate(45deg) scale(1); opacity: 0; }
+    }
 
-    /* Morphing blob image + shine */
-    .blob-img { clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 75%, 60% 100%, 30% 90%, 0% 60%, 10% 20%); box-shadow: 0 14px 36px rgba(0,0,0,.22); will-change: transform, clip-path; animation: blobMorph 12s ease-in-out infinite alternate, floatSoft 7s ease-in-out infinite; }
+    .blob-img {
+      clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 75%, 60% 100%, 30% 90%, 0% 60%, 10% 20%);
+      box-shadow: 0 14px 36px rgba(0,0,0,.22);
+      will-change: transform, clip-path;
+      animation: blobMorph 12s ease-in-out infinite alternate, floatSoft 7s ease-in-out infinite;
+    }
     @keyframes blobMorph {
       0% { clip-path: polygon(50% 0%, 80% 10%, 100% 40%, 90% 75%, 60% 100%, 30% 90%, 0% 60%, 10% 20%); }
       100% { clip-path: polygon(50% 5%, 75% 0%, 100% 30%, 95% 70%, 70% 100%, 35% 100%, 0% 70%, 0% 35%); }
     }
-    @keyframes floatSoft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    .blob-shine { position: absolute; top: 0; left: -30%; width: 30%; height: 100%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0)); transform: skewX(-12deg); filter: blur(2px); pointer-events: none; animation: shineSlide 5s linear infinite; }
-    @keyframes shineSlide { 0% { left: -30%; } 100% { left: 130%; } }
+    @keyframes floatSoft {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .blob-shine {
+      position: absolute;
+      top: 0;
+      left: -30%;
+      width: 30%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0));
+      transform: skewX(-12deg);
+      filter: blur(2px);
+      pointer-events: none;
+      animation: shineSlide 5s linear infinite;
+    }
+    @keyframes shineSlide {
+      0% { left: -30%; }
+      100% { left: 130%; }
+    }
 
-    /* Decorative shape variants tuned to theme */
-    .shape-diamond { border-radius: 0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%), linear-gradient(135deg, rgba(140,139,230,.35), rgba(212,168,51,.18)); box-shadow: 0 10px 24px rgba(0,0,0,.12); transform: rotate(45deg); }
-    .shape-pill { border-radius: 9999px; background: linear-gradient(90deg, rgba(140,139,230,.28), rgba(140,139,230,.14)); box-shadow: 0 8px 18px rgba(0,0,0,.10); }
-    .shape-blob { border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%), linear-gradient(135deg, rgba(130,33,28,.35), rgba(140,139,230,.25)); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+    .shape-diamond {
+      border-radius: 0;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, rgba(140,139,230,.35), rgba(212,168,51,.18));
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+      transform: rotate(45deg);
+    }
+    .shape-pill {
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(140,139,230,.28), rgba(140,139,230,.14));
+      box-shadow: 0 8px 18px rgba(0,0,0,.10);
+    }
+    .shape-blob {
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 40% 40%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, rgba(130,33,28,.35), rgba(140,139,230,.25));
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
 
+    /* Payment method tabs */
+    .payment-tab {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: #f8fafc;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .payment-tab.active {
+      border-color: var(--primary);
+      background: var(--muted-2);
+    }
+    .payment-content { display: none; }
+    .payment-content.active { display: block; }
+
+    .crypto-address {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      word-break: break-all;
+    }
+    .crypto-qr {
+      width: 100%;
+      height: auto;
+      max-width: 220px;
+      border-radius: 8px;
+      margin: 8px auto 0;
+      display: block;
+      object-fit: contain;
+    }
   </style>
 
-  <!-- Set initial theme before paint -->
   <script>
-    (function(){
+    (function() {
       try {
         var t = localStorage.getItem('theme');
-        if(!t){ t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+        if (!t) {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
         document.documentElement.setAttribute('data-theme', t);
       } catch(e){}
     })();
@@ -218,13 +354,33 @@
     <p class="text-gray-600">Loading Nia Little Hearts…</p>
   </div>
 
+  <!-- Back to top -->
+  <button id="backToTop" class="hidden fixed bottom-6 right-6 bg-indigo-600 text-white rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Sticky CTA -->
+  <div id="sticky-cta" class="fixed bottom-0 inset-x-0 bg-white/80 border-t border-gray-200 shadow-sm py-3 px-4 flex items-center justify-between md:hidden z-40">
+    <div class="text-sm">
+      <p class="font-semibold text-gray-900">Every gift changes a story</p>
+      <p class="text-gray-600 text-xs">Donate now or sponsor a child.</p>
+    </div>
+    <div class="flex gap-2">
+      <button onclick="openDonationModal()" class="bg-indigo-600 text-white text-xs px-3 py-2 rounded-lg font-semibold">Donate</button>
+      <button onclick="scrollToSection('sponsor')" class="border border-indigo-600 text-indigo-600 text-xs px-3 py-2 rounded-lg font-semibold">Sponsor</button>
+    </div>
+  </div>
+
+  <!-- Confetti -->
+  <div id="confetti"></div>
+
   <!-- Navigation -->
   <nav id="navbar" class="bg-white/90 backdrop-blur shadow-lg fixed w-full top-0 z-50 transition-all duration-300" role="navigation" aria-label="Main Navigation">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <a href="#home" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-amber-400 rounded">
-            <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-20 w-auto" />
+            <img src="images/NIA FOUNDATION.png" alt="Nia Little Hearts Foundation" class="h-12 w-auto" />
             <span class="sr-only">Nia Little Hearts</span>
           </a>
         </div>
@@ -257,7 +413,6 @@
         </div>
       </div>
     </div>
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t" role="menu" aria-label="Mobile Menu">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <a href="#home" class="block text-gray-700 hover:text-indigo-700 px-3 py-2 rounded-md text-base font-medium">Home</a>
@@ -284,7 +439,6 @@
       <source src="https://cdn.coverr.co/videos/coverr-happy-school-kids-7682/1080p.mp4" type="video/mp4" />
     </video>
     <div class="hero-video-overlay" aria-hidden="true"></div>
-    <!-- Decorative parallax shapes for depth -->
     <div aria-hidden="true">
       <span class="parallax-shape shape-diamond w-16 h-16 left-6 top-24"></span>
       <span class="parallax-shape shape-pill w-32 h-10 right-10 top-40"></span>
@@ -310,10 +464,17 @@
               </button>
             </div>
             <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-indigo-100/90">
-              <div class="flex items-center gap-2"><i class="fas fa-shield-heart" style="color:#d4a833" aria-hidden="true"></i><span>Trusted, registered non-profit</span></div>
-              <div class="flex items-center gap-2"><i class="fas fa-hand-holding-heart" style="color:#d4a833" aria-hidden="true"></i><span>Child-focused, community-based</span></div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-shield-heart" style="color:#d4a833" aria-hidden="true"></i>
+                <span>Trusted, registered non-profit</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-hand-holding-heart" style="color:#d4a833" aria-hidden="true"></i>
+                <span>Child-focused, community-based</span>
+              </div>
             </div>
           </div>
+
           <div class="relative reveal">
             <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-xl tilt">
               <div class="relative">
@@ -335,7 +496,10 @@
                 </div>
               </div>
               <div class="mt-4 flex items-center justify-between text-xs md:text-sm text-gray-100">
-                <div class="flex items-center gap-2"><i class="fas fa-circle-check" style="color:#8c8be6" aria-hidden="true"></i><span>Accountability & transparency</span></div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-circle-check" style="color:#8c8be6" aria-hidden="true"></i>
+                  <span>Accountability & transparency</span>
+                </div>
                 <span class="hidden sm:inline"></span>
               </div>
             </div>
@@ -350,23 +514,37 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Mission</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From care today to hope tomorrow, every effort pushes for real transformation in a child’s world.</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          From care today to hope tomorrow, every effort pushes for real transformation in a child’s world.
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="text-center p-8 rounded-xl bg-indigo-50 hover-lift reveal">
-          <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-indigo-700 text-2xl" aria-hidden="true"></i></div>
+          <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-graduation-cap text-indigo-700 text-2xl" aria-hidden="true"></i>
+          </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Education</h3>
-          <p class="text-gray-600">To empower children through education by providing the tools they need to learn and succeed.</p>
+          <p class="text-gray-600">
+            To empower children through education by providing the tools they need to learn and succeed.
+          </p>
         </div>
         <div class="text-center p-8 rounded-xl bg-rose-50 hover-lift reveal">
-          <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-rose-700 text-2xl" aria-hidden="true"></i></div>
+          <div class="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-heartbeat text-rose-700 text-2xl" aria-hidden="true"></i>
+          </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Health & Nutrition</h3>
-          <p class="text-gray-600">To support children with nutritious food, clean water, and essential hygiene items for healthy growth.</p>
+          <p class="text-gray-600">
+            To support children with nutritious food, clean water, and essential hygiene items for healthy growth.
+          </p>
         </div>
         <div class="text-center p-8 rounded-xl bg-yellow-50 hover-lift reveal">
-          <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-home text-yellow-700 text-2xl" aria-hidden="true"></i></div>
+          <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-home text-yellow-700 text-2xl" aria-hidden="true"></i>
+          </div>
           <h3 class="text-xl font-semibold text-gray-900 mb-3">Love & Community</h3>
-          <p class="text-gray-600">To foster a community of kindness that lifts children emotionally, socially, and spiritually.</p>
+          <p class="text-gray-600">
+            To foster a community of kindness that lifts children emotionally, socially, and spiritually.
+          </p>
         </div>
       </div>
     </div>
@@ -377,39 +555,60 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">From daily meals to disaster relief, each program is designed with one goal: lasting, child-centered transformation.</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          From daily meals to disaster relief, each program is designed with one goal: lasting, child-centered transformation.
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="https://images.unsplash.com/photo-1542319272-42dba4f554be?auto=format&fit=crop&w=900&q=80" alt="Volunteers sharing food and warm clothing" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Little Smiles Outreach</h3>
-            <p class="text-gray-600 mb-4 flex-1">From shared meals to warm clothing, each visit is designed to remind children that they are valued and loved.</p>
-            <button onclick="openSponsorshipModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <p class="text-gray-600 mb-4 flex-1">
+              From shared meals to warm clothing, each visit is designed to remind children that they are valued and loved.
+            </p>
+            <button onclick="openSponsorshipModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+              Learn More <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
+
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
           <img src="https://images.unsplash.com/photo-1565425518476-3229123699c5?auto=format&fit=crop&w=1000&q=80" alt="Holiday gifts and cheerful children" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Holiday Cheer Gift Drive</h3>
-            <p class="text-gray-600 mb-4 flex-1">From festive gifts to fun activities, every celebration brings warmth, laughter, and renewed belief in brighter days.</p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <p class="text-gray-600 mb-4 flex-1">
+              From festive gifts to fun activities, every celebration brings warmth, laughter, and renewed belief in brighter days.
+            </p>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+              Join Us <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
+
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
-          <img src="images/Ian and kids.png" alt="IIan and kids" class="w-full h-44 object-cover" loading="lazy" />
+          <img src="images/Ian and kids.png" alt="Ian with children" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Community Love Partners</h3>
-            <p class="text-gray-600 mb-4 flex-1">From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support</p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <p class="text-gray-600 mb-4 flex-1">
+              From volunteers to local businesses, every partnership strengthens the foundation to reach more children with love and support.
+            </p>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+              Join Community <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
+
         <article class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift flex flex-col reveal">
-          <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=1000&q=80" alt="Community partners and volunteers" class="w-full h-44 object-cover" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1639432047673-91ea142f9cf5?auto=format&fit=crop&w=1000&q=80" alt="Health and nutrition support" class="w-full h-44 object-cover" loading="lazy" />
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health checkup and nutrition</h3>
-            <p class="text-gray-600 mb-4 flex-1">From daily food support to sanitary pads, each step ensures no child is left behind.</p>
-            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Health Checkups & Nutrition</h3>
+            <p class="text-gray-600 mb-4 flex-1">
+              From daily food support to sanitary pads, each step ensures no child is left behind.
+            </p>
+            <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline mt-auto">
+              Support Health <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
           </div>
         </article>
       </div>
@@ -421,7 +620,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Impact</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Because of partners like you, children are stepping into classrooms, receiving life‑saving care, and discovering their God‑given potential.</p>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Because of partners like you, children are stepping into classrooms, receiving life-saving care, and discovering their God-given potential.
+        </p>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="reveal">
@@ -431,80 +632,107 @@
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Stories of Hope</h3>
           <div class="space-y-6">
             <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
-              <p class="text-gray-700 text-sm">“With school meals and books, my daughter finally smiles on Mondays again.” – A mother in Kenya</p>
+              <p class="text-gray-700 text-sm">
+                “With school meals and books, my daughter finally smiles on Mondays again.” – A mother in Kenya
+              </p>
             </div>
             <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-100">
-              <p class="text-gray-700 text-sm">“Our village well means girls spend time in class, not in line for water.” – Community leader, India</p>
+              <p class="text-gray-700 text-sm">
+                “Our village well means girls spend time in class, not in line for water.” – Community leader, India
+              </p>
             </div>
           </div>
-          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-indigo-800 font-semibold hover:underline">Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i></button>
+          <button onclick="scrollToSection('stories')" class="mt-8 inline-flex items-center gap-2 text-indigo-800 font-semibold hover:underline">
+            Read more stories <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Stories / Testimonials -->
- <section>
-  <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop" alt="Mama Amina, caregiver at Utange Children's Centre" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
-                        <div>
-                            <h3 class="font-semibold">Mama Amina</h3>
-                            <p class="text-sm text-indigo-100/90">Caregiver, Mombasa</p>
-                        </div>
-                    </div>
-                    <p class="text-sm md:text-base text-indigo-50 flex-1">"When Nia Little Hearts first came to our centre, I saw hope return to the children's eyes. They brought more than food and clothes — they brought love. Now the children run to the gate every time they hear visitors, hoping it's the Nia family returning."</p>
-                    <div class="mt-4 flex text-yellow-300 text-sm">
-                        ★★★★★
-                    </div>
-                </article>
+  <section id="stories" class="py-16 md:py-20 bg-gradient-to-b from-indigo-900 via-indigo-800 to-indigo-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 md:mb-16 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Voices from the Community</h2>
+        <p class="text-lg md:text-xl text-indigo-100 max-w-3xl mx-auto">
+          Caregivers, children, and local leaders share how Nia Little Hearts is making a difference.
+        </p>
+      </div>
 
-                <!-- Testimonial 2 - Child -->
-                <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1617895153857-82fe79adfcd4?w=200&h=200&fit=crop" alt="Brian, 12 years old from Kilifi" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
-                        <div>
-                            <h3 class="font-semibold">Brian, Age 12</h3>
-                            <p class="text-sm text-indigo-100/90">Kilifi County</p>
-                        </div>
-                    </div>
-                    <p class="text-sm md:text-base text-indigo-50 flex-1">"I used to think nobody cared about children like me. But Nia Little Hearts showed me I am special. They bought me school shoes and books. Now I want to study hard and become a doctor so I can help other children too. Thank you for believing in me."</p>
-                    <div class="mt-4 flex text-yellow-300 text-sm">
-                        ★★★★★
-                    </div>
-                </article>
-
-                <!-- Testimonial 3 - Centre Director -->
-                <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=200&h=200&fit=crop" alt="Pastor Joseph, Director of Utange Children's Centre" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
-                        <div>
-                            <h3 class="font-semibold">Pastor Joseph</h3>
-                            <p class="text-sm text-indigo-100/90">Centre Director, Utange</p>
-                        </div>
-                    </div>
-                    <p class="text-sm md:text-base text-indigo-50 flex-1">"In my 15 years running this centre, I have never seen volunteers with such genuine hearts. Nia Little Hearts doesn't just visit — they become family. They remember each child's name, their dreams, their struggles. That is true love in action."</p>
-                    <div class="mt-4 flex text-yellow-300 text-sm">
-                        ★★★★★
-                    </div>
-                </article> 
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop" alt="Mama Amina, caregiver" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Mama Amina</h3>
+              <p class="text-sm text-indigo-100/90">Caregiver, Mombasa</p>
             </div>
+          </div>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">
+            "When Nia Little Hearts first came to our centre, I saw hope return to the children's eyes. They brought more than food and clothes — they brought love."
+          </p>
+          <div class="mt-4 flex text-yellow-300 text-sm">
+            ★★★★★
+          </div>
+        </article>
+
+        <!-- Testimonial 2 -->
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1617895153857-82fe79adfcd4?w=200&h=200&fit=crop" alt="Brian, 12 years old from Kilifi" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Brian, Age 12</h3>
+              <p class="text-sm text-indigo-100/90">Kilifi County</p>
+            </div>
+          </div>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">
+            "I used to think nobody cared about children like me. But Nia Little Hearts showed me I am special. Now I want to study hard and become a doctor."
+          </p>
+          <div class="mt-4 flex text-yellow-300 text-sm">
+            ★★★★★
+          </div>
+        </article>
+
+        <!-- Testimonial 3 -->
+        <article class="bg-white/10 backdrop-blur rounded-2xl p-6 flex flex-col hover-lift reveal">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=200&h=200&fit=crop" alt="Pastor Joseph, Centre Director" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <h3 class="font-semibold">Pastor Joseph</h3>
+              <p class="text-sm text-indigo-100/90">Centre Director, Utange</p>
+            </div>
+          </div>
+          <p class="text-sm md:text-base text-indigo-50 flex-1">
+            "In my many years running this centre, I have never seen volunteers with such genuine hearts. Nia Little Hearts becomes family."
+          </p>
+          <div class="mt-4 flex text-yellow-300 text-sm">
+            ★★★★★
+          </div>
+        </article>
+      </div>
+    </div>
   </section>
+
   <!-- Sponsor a Child -->
   <section id="sponsor" class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sponsor a Child's need Today</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">For just <span class="font-semibold text-indigo-700">$40 a month</span>, you can walk alongside a child in need. Your support meets practical needs and speaks a powerful message: "You matter."</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sponsor a Child's Needs Today</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          For just <span class="font-semibold text-indigo-700">$40 a month</span>, you can walk alongside a child in need and say, "You matter."
+        </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Amina -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop" alt="Amina, age 7 from Tanzania" class="w-full h-64 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=400&fit=crop" alt="Amina, age 17 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-gray-900">Meet Amina</h3>
-                <p class="text-gray-600 mt-1">Age 17 • Kenya </p>
+                <p class="text-gray-600 mt-1">Age 17 • Kenya</p>
                 <p class="text-sm text-gray-500 mt-2">Loves reading and wants to be a teacher.</p>
               </div>
             </div>
@@ -514,40 +742,48 @@
               <ul class="space-y-2 text-sm">
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>School supplies & uniforms</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Nutritious meals every school day</li>
-                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Regular medical check‑ups</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Regular medical check-ups</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Letters and photo updates</li>
               </ul>
-              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-indigo-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Amina – $40/mo</button>
+              <button onclick="openSponsorshipModal('Amina')" class="mt-6 bg-white text-indigo-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+                Sponsor Amina – $40/mo
+              </button>
             </div>
           </div>
         </div>
+
+        <!-- Liam -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=400&fit=crop" alt="Raj, age 9 from India" class="w-full h-64 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=400&fit=crop" alt="Liam, age 3 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-gray-900">Meet Liam</h3>
                 <p class="text-gray-600 mt-1">Age 3 • Kenya</p>
-                <p class="text-sm text-gray-500 mt-2">Enjoys science and dreams of being an engineer.</p>
+                <p class="text-sm text-gray-500 mt-2">Enjoys playful learning and dreams of a bright future.</p>
               </div>
             </div>
             <div class="child-card-back absolute inset-0 bg-rose-600 text-white rounded-xl p-6 flex flex-col justify-center">
               <h3 class="text-2xl font-bold mb-3">Sponsor Liam</h3>
               <p class="text-sm mb-4">Your monthly support provides:</p>
               <ul class="space-y-2 text-sm">
-                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Quality education and tutoring</li>
+                <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Quality early-childhood education</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Healthcare & medicine</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Clean water access</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Personal mentorship</li>
               </ul>
-              <button onclick="openSponsorshipModal('Liam')" class="mt-6 bg-white text-rose-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Raj – $40/mo</button>
+              <button onclick="openSponsorshipModal('Liam')" class="mt-6 bg-white text-rose-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+                Sponsor Liam – $40/mo
+              </button>
             </div>
           </div>
         </div>
+
+        <!-- Jane -->
         <div class="child-card reveal">
           <div class="child-card-inner relative">
             <div class="child-card-front bg-white rounded-xl overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=400&fit=crop" alt="Camila, age 6 from Brazil" class="w-full h-64 object-cover" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=400&fit=crop" alt="Jane, age 9 from Kenya" class="w-full h-64 object-cover" loading="lazy" />
               <div class="p-6">
                 <h3 class="text-xl font-semibold text-gray-900">Meet Jane</h3>
                 <p class="text-gray-600 mt-1">Age 9 • Kenya</p>
@@ -563,52 +799,236 @@
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Family counseling & support</li>
                 <li><i class="fas fa-check mr-2" aria-hidden="true"></i>Progress reports twice a year</li>
               </ul>
-              <button onclick="openSponsorshipModal('Jane')" class="mt-6 bg-white text-yellow-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">Sponsor Camila – $40/mo</button>
+              <button onclick="openSponsorshipModal('Jane')" class="mt-6 bg-white text-yellow-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+                Sponsor Jane – $40/mo
+              </button>
             </div>
           </div>
         </div>
       </div>
+
       <div class="text-center mt-10 reveal">
-        <button onclick="openSponsorshipModal()" class="bg-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400">View More Children Waiting</button>
+        <button onclick="openSponsorshipModal()" class="bg-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-800 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          View More Children Waiting
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Ways to help -->
+  <!-- Ways to Help -->
   <section id="help" class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ways to Help</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Whether you give once, give monthly, or give your time, you are part of a global community rewriting children’s stories.</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">More Ways to Help</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Whether you give, volunteer, or share, every act of kindness counts.
+        </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-indigo-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-dollar-sign text-indigo-700 text-3xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">One‑Time Gift</h3>
-          <p class="text-gray-600 mb-6">Meet urgent needs like food, medicine, and education.</p>
-          <button onclick="openDonationModal()" class="w-full bg-indigo-700 text-white py-3 rounded-lg font-semibold hover:bg-indigo-800 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-400">Donate Now</button>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-rose-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-heart text-rose-700 text-3xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Monthly Partner</h3>
-          <p class="text-gray-600 mb-6">Provide steady support where it is needed most each month.</p>
-          <button onclick="openMonthlyModal()" class="w-full bg-rose-700 text-white py-3 rounded-lg font-semibold hover:bg-rose-800 transition-all focus:outline-none focus:ring-2 focus:ring-rose-400">Join the Hope Circle</button>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-hands-helping text-yellow-700 text-3xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Volunteer</h3>
-          <p class="text-gray-600 mb-6">Use your gifts—locally or online—to advocate for children.</p>
-          <button onclick="openVolunteerModal()" class="w-full bg-yellow-600 text-white py-3 rounded-lg font-semibold hover:bg-yellow-700 transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400">Get Involved</button>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover-lift reveal">
-          <div class="bg-neutral-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fas fa-share text-neutral-700 text-3xl" aria-hidden="true"></i></div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Share the Story</h3>
-          <p class="text-gray-600 mb-6">Invite friends and family to stand for children with you.</p>
-          <div class="flex justify-center space-x-3">
-            <button onclick="shareOnSocial('facebook')" class="bg-blue-600 text-white w-10 h-10 rounded-full hover:bg-blue-700 transition-all flex items-center justify-center" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></button>
-            <button onclick="shareOnSocial('twitter')" class="bg-sky-500 text-white w-10 h-10 rounded-full hover:bg-sky-600 transition-all flex items-center justify-center" aria-label="Share on X"><i class="fab fa-x-twitter"></i></button>
-            <button onclick="shareOnSocial('copy')" class="bg-neutral-700 text-white w-10 h-10 rounded-full hover:bg-neutral-800 transition-all flex items-center justify-center" aria-label="Copy link"><i class="fas fa-link"></i></button>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <article class="p-8 rounded-xl bg-indigo-50 hover-lift reveal">
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+            <i class="fas fa-hand-holding-heart text-indigo-700"></i>
           </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Give Monthly</h3>
+          <p class="text-gray-600 mb-4">
+            Become a Heart Partner and provide consistent support for children all year long.
+          </p>
+          <button onclick="openDonationModal()" class="text-indigo-700 font-semibold hover:underline">
+            Start Monthly Giving
+          </button>
+        </article>
+        <article class="p-8 rounded-xl bg-rose-50 hover-lift reveal">
+          <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center mb-4">
+            <i class="fas fa-people-group text-rose-700"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Volunteer</h3>
+          <p class="text-gray-600 mb-4">
+            Join local outreaches, pack gifts, or use your skills to support our mission.
+          </p>
+          <button onclick="openVolunteerModal()" class="text-rose-700 font-semibold hover:underline">
+            Sign Up to Serve
+          </button>
+        </article>
+        <article class="p-8 rounded-xl bg-yellow-50 hover-lift reveal">
+          <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+            <i class="fas fa-bullhorn text-yellow-700"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Share the Story</h3>
+          <p class="text-gray-600 mb-4">
+            Use your voice online or in your community to help more children be seen and supported.
+          </p>
+          <div class="flex gap-3 text-gray-700">
+            <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook text-xl hover:text-indigo-700"></i></a>
+            <a href="#" aria-label="Share on Instagram"><i class="fab fa-instagram text-xl hover:text-rose-600"></i></a>
+            <a href="#" aria-label="Share on X"><i class="fab fa-x-twitter text-xl hover:text-gray-900"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donate section (anchor) -->
+  <section id="donate" class="py-16 md:py-20 donation-gradient text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Make a Donation</h2>
+        <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto">
+          Choose an amount and your preferred way to give. Every gift, big or small, helps rewrite a child's story.
+        </p>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 shadow-xl reveal">
+        <!-- Amount selection -->
+        <div class="mb-6">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200 mb-3">
+            Step 1 · Choose Amount
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+            <button type="button" class="amount-btn bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-lg text-sm font-semibold border border-white/20" data-amount="20">$20</button>
+            <button type="button" class="amount-btn bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-lg text-sm font-semibold border border-white/20" data-amount="40">$40</button>
+            <button type="button" class="amount-btn bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-lg text-sm font-semibold border border-white/20" data-amount="80">$80</button>
+            <button type="button" class="amount-btn bg-white/10 hover:bg-white/20 text-white py-2.5 rounded-lg text-sm font-semibold border border-white/20" data-amount="120">$120</button>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 items-center">
+            <label class="flex-1">
+              <span class="sr-only">Custom amount</span>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-3 flex items-center text-gray-500 text-sm">$</span>
+                <input type="number" id="donationAmountInput" min="1" step="1" class="w-full pl-7 pr-3 py-2.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-indigo-200/70 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300" placeholder="Custom amount" />
+              </div>
+            </label>
+            <label class="flex items-center gap-2 text-xs md:text-sm text-indigo-100">
+              <input type="checkbox" id="monthlyToggle" class="rounded border-white/30 bg-transparent text-amber-300 focus:ring-amber-300">
+              Make this a monthly gift
+            </label>
+          </div>
+        </div>
+
+        <hr class="border-white/10 my-6" />
+
+        <!-- Payment methods -->
+        <div class="mb-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-200 mb-3">
+            Step 2 · Choose Payment Method
+          </h3>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <button type="button" class="payment-tab active" data-target="mpesa">
+              <i class="fas fa-mobile-screen-button text-green-500"></i>
+              M-Pesa (Kenya)
+            </button>
+            <button type="button" class="payment-tab" data-target="card">
+              <i class="fas fa-credit-card text-amber-300"></i>
+              Card / Bank
+            </button>
+            <button type="button" class="payment-tab" data-target="crypto">
+              <i class="fab fa-bitcoin text-orange-400"></i>
+              Crypto
+            </button>
+            <button type="button" class="payment-tab" data-target="paypal">
+              <i class="fab fa-paypal text-sky-300"></i>
+              PayPal
+            </button>
+          </div>
+
+          <!-- M‑Pesa -->
+          <div id="payment-mpesa" class="payment-content active space-y-3 text-sm">
+            <p class="text-indigo-100">
+              Use Lipa na M‑Pesa to send your gift directly in Kenya shillings.
+            </p>
+            <div class="bg-black/20 border border-white/10 rounded-xl p-4">
+              <p class="font-semibold mb-1">Till Number (Buy Goods):</p>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="font-mono text-lg tracking-wide">6920028</span>
+                <button type="button" class="text-xs px-2 py-1 bg-white/10 rounded-md hover:bg-white/20" onclick="copyText('6920028')">
+                  Copy
+                </button>
+              </div>
+              <ol class="list-decimal list-inside text-xs text-indigo-100/80 space-y-1">
+                <li>Go to M‑Pesa &gt; Lipa na M‑Pesa &gt; Buy Goods and Services.</li>
+                <li>Enter Till Number <strong>6920028</strong> and the amount you wish to give.</li>
+                <li>Use your name as the reference.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Card / Bank -->
+          <div id="payment-card" class="payment-content space-y-3 text-sm">
+            <p class="text-indigo-100">
+              Use your card or bank account to give securely via our trusted partners.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <a href="https://wise.com" target="_blank" rel="noopener" class="bg-black/20 border border-white/10 rounded-xl p-4 hover:bg-black/30 transition">
+                <div class="flex items-center gap-2 mb-2">
+                  <i class="fas fa-globe text-amber-300"></i>
+                  <p class="font-semibold">Wise (International)</p>
+                </div>
+                <p class="text-xs text-indigo-100/80">
+                  Give in your local currency from over 50 countries with low fees.
+                </p>
+              </a>
+              <a href="https://mchanga.africa" target="_blank" rel="noopener" class="bg-black/20 border border-white/10 rounded-xl p-4 hover:bg-black/30 transition">
+                <div class="flex items-center gap-2 mb-2">
+                  <i class="fas fa-hand-holding-dollar text-green-300"></i>
+                  <p class="font-semibold">M‑Changa (Kenya)</p>
+                </div>
+                <p class="text-xs text-indigo-100/80">
+                  Support our Kenyan campaigns with mobile money, card, or bank pay.
+                </p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Crypto -->
+          <div id="payment-crypto" class="payment-content space-y-3 text-sm">
+            <p class="text-indigo-100">
+              Donate Bitcoin to support children from anywhere in the world.
+            </p>
+            <div class="bg-black/20 border border-white/10 rounded-xl p-4">
+              <p class="font-semibold mb-1">Bitcoin (BTC) Address:</p>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span id="btcAddress" class="crypto-address flex-1">
+                  bc1qexampleexampleexampleexampleexample
+                </span>
+                <button type="button" class="text-xs px-2 py-1 bg-white/10 rounded-md hover:bg-white/20" onclick="copyElementText('btcAddress')">
+                  Copy
+                </button>
+              </div>
+              <img src="images/btc-qr.png" alt="Bitcoin QR Code" class="crypto-qr" />
+            </div>
+          </div>
+
+          <!-- PayPal -->
+          <div id="payment-paypal" class="payment-content space-y-3 text-sm">
+            <p class="text-indigo-100">
+              Use PayPal to give securely in just a few clicks.
+            </p>
+            <div class="bg-black/20 border border-white/10 rounded-xl p-4 space-y-3">
+              <a href="https://paypal.me/nialittlehearts" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg text-sm font-semibold hover:bg-sky-600">
+                <i class="fab fa-paypal"></i>
+                Donate via PayPal.me
+              </a>
+              <p class="text-xs text-indigo-100/80">
+                Or send directly to: <span class="font-mono">donate@nialittlehearts.org</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-white/10 my-6" />
+
+        <!-- Confirm -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div class="text-sm text-indigo-100 space-y-1">
+            <p id="donationSummary">
+              You are giving a one-time gift. Select an amount to see details.
+            </p>
+            <p class="text-xs text-indigo-200">
+              Nia Little Hearts Foundation is a registered non-profit. Gifts may be tax-deductible where allowed by law.
+            </p>
+          </div>
+          <button type="button" onclick="handleDonateAction()" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-amber-400 text-gray-900 text-sm font-semibold hover:bg-amber-300 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-200">
+            Complete Donation
+          </button>
         </div>
       </div>
     </div>
@@ -616,871 +1036,470 @@
 
   <!-- Contact -->
   <section id="contact" class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 md:mb-16 reveal">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Have questions about sponsorship, partnerships, or giving? Our team would love to connect with you.</p>
-      </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="reveal">
-          <form onsubmit="handleContactForm(event)" class="space-y-6 bg-white rounded-xl shadow-md p-6 md:p-8" aria-label="Contact form">
-            <div>
-              <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-              <input id="name" type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="Your full name" />
+        <div class="space-y-6 reveal">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get in Touch</h2>
+          <p class="text-gray-600">
+            Have questions, want to partner, or need more information? The Nia Little Hearts team would love to hear from you.
+          </p>
+          <div class="space-y-3 text-sm text-gray-700">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-location-dot mt-1 text-indigo-600"></i>
+              <p>
+                Nia Little Hearts Foundation<br />
+                Mombasa, Kenya
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-phone mt-1 text-indigo-600"></i>
+              <p>
+                +254 700 000 000<br />
+                +254 720 000 000
+              </p>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-envelope mt-1 text-indigo-600"></i>
+              <p>
+                General: <a href="mailto:info@nialittlehearts.org" class="text-indigo-700 hover:underline">info@nialittlehearts.org</a><br />
+                Donations: <a href="mailto:donate@nialittlehearts.org" class="text-indigo-700 hover:underline">donate@nialittlehearts.org</a>
+              </p>
+            </div>
+          </div>
+          <div class="flex gap-4 text-gray-500 pt-2">
+            <a href="#" aria-label="Facebook" class="hover:text-indigo-700"><i class="fab fa-facebook text-2xl"></i></a>
+            <a href="#" aria-label="Instagram" class="hover:text-rose-600"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" aria-label="X" class="hover:text-gray-900"><i class="fab fa-x-twitter text-2xl"></i></a>
+          </div>
+          <div class="p-4 bg-indigo-50 border border-indigo-100 rounded-lg text-xs text-gray-600">
+            Nia Little Hearts Foundation is a registered non-profit organization. Please consult your local tax advisor to confirm deductibility in your country.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 reveal">
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Send Us a Message</h3>
+          <form id="contactForm" class="space-y-4" onsubmit="handleContactSubmit(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contactName">Full Name</label>
+                <input id="contactName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Jane Doe" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" for="contactEmail">Email</label>
+                <input id="contactEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="you@example.com" />
+              </div>
             </div>
             <div>
-              <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-              <input id="email" type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="you@example.com" />
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="contactSubject">Subject</label>
+              <input id="contactSubject" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="How can we help?" />
             </div>
             <div>
-              <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-              <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent">
-                <option>General Inquiry</option>
-                <option>Child Sponsorship</option>
-                <option>Donation Question</option>
-                <option>Volunteer Opportunity</option>
-                <option>Partnership</option>
-              </select>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="contactMessage">Message</label>
+              <textarea id="contactMessage" rows="4" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="Write your message here..."></textarea>
             </div>
-            <div>
-              <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-              <textarea id="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:border-transparent" placeholder="How can we serve you?"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-fuchsia-600 text-white py-4 rounded-lg font-semibold hover:from-indigo-700 hover:to-fuchsia-700 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-300">
+            <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+              <i class="fas fa-paper-plane text-xs"></i>
               Send Message
             </button>
+            <p id="contactFeedback" class="text-xs text-green-700 hidden mt-2">
+              Thank you for reaching out. We have received your message.
+            </p>
           </form>
-        </div>
-        <div class="space-y-8 reveal">
-          <div class="flex items-start space-x-4">
-            <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-map-marker-alt text-indigo-700"></i></div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-1">Headquarter</h3>
-              <p class="text-gray-600">Posta St<br />Makupa, CC 80100<br />Mombasa</p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4">
-            <div class="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-phone text-rose-700"></i></div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-1">Call Us</h3>
-              <p class="text-gray-600">+254 707 313 181<br />+254 714 048 143</p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4">
-            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"><i class="fas fa-envelope text-yellow-700"></i></div>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-              <p class="text-gray-600">info@nialittlehearts.org<br />support@nialittlehearts.org</p>
-            </div>
-          </div>
-          <div class="bg-gray-100 rounded-xl p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Office Hours</h3>
-            <p class="text-gray-600 text-sm">Monday – Friday: 8:00 AM – 6:00 PM EST<br />Saturday: 9:00 AM – 2:00 PM EST<br />Sunday: Closed</p>
-          </div>
-          <div class="bg-gray-100 rounded-xl p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Mailing & Donations</h3>
-            <p class="text-gray-600 text-sm">Nia Little Hearts Foundation is a registered 501(c)(3) nonprofit organization. All gifts are tax‑exempted as allowed by law.</p>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12" role="contentinfo">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-2xl font-bold text-gradient mb-4">Nia Little Hearts</h3>
-          <p class="text-gray-400 text-sm">Transforming children's lives through love, education, and opportunity in partnership with local communities.</p>
-          <div class="flex space-x-4 mt-6" aria-label="Social links">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#programs" class="hover:text-white transition-colors">Our Programs</a></li>
-            <li><a href="#sponsor" class="hover:text-white transition-colors">Sponsor a Child</a></li>
-            <li><a href="#impact" class="hover:text-white transition-colors">Impact Stories</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Get Involved</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" onclick="openDonationModal()" class="hover:text-white transition-colors">Donate</a></li>
-            <li><a href="#" onclick="openVolunteerModal()" class="hover:text-white transition-colors">Volunteer</a></li>
-            <li><a href="#" onclick="openSponsorshipModal()" class="hover:text-white transition-colors">Sponsor a Child</a></li>
-            <li><a href="#help" class="hover:text-white transition-colors">Advocate & Fundraise</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Accountability</h4>
-          <ul class="space-y-2 text-gray-400 text-sm">
-            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Financial Reports</a></li>
-            <li><a href="#contact" class="hover:text-white transition-colors">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row items-center justify-between text-gray-500 text-xs md:text-sm gap-3">
-        <p>&copy; <span id="year"></span> Nia Little Hearts Foundation. All rights reserved. | EIN: 12‑3456789</p>
-        <p>Made possible by generous sponsors and partners worldwide.</p>
+  <footer class="bg-indigo-950 text-indigo-100 py-8 border-t border-indigo-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm">
+      <p>&copy; <span id="year"></span> Nia Little Hearts Foundation. All rights reserved.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#home" class="hover:text-white">Home</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#donate" class="hover:text-white">Donate</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- Sticky CTA bar -->
-  <div id="sticky-cta" class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white/80 shadow-lg rounded-full px-4 py-2 flex items-center gap-3 border border-indigo-100 hidden md:flex">
-    <span class="text-sm text-gray-700">Double your impact this month</span>
-    <button onclick="openDonationModal(); sprinkleHearts(event)" class="bg-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700">Give Now</button>
+  <!-- Donation Modal -->
+  <div id="donationModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60">
+    <div class="modal-panel bg-indigo-950 text-white rounded-2xl shadow-2xl max-w-xl w-full mx-4 p-6 md:p-8 relative">
+      <button class="absolute top-4 right-4 text-indigo-200 hover:text-white" onclick="closeDonationModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="text-2xl font-bold mb-2">Support Nia Little Hearts</h2>
+      <p class="text-sm text-indigo-100 mb-4">
+        Select your amount and preferred payment method. You’ll complete your gift using the simple instructions below.
+      </p>
+      <button onclick="scrollToSection('donate'); closeDonationModal();" class="w-full mt-2 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-amber-400 text-gray-900 text-sm font-semibold hover:bg-amber-300">
+        Go to Donation Section
+      </button>
+    </div>
   </div>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="fixed bottom-5 right-5 p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 hidden" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Confetti Container -->
-  <div id="confetti"></div>
-
-   <!-- Call to Action -->
-            <div class="text-center mt-12 reveal">
-                <p class="text-lg text-indigo-100 mb-6">Join us in writing more stories of hope and transformation.</p>
-                <a href="#donate" class="inline-block bg-white text-indigo-600 font-semibold px-8 py-3 rounded-full hover:bg-indigo-50 transition-colors duration-300 shadow-lg">
-                    Become Part of Their Story
-                </a>
-            </div>
+  <!-- Sponsorship Modal -->
+  <div id="sponsorshipModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60">
+    <div class="modal-panel bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 md:p-8 relative">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closeSponsorshipModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Sponsor a Child</h2>
+      <p id="sponsorshipChildLabel" class="text-sm text-gray-600 mb-4">
+        Share a few details and our team will match you with a child in need.
+      </p>
+      <form id="sponsorshipForm" class="space-y-4" onsubmit="handleSponsorshipSubmit(event)">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorName">Full Name</label>
+          <input id="sponsorName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
         </div>
-    </section>
-
-    <!-- Donation Section -->
-    <section id="donate" class="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Make a Donation</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Your generosity changes lives. Choose your preferred payment method below to support the children of Nia Little Hearts Foundation.</p>
-            </div>
-
-            <!-- Donation Amount Selector -->
-            <div class="max-w-xl mx-auto mb-12">
-                <h3 class="text-center text-lg font-semibold text-gray-700 mb-4">Select Amount (USD)</h3>
-                <div class="grid grid-cols-3 md:grid-cols-6 gap-3 mb-4">
-                    <button onclick="selectAmount(10)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$10</button>
-                    <button onclick="selectAmount(25)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$25</button>
-                    <button onclick="selectAmount(50)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$50</button>
-                    <button onclick="selectAmount(100)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$100</button>
-                    <button onclick="selectAmount(250)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$250</button>
-                    <button onclick="selectAmount(500)" class="amount-btn py-3 px-4 rounded-lg border-2 border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50 font-semibold text-gray-700 transition-all">$500</button>
-                </div>
-                <div class="relative">
-                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-semibold">$</span>
-                    <input type="number" id="customAmount" placeholder="Enter custom amount" class="w-full pl-8 pr-4 py-3 rounded-lg border-2 border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all text-gray-700" />
-                </div>
-                <p id="selectedAmount" class="text-center mt-4 text-indigo-600 font-semibold text-lg"></p>
-            </div>
-
-            <!-- Payment Methods Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- M-Pesa -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">M-Pesa</h3>
-                        <p class="text-gray-500 text-sm mb-4">Send directly via Lipa na M-Pesa</p>
-                        
-                        <div class="bg-green-50 rounded-xl p-4 mb-4">
-                            <p class="text-sm text-gray-600 mb-1">Till Number</p>
-                            <p class="text-2xl font-bold text-green-600" id="mpesaTill">6920028</p>
-                        </div>
-                        
-                        <button onclick="copyToClipboard('6920028', 'M-Pesa Till')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                            </svg>
-                            Copy Till Number
-                        </button>
-                        
-                        <div class="mt-4 text-left text-xs text-gray-500">
-                            <p class="font-semibold mb-1">How to pay:</p>
-                            <ol class="list-decimal list-inside space-y-1">
-                                <li>Go to M-Pesa menu</li>
-                                <li>Select Lipa na M-Pesa</li>
-                                <li>Select Buy Goods</li>
-                                <li>Enter Till: <strong>6920028</strong></li>
-                                <li>Enter amount & PIN</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Payment (Wise) -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Card Payment</h3>
-                        <p class="text-gray-500 text-sm mb-4">Pay securely with Visa, Mastercard</p>
-                        
-                        <div class="bg-blue-50 rounded-xl p-4 mb-4">
-                            <p class="text-sm text-gray-600 mb-2">Powered by Wise</p>
-                            <div class="flex justify-center gap-2">
-                                <div class="bg-white px-2 py-1 rounded">
-                                    <span class="text-blue-700 font-bold text-sm">VISA</span>
-                                </div>
-                                <div class="bg-white px-2 py-1 rounded">
-                                    <span class="text-red-500 font-bold text-sm">MC</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <a href="https://wise.com" target="_blank" rel="noopener noreferrer" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-                            Pay with Card
-                        </a>
-                        
-                        <div class="mt-4">
-                            <a href="https://accounts.mchanga.africa/login" target="_blank" rel="noopener noreferrer" class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-                                Pay via M-Changa
-                            </a>
-                        </div>
-                        
-                        <p class="mt-3 text-xs text-gray-500">Secure international transfers with low fees</p>
-                    </div>
-                </div>
-
-                <!-- Bitcoin -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-amber-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.94-.49-7-3.85-7-7.93s3.05-7.44 7-7.93V2l4 4-4 4V6.08c-2.83.48-5 2.94-5 5.92s2.17 5.44 5 5.92V16l4-4-4-4v2.07z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Bitcoin</h3>
-                        <p class="text-gray-500 text-sm mb-4">Donate using cryptocurrency</p>
-                        
-                        <div class="bg-amber-50 rounded-xl p-4 mb-4">
-                            <p class="text-sm text-gray-600 mb-2">BTC Address</p>
-                            <p class="text-xs font-mono text-amber-700 break-all leading-relaxed" id="btcAddress">bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq</p>
-                        </div>
-                        
-                        <button onclick="copyToClipboard('bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq', 'Bitcoin Address')" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                            </svg>
-                            Copy BTC Address
-                        </button>
-                        
-                        <button onclick="showQRCode()" class="mt-3 w-full border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-semibold py-2 px-4 rounded-lg transition-colors">
-                            Show QR Code
-                        </button>
-                    </div>
-                </div>
-
-                <!-- PayPal -->
-                <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-100">
-                    <div class="text-center">
-                        <div class="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
-                            <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">PayPal</h3>
-                        <p class="text-gray-500 text-sm mb-4">Fast & secure online payment</p>
-                        
-                        <div class="bg-indigo-50 rounded-xl p-4 mb-4">
-                            <p class="text-sm text-gray-600 mb-2">Send directly to our PayPal</p>
-                            <div class="flex items-center justify-center gap-2 text-indigo-600">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                <span class="text-sm font-medium">Email available below</span>
-                            </div>
-                            <!-- Hidden email for copying -->
-                            <input type="hidden" id="paypalEmail" value="iankihia@gmail.com" />
-                        </div>
-                        
-                        <a href="https://paypal.me/iankihia" target="_blank" rel="noopener noreferrer" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-3">
-                            Send via PayPal
-                        </a>
-                        
-                        <button onclick="copyToClipboard('iankihia@gmail.com', 'PayPal Email')" class="w-full border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-50 font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                            </svg>
-                            Copy PayPal Email
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="mt-12 text-center">
-                <div class="flex flex-wrap justify-center items-center gap-6 text-gray-400">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-                        </svg>
-                        <span class="text-sm">Secure Payments</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        <span class="text-sm">100% Goes to Children</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                        </svg>
-                        <span class="text-sm">Tax Deductible</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact for Questions -->
-            <div class="mt-10 text-center">
-                <p class="text-gray-600">Have questions about donating? <a href="mailto:iankihia@gmail.com" class="text-indigo-600 hover:text-indigo-700 font-semibold">Contact us</a></p>
-            </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorEmail">Email</label>
+          <input id="sponsorEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
         </div>
-    </section>
-
-    <!-- QR Code Modal -->
-    <div id="qrModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50" onclick="closeQRModal(event)">
-        <div class="bg-white rounded-2xl p-8 max-w-sm mx-4 text-center" onclick="event.stopPropagation()">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Scan to Donate Bitcoin</h3>
-            <div class="bg-gray-100 p-4 rounded-xl mb-4">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq" alt="Bitcoin QR Code" class="mx-auto" />
-            </div>
-            <p class="text-xs text-gray-500 break-all mb-4">bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq</p>
-            <button onclick="closeQRModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-colors">Close</button>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="sponsorPreference">Child preference (optional)</label>
+          <input id="sponsorPreference" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="E.g., Amina, age range, boy/girl" />
         </div>
+        <div>
+          <label class="flex items-center gap-2 text-xs md:text-sm text-gray-700">
+            <input type="checkbox" id="sponsorMonthly" checked class="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+            I’d like to give monthly (recommended $40/month).
+          </label>
+        </div>
+        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+          Submit Sponsorship Interest
+        </button>
+        <p id="sponsorshipFeedback" class="text-xs text-green-700 hidden mt-2">
+          Thank you for your heart to sponsor. Our team will contact you shortly with next steps.
+        </p>
+      </form>
     </div>
+  </div>
 
-    <!-- Donation Modal -->
-    <div id="donation-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-[60] p-4" role="dialog" aria-modal="true" aria-labelledby="donation-title" onclick="closeDonationModal(event)">
-        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-xl" role="document" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-6">
-                <h3 id="donation-title" class="text-2xl font-bold text-gray-900">Make a Donation</h3>
-                <button onclick="closeDonationModal()" class="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-full w-10 h-10 flex items-center justify-center" aria-label="Close donation modal">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
+  <!-- Volunteer Modal -->
+  <div id="volunteerModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60">
+    <div class="modal-panel bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 md:p-8 relative">
+      <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" onclick="closeVolunteerModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">Volunteer with Nia</h2>
+      <p class="text-sm text-gray-600 mb-4">
+        Tell us how you’d like to serve and we’ll connect you with upcoming opportunities.
+      </p>
+      <form id="volunteerForm" class="space-y-4" onsubmit="handleVolunteerSubmit(event)">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerName">Full Name</label>
+          <input id="volunteerName" type="text" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerEmail">Email</label>
+          <input id="volunteerEmail" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerCity">City / Country</label>
+          <input id="volunteerCity" type="text" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="volunteerMessage">How would you like to help?</label>
+          <textarea id="volunteerMessage" rows="3" class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" placeholder="E.g., local outreach, administration, social media, fundraising..."></textarea>
+        </div>
+        <button type="submit" class="w-full inline-flex justify-center items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+          Submit Volunteer Form
+        </button>
+        <p id="volunteerFeedback" class="text-xs text-green-700 hidden mt-2">
+          Thank you for your willingness to serve. We’ll be in touch via email soon.
+        </p>
+      </form>
+    </div>
+  </div>
 
-            <!-- Payment Method Tabs -->
-            <div class="mb-6">
-                <p class="text-sm text-gray-600 mb-3">Choose a payment method</p>
-                <div class="flex flex-wrap gap-2">
-                    <button type="button" class="payment-tab active flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-indigo-500 bg-indigo-50 text-indigo-700 font-medium transition-all" data-tab="mpesa" onclick="switchPaymentTab('mpesa')">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-                        <span>M-Pesa</span>
-                    </button>
-                    <button type="button" class="payment-tab flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-600 font-medium transition-all hover:border-gray-300" data-tab="card" onclick="switchPaymentTab('card')">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-                        <span>Card</span>
-                    </button>
-                    <button type="button" class="payment-tab flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-600 font-medium transition-all hover:border-gray-300" data-tab="paypal" onclick="switchPaymentTab('paypal')">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
-                        <span>PayPal</span>
-                    </button>
-                    <button type="button" class="payment-tab flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-600 font-medium transition-all hover:border-gray-300" data-tab="bitcoin" onclick="switchPaymentTab('bitcoin')">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.5 11.5v-2h1.25c.55 0 1 .45 1 1s-.45 1-1 1H11.5zm0 1h1.25c.55 0 1 .45 1 1s-.45 1-1 1H11.5v-2zm3.5-3.5c0-1.38-1.12-2.5-2.5-2.5H10v-1.5H8.5V6.5h-1v1.75h-.75V10h.75v4H6.75v1.75h.75v1.75H8.5V16H10v1.5h1.5V16h1c1.38 0 2.5-1.12 2.5-2.5 0-.89-.47-1.67-1.17-2.11.45-.41.67-.97.67-1.39zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
-                        <span>Bitcoin</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- M-Pesa Panel -->
-            <div id="panel-mpesa" class="payment-panel">
-                <div class="bg-green-50 rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-bold text-gray-800 mb-2">Lipa na M-Pesa</h4>
-                    <p class="text-sm text-gray-600 mb-4">Buy Goods Till Number</p>
-                    <p class="text-3xl font-bold text-green-600 mb-4">6920028</p>
-                    <button onclick="copyToClipboard('6920028', 'M-Pesa Till')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        Copy Till Number
-                    </button>
-                    <div class="mt-4 text-left text-sm text-gray-600 bg-white rounded-lg p-4">
-                        <p class="font-semibold mb-2">How to pay:</p>
-                        <ol class="list-decimal list-inside space-y-1">
-                            <li>Go to M-Pesa menu</li>
-                            <li>Select Lipa na M-Pesa</li>
-                            <li>Select Buy Goods</li>
-                            <li>Enter Till: <strong>6920028</strong></li>
-                            <li>Enter amount & PIN</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card Panel -->
-            <div id="panel-card" class="payment-panel hidden">
-                <div class="bg-blue-50 rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-bold text-gray-800 mb-2">Card Payment</h4>
-                    <p class="text-sm text-gray-600 mb-4">Pay securely with Visa or Mastercard</p>
-                    <div class="flex justify-center gap-3 mb-6">
-                        <div class="bg-white px-3 py-2 rounded shadow-sm">
-                            <span class="text-blue-700 font-bold">VISA</span>
-                        </div>
-                        <div class="bg-white px-3 py-2 rounded shadow-sm">
-                            <span class="text-red-500 font-bold">Mastercard</span>
-                        </div>
-                    </div>
-                    <a href="https://wise.com" target="_blank" rel="noopener noreferrer" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-3">
-                        Pay with Wise
-                    </a>
-                    <a href="https://accounts.mchanga.africa/login" target="_blank" rel="noopener noreferrer" class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
-                        Pay via M-Changa
-                    </a>
-                    <p class="mt-4 text-xs text-gray-500">Secure international transfers with low fees</p>
-                </div>
-            </div>
-
-            <!-- PayPal Panel -->
-            <div id="panel-paypal" class="payment-panel hidden">
-                <div class="bg-indigo-50 rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-indigo-100 rounded-full flex items-center justify-center">
-                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-bold text-gray-800 mb-2">PayPal</h4>
-                    <p class="text-sm text-gray-600 mb-4">Fast & secure online payment</p>
-                    <input type="hidden" id="modalPaypalEmail" value="iankihia@gmail.com" />
-                    <a href="https://paypal.me/iankihia" target="_blank" rel="noopener noreferrer" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors mb-3">
-                        Send via PayPal
-                    </a>
-                    <button onclick="copyToClipboard('iankihia@gmail.com', 'PayPal Email')" class="w-full border-2 border-indigo-500 text-indigo-600 hover:bg-indigo-100 font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        Copy PayPal Email
-                    </button>
-                </div>
-            </div>
-          
-    // Dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Loading overlay hide on load
-    window.addEventListener('load', () => {
+  <script>
+    // Loading overlay
+    window.addEventListener('load', function() {
       const loading = document.getElementById('loading');
-      if(!loading) return;
-      setTimeout(() => {
-        loading.classList.add('loading-hidden');
-        setTimeout(() => { loading.style.display = 'none'; }, 500);
-      }, 400);
+      if (loading) loading.classList.add('loading-hidden');
     });
 
-    // Theme handling
-    function applyTheme(theme){
-      document.documentElement.setAttribute('data-theme', theme);
-      try { localStorage.setItem('theme', theme); } catch(e){}
-      // Update icons/labels and adjust meta theme-color
-      const metaTheme = document.querySelector('meta[name="theme-color"]');
-      if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#03030f' : '#8c8be6');
-      document.querySelectorAll('.theme-toggle').forEach(btn => {
-        const dark = theme === 'dark';
-        btn.innerHTML = dark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-        btn.setAttribute('aria-pressed', String(dark));
-        if(btn.classList.contains('block')){
-          btn.innerHTML = dark ? '<i class="fas fa-sun mr-2"></i>Light mode' : '<i class="fas fa-moon mr-2"></i>Dark mode';
-        }
-      });
-    }
-    function toggleTheme(){
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    }
-    document.querySelectorAll('.theme-toggle').forEach(btn => btn.addEventListener('click', toggleTheme));
-    applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
-
-    // Mobile menu toggle
+    // Mobile menu
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const btn = document.getElementById('menu-btn');
-      const isHidden = menu.classList.toggle('hidden');
-      const expanded = !isHidden;
-      btn.setAttribute('aria-expanded', String(expanded));
-      btn.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu');
+      if (!menu || !btn) return;
+      const isHidden = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !isHidden);
+      btn.setAttribute('aria-expanded', String(isHidden));
+      btn.innerHTML = isHidden
+        ? '<i class="fas fa-times text-xl"></i>'
+        : '<i class="fas fa-bars text-xl"></i>';
     }
 
-    // Smooth scroll with offset
-    function scrollToSection(sectionId) {
-      const element = document.getElementById(sectionId);
-      if (!element) return;
-      const offset = 70; // fixed navbar height
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      const menu = document.getElementById('mobile-menu');
-      if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
-      const btn = document.getElementById('menu-btn');
-      if (btn) btn.setAttribute('aria-expanded', 'false');
+    // Smooth scrolling
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Attach smooth scroll to nav links
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href').substring(1);
-        if (targetId) {
-          e.preventDefault();
-          scrollToSection(targetId);
-        }
+    // Theme toggle
+    function setTheme(next) {
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.setAttribute('aria-pressed', next === 'dark');
+        btn.innerHTML = next === 'dark'
+          ? '<i class="fas fa-sun"></i>'
+          : '<i class="fas fa-moon"></i>';
       });
+    }
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.theme-toggle')) {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        setTheme(current === 'light' ? 'dark' : 'light');
+      }
     });
 
     // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
-    const revObs = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
-          revObs.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => revObs.observe(el));
+    }, { threshold: 0.18 });
+    revealEls.forEach(el => revealObserver.observe(el));
 
-    // Counter animation (fires when hero content visible)
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-counter');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target')) || 0;
-        const duration = 1200; // ms
-        const start = performance.now();
-        function update(now){
-          const p = Math.min(1, (now - start) / duration);
-          const val = Math.floor(target * p);
-          counter.textContent = val.toLocaleString();
-          if (p < 1) requestAnimationFrame(update);
+    // Stats counters
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-target') || '0', 10);
+      let current = 0;
+      const duration = 1200;
+      const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        current = Math.floor(progress * target);
+        el.textContent = current.toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+    const statEls = document.querySelectorAll('.stat-counter');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          statObserver.unobserve(entry.target);
         }
-        requestAnimationFrame(update);
       });
-    }
-    const heroSection = document.querySelector('#home .hero-gradient');
-    if (heroSection) {
-      const counterObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounters();
-            counterObs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-      counterObs.observe(heroSection);
-    }
+    }, { threshold: 0.4 });
+    statEls.forEach(el => statObserver.observe(el));
 
-    // Payment method tabs
-    document.querySelectorAll('.payment-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        // Remove active class from all tabs
-        document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
-        // Add active class to clicked tab
-        this.classList.add('active');
-        // Hide all payment content
-        document.querySelectorAll('.payment-content').forEach(content => content.classList.remove('active'));
-        // Show corresponding payment content
-        const tabId = this.getAttribute('data-tab');
-        const panel = document.getElementById(`${tabId}-payment`);
-        if (panel) panel.classList.add('active');
-      });
+    // Back to top
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (!backBtn) return;
+      if (window.scrollY > 400) backBtn.classList.remove('hidden');
+      else backBtn.classList.add('hidden');
     });
+    if (backBtn) {
+      backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    // Confetti hearts
+    function launchHearts() {
+      const container = document.getElementById('confetti');
+      if (!container) return;
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        const x = Math.random() * window.innerWidth;
+        const y = window.innerHeight - 40;
+        const dx = (Math.random() - 0.5) * 200;
+        const dy = - (Math.random() * 200 + 100);
+        heart.style.left = x + 'px';
+        heart.style.top = y + 'px';
+        heart.style.setProperty('--dx', dx + 'px');
+        heart.style.setProperty('--dy', dy + 'px');
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 1300);
+      }
+    }
 
     // Donation modal
-    const donationModal = document.getElementById('donation-modal');
-    let lastFocus = null;
     function openDonationModal() {
-      lastFocus = document.activeElement;
-      donationModal.classList.remove('hidden');
-      donationModal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-      trapFocus(donationModal);
-      const first = donationModal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if(first) first.focus();
+      const m = document.getElementById('donationModal');
+      if (!m) return;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
     }
     function closeDonationModal() {
-      donationModal.classList.add('hidden');
-      donationModal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-      const inputIds = ['custom-amount','btc-amount'];
-      inputIds.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-      document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-indigo-700','text-white');
-        btn.classList.add('bg-gray-100','text-gray-700');
-      });
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-    donationModal.addEventListener('click', function(e){ if (e.target === this) closeDonationModal(); });
-
-    function setDonationAmount(amount, event) {
-      document.querySelectorAll('.donation-amount').forEach(btn => {
-        btn.classList.remove('bg-indigo-700','text-white');
-        btn.classList.add('bg-gray-100','text-gray-700');
-      });
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-indigo-700','text-white');
-      }
-      const input = document.getElementById('custom-amount');
-      if (input) input.value = amount;
-    }
-
-    // Bitcoin helpers
-    function setBtcAmount(amount, event){
-      document.querySelectorAll('#bitcoin-payment .donation-amount').forEach(btn => {
-        btn.classList.remove('bg-indigo-700','text-white');
-        btn.classList.add('bg-gray-100','text-gray-700');
-      });
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-indigo-700','text-white');
-      }
-      const input = document.getElementById('btc-amount');
-      if (input) input.value = amount;
-    }
-    function setMpesaAmount(amount, event){
-      document.querySelectorAll('#mpesa-payment .donation-amount').forEach(btn => {
-        btn.classList.remove('bg-indigo-700','text-white');
-        btn.classList.add('bg-gray-100','text-gray-700');
-      });
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-indigo-700','text-white');
-      }
-      const input = document.getElementById('mpesa-amount');
-      if (input) input.value = amount;
-    }
-    function setPaypalAmount(amount, event){
-      document.querySelectorAll('#paypal-payment .donation-amount').forEach(btn => {
-        btn.classList.remove('bg-indigo-700','text-white');
-        btn.classList.add('bg-gray-100','text-gray-700');
-      });
-      if (event && event.currentTarget) {
-        event.currentTarget.classList.remove('bg-gray-100','text-gray-700');
-        event.currentTarget.classList.add('bg-indigo-700','text-white');
-      }
-      const input = document.getElementById('paypal-amount');
-      if (input) input.value = amount;
-    }
-    function processMpesaPayment(){
-      const amount = parseFloat(document.getElementById('mpesa-amount').value || '0');
-      const phone = (document.getElementById('mpesa-phone').value || '').trim();
-      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
-      if (!phone) { alert('Please enter your M-Pesa phone number.'); return; }
-      alert(`Thank you! We've sent an M-Pesa prompt to ${phone} for ${amount.toFixed(2)}. Please complete the payment on your phone.`);
-      closeDonationModal();
-    }
-    function processPaypalPayment(){
-      const amount = parseFloat(document.getElementById('paypal-amount').value || '0');
-      const designation = document.getElementById('paypal-type').value;
-      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
-      alert(`You will be redirected to PayPal to give ${amount.toFixed(2)} to "${designation}".`);
-      closeDonationModal();
-    }
-    function copyBitcoinAddress(){
-      const addr = document.getElementById('btc-address');
-      if (!addr) return;
-      const text = addr.textContent.trim();
-      if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(text).then(()=> alert('Bitcoin address copied to clipboard!')).catch(()=> alert(text));
-      } else { alert(text); }
-    }
-
-    function handleDonation(event) {
-      event.preventDefault();
-      const amount = parseFloat(document.getElementById('custom-amount').value || '0');
-      const designation = document.getElementById('donation-type').value;
-      if (!amount || amount < 5) { alert('Please enter a donation of at least $5.'); return; }
-      alert(`Thank you for your generous gift of $${amount.toFixed(2)} to "${designation}". You will be redirected to our secure payment processor in a real implementation.`);
-      closeDonationModal();
+      const m = document.getElementById('donationModal');
+      if (!m) return;
+      m.classList.add('hidden');
+      m.classList.remove('flex');
     }
 
     // Sponsorship modal
-    const sponsorshipModal = document.getElementById('sponsorship-modal');
-    function openSponsorshipModal(childName = null) {
-      lastFocus = document.activeElement;
-      const titleEl = document.getElementById('sponsorship-title');
-      titleEl.textContent = childName ? `Sponsor ${childName}` : 'Child Sponsorship';
-      sponsorshipModal.classList.remove('hidden');
-      sponsorshipModal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-      trapFocus(sponsorshipModal);
-      const first = sponsorshipModal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      if(first) first.focus();
+    function openSponsorshipModal(childName) {
+      const m = document.getElementById('sponsorshipModal');
+      const label = document.getElementById('sponsorshipChildLabel');
+      if (label) {
+        if (childName) {
+          label.textContent = 'You are registering interest to sponsor ' + childName + '. Our team will share their profile and next steps.';
+        } else {
+          label.textContent = 'Share a few details and our team will match you with a child in need.';
+        }
+      }
+      if (!m) return;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
     }
     function closeSponsorshipModal() {
-      sponsorshipModal.classList.add('hidden');
-      sponsorshipModal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
-    }
-    sponsorshipModal.addEventListener('click', function(e){ if (e.target === this) closeSponsorshipModal(); });
-
-    function startSponsorship() {
-      alert('Thank you for choosing to sponsor a child! In a full site, you would now be guided through selecting a child and setting up your monthly gift.');
-      closeSponsorshipModal();
+      const m = document.getElementById('sponsorshipModal');
+      if (!m) return;
+      m.classList.add('hidden');
+      m.classList.remove('flex');
     }
 
-    // Other engagement actions
-    function openMonthlyModal() { alert('Monthly giving: In a full implementation, this would open a secure form to set up your recurring donation.'); }
-    function openVolunteerModal() { alert('Volunteer with Nia Little Hearts: In a full implementation, this would open a volunteer interest form.'); }
+    // Volunteer modal
+    function openVolunteerModal() {
+      const m = document.getElementById('volunteerModal');
+      if (!m) return;
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closeVolunteerModal() {
+      const m = document.getElementById('volunteerModal');
+      if (!m) return;
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
 
-    // Share
-    async function shareOnSocial(platform){
-      const url = window.location.href;
-      const text = "Join me in supporting Nia Little Hearts Foundation – transforming children’s lives around the world!";
-      if (platform === 'copy') {
-        try { await navigator.clipboard.writeText(url); alert('Link copied to clipboard!'); } catch(e){ alert('Copy this link: ' + url); }
+    // Payment tabs
+    const paymentTabs = document.querySelectorAll('.payment-tab');
+    paymentTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-target');
+        paymentTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.payment-content').forEach(sec => {
+          sec.classList.remove('active');
+          if (sec.id === 'payment-' + target) sec.classList.add('active');
+        });
+        updateDonationSummary();
+      });
+    });
+
+    // Amount buttons
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const amountInput = document.getElementById('donationAmountInput');
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.getAttribute('data-amount');
+        amountInput.value = val;
+        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-amber-300', 'bg-white/20'));
+        btn.classList.add('ring-2', 'ring-amber-300', 'bg-white/20');
+        updateDonationSummary();
+      });
+    });
+    if (amountInput) {
+      amountInput.addEventListener('input', () => {
+        amountBtns.forEach(b => b.classList.remove('ring-2', 'ring-amber-300', 'bg-white/20'));
+        updateDonationSummary();
+      });
+    }
+    const monthlyToggle = document.getElementById('monthlyToggle');
+    if (monthlyToggle) monthlyToggle.addEventListener('change', updateDonationSummary);
+
+    function getActivePaymentMethod() {
+      const active = document.querySelector('.payment-tab.active');
+      return active ? active.getAttribute('data-target') : 'mpesa';
+    }
+
+    function updateDonationSummary() {
+      const summary = document.getElementById('donationSummary');
+      if (!summary) return;
+      const amount = parseFloat(amountInput && amountInput.value ? amountInput.value : '0');
+      const isMonthly = monthlyToggle && monthlyToggle.checked;
+      const method = getActivePaymentMethod();
+      if (!amount || amount <= 0) {
+        summary.textContent = 'You are giving a ' + (isMonthly ? 'monthly' : 'one-time') + ' gift. Select an amount to see details.';
         return;
       }
-      if (navigator.share) {
-        try { await navigator.share({ title: 'Nia Little Hearts', text, url }); } catch(e){}
+      const nice = '$' + amount.toFixed(0);
+      const freq = isMonthly ? 'monthly gift' : 'one-time gift';
+      let methodLabel = '';
+      if (method === 'mpesa') methodLabel = 'via M‑Pesa (Kenya).';
+      else if (method === 'card') methodLabel = 'using card/bank through Wise or M‑Changa.';
+      else if (method === 'crypto') methodLabel = 'in Bitcoin (BTC).';
+      else if (method === 'paypal') methodLabel = 'using PayPal.';
+      summary.textContent = 'You are giving a ' + nice + ' ' + freq + ' ' + methodLabel;
+    }
+
+    function handleDonateAction() {
+      const amount = parseFloat(amountInput && amountInput.value ? amountInput.value : '0');
+      if (!amount || amount <= 0) {
+        alert('Please choose or enter a donation amount.');
         return;
       }
-      if(platform==='facebook') window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,'_blank');
-      if(platform==='twitter') window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,'_blank');
+      const method = getActivePaymentMethod();
+      // This is intentionally simple: just provide guidance and rely on visible instructions/links.
+      launchHearts();
+      if (method === 'mpesa') {
+        alert('Thank you for your heart to give.\n\nTo complete your M‑Pesa donation, please use Till Number 6920028 in your M‑Pesa app.');
+      } else if (method === 'card') {
+        alert('Thank you for your gift.\n\nPlease click the Wise or M‑Changa buttons in the Card/Bank section to complete your card or bank payment.');
+      } else if (method === 'crypto') {
+        alert('Thank you for your generosity.\n\nPlease send your BTC to the address shown in the Crypto section.');
+      } else if (method === 'paypal') {
+        window.open('https://paypal.me/nialittlehearts', '_blank');
+      }
+    }
+
+    // Copy helpers
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+      }).catch(() => {});
+    }
+    function copyElementText(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const txt = el.textContent.trim();
+      copyText(txt);
     }
 
     // Contact form
-    function handleContactForm(event) {
-      event.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      if(!name || !email || !message){ alert('Please fill in all required fields.'); return; }
-      alert('Thank you for reaching out to Nia Little Hearts! Our team will respond within 1–2 business days.');
-      event.target.reset();
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const fb = document.getElementById('contactFeedback');
+      if (fb) fb.classList.remove('hidden');
+      launchHearts();
+      e.target.reset();
     }
 
-    // Focus trap for modals
-    function trapFocus(container){
-      const focusable = () => Array.from(container.querySelectorAll('a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute('disabled'));
-      function keyHandler(e){
-        if(e.key === 'Escape'){
-          if(container === donationModal) closeDonationModal();
-          if(container === sponsorshipModal) closeSponsorshipModal();
-        }
-        if(e.key !== 'Tab') return;
-        const items = focusable();
-        if(!items.length) return;
-        const first = items[0], last = items[items.length - 1];
-        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-      }
-      container.addEventListener('keydown', keyHandler);
+    // Sponsorship form
+    function handleSponsorshipSubmit(e) {
+      e.preventDefault();
+      const fb = document.getElementById('sponsorshipFeedback');
+      if (fb) fb.classList.remove('hidden');
+      launchHearts();
+      e.target.reset();
     }
 
-    // Navbar scroll shadow enhancer
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 10) nav.classList.add('shadow-xl','bg-white/95');
-      else nav.classList.remove('shadow-xl');
-
-      // Sticky CTA visibility
-      const cta = document.getElementById('sticky-cta');
-      if (cta) {
-        if (window.scrollY > 600) cta.classList.remove('hidden'); else cta.classList.add('hidden');
-      }
-
-      // Back-to-top visibility
-      const btt = document.getElementById('backToTop');
-      if (btt) {
-        if (window.scrollY > 500) btt.classList.remove('hidden'); else btt.classList.add('hidden');
-      }
-    });
-
-    // Back to top click
-    document.getElementById('backToTop').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Parallax shapes motion
-    const shapes = document.querySelectorAll('.parallax-shape');
-    window.addEventListener('mousemove', (e) => {
-      const { innerWidth:w, innerHeight:h } = window;
-      const x = (e.clientX / w - 0.5);
-      const y = (e.clientY / h - 0.5);
-      shapes.forEach((s, i) => {
-        const intensity = (i+1) * 6;
-        s.style.transform = `translate(${x*intensity}px, ${y*intensity}px)`;
-      });
-    }, { passive: true });
-
-    // Tilt effect for cards/images
-    function addTilt(el){
-      let rect; let rx=0, ry=0;
-      function update(e){
-        rect = rect || el.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width - 0.5;
-        const py = (e.clientY - rect.top) / rect.height - 0.5;
-        rx = py * -6; ry = px * 6;
-        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
-        el.style.boxShadow = `${-ry*2}px ${rx*2}px 24px rgba(0,0,0,.18)`;
-      }
-      function reset(){ el.style.transform = ''; el.style.boxShadow=''; rect = null; }
-      el.addEventListener('mousemove', update);
-      el.addEventListener('mouseleave', reset);
-    }
-    document.querySelectorAll('.tilt').forEach(addTilt);
-
-    // Heart confetti
-    function sprinkleHearts(ev){
-      const container = document.getElementById('confetti');
-      if(!container) return;
-      const count = 14;
-      const btnRect = ev && ev.currentTarget ? ev.currentTarget.getBoundingClientRect() : {left: window.innerWidth/2, top: window.innerHeight};
-      for(let i=0;i<count;i++){
-        const h = document.createElement('span');
-        h.className = 'heart';
-        h.style.left = (btnRect.left + btnRect.width/2) + 'px';
-        h.style.top = (btnRect.top) + 'px';
-        const dx = (Math.random()*160 - 80) + 'px';
-        const dy = (-Math.random()*220 - 80) + 'px';
-        h.style.setProperty('--dx', dx);
-        h.style.setProperty('--dy', dy);
-        h.style.opacity = 1;
-        h.style.filter = `hue-rotate(${Math.floor(Math.random()*60)-30}deg)`;
-        container.appendChild(h);
-        setTimeout(()=> h.remove(), 1300);
-      }
+    // Volunteer form
+    function handleVolunteerSubmit(e) {
+      e.preventDefault();
+      const fb = document.getElementById('volunteerFeedback');
+      if (fb) fb.classList.remove('hidden');
+      launchHearts();
+      e.target.reset();
     }
 
-    // Also sprinkle on main Donate button
-    document.querySelectorAll('button').forEach(btn => {
-      if(btn.textContent && btn.textContent.toLowerCase().includes('donate')){
-        btn.addEventListener('click', sprinkleHearts, { passive: true });
-      }
-    });
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
