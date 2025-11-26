@@ -111,8 +111,8 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .7s ease-out, transform .7s ease-out;
+      transform: translateY(18px);
+      transition: opacity .5s ease-out, transform .5s ease-out;
     }
     .revealed {
       opacity: 1;
@@ -193,8 +193,13 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-hidden { opacity: 0; pointer-events: none; }
 
-    .parallax-shape { position: absolute; border-radius: 9999px; will-change: transform; }
+    .parallax-shape { position: absolute; border-radius: 9999px; will-change: transform; animation: parallaxFloat 10s ease-in-out infinite alternate; }
     .tilt { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
+
+    @keyframes parallaxFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
 
     #backToTop { z-index: 60; }
     #sticky-cta { backdrop-filter: saturate(140%) blur(8px); }
@@ -236,7 +241,7 @@
     }
     @keyframes floatSoft {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-3px); }
     }
     .blob-shine {
       position: absolute;
@@ -540,7 +545,7 @@
             To support children with nutritious food, clean water, and essential hygiene items for healthy growth.
           </p>
         </div>
-        <div class="text-center p-8 rounded-xl" style="background-color:#F5E7C6%;">
+        <div class="text-center p-8 rounded-xl" style="background-color:#F5E7C6;">
           <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-home text-[#FF6D1F] text-2xl" aria-hidden="true"></i>
           </div>
@@ -992,7 +997,18 @@
                   Copy
                 </button>
               </div>
-              <img src="images/btc-qr.png" alt="Bitcoin QR Code" class="crypto-qr" />
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=bitcoin%3Abc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq"
+                alt="Bitcoin QR code for Nia Little Hearts"
+                class="crypto-qr"
+              />
+              <a
+                href="bitcoin:bc1p8tvutcdxmj5k0t85ml50jpn8g8r7r0fs3natatjppvaurl6l8mzseq3wgq"
+                class="inline-flex items-center gap-2 text-xs text-[#F5E7C6] hover:underline mt-2"
+              >
+                <i class="fa-brands fa-bitcoin text-orange-400 text-sm" aria-hidden="true"></i>
+                Tap to open in your wallet
+              </a>
             </div>
           </div>
 
@@ -1307,11 +1323,11 @@
       backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // Confetti hearts
+    // Confetti hearts (lighter)
     function launchHearts() {
       const container = document.getElementById('confetti');
       if (!container) return;
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 10; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         const x = Math.random() * window.innerWidth;
@@ -1453,7 +1469,7 @@
       } else if (method === 'crypto') {
         alert('Thank you for your generosity.\n\nPlease send your BTC to the address shown in the Bitcoin section.');
       } else if (method === 'paypal') {
-        window.open('https://paypal.me/nialittlehearts', '_blank');
+        window.open('https://paypal.me/niallittlehearts', '_blank');
       }
     }
 
